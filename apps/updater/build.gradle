@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    defaultConfig {
+        applicationId "com.snapmaker.updating"
+        versionName "1.10"
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def versionName = "${variant.versionName}".replace(".", "_")
+            outputFileName = "fabscreen_updating_${versionName}.apk"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    signingConfigs {
+        release {
+            def keystorePath = System.getenv('KEYSTORE_PATH') ?: project.findProperty('KEYSTORE_PATH') ?: './fabscreen.keystore'
+            def keystorePassword = System.getenv('KEYSTORE_PASSWORD') ?: project.findProperty('KEYSTORE_PASSWORD')
+            def keyAliasValue = System.getenv('KEY_ALIAS') ?: project.findProperty('KEY_ALIAS') ?: 'key0'
+            def keyPasswordValue = System.getenv('KEY_PASSWORD') ?: project.findProperty('KEY_PASSWORD')
+            storeFile file(keystorePath)
+            storePassword keystorePassword ?: ''
+            keyAlias keyAliasValue
+            keyPassword keyPasswordValue ?: ''
+        }
+    }
+}
+
+dependencies {
+    implementation Libs.INSTANCE.appCompat
+    implementation Libs.INSTANCE.constraintLayout
+    implementation Libs.INSTANCE.material
+}

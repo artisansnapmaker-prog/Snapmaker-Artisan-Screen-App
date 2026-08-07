@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <color android:color="#000000" />
+    </item>
+    <item
+        android:width="690dp"
+        android:height="205dp"
+        android:gravity="center_horizontal|top"
+        android:top="294dp">
+        <bitmap android:src="@drawable/pic_splash_logo" />
+    </item>
+</layer-list>

@@ -1,0 +1,31 @@
+package fabscreen.features.machinetools.calibration.a400platform.fdm.doubleExtruder.levelingXY;
+
+import android.os.Bundle;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
+
+import fabscreen.features.machinetools.R;
+import fabscreen.platform.base.RoutePath;
+import fabscreen.platform.base.view.BaseActivity;
+
+@Route(path = RoutePath.TOOLS_CALIBRATION_A400_3DP_LEVELING_XY_CHECK_MODE)
+public class A400LevelingXYCalibrationModeSelectActivity extends BaseActivity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_select_mode_default);
+        Fragment fragment = A400CalibrationLevelingXYSelectionFragment.newInstance();
+        addFragment(R.id.fragment_container, fragment);
+        overridePendingTransition(0, 0);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(0, R.anim.push_apha_out_normal);
+    }
+
+}

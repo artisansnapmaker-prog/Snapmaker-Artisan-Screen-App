@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.snapmaker.s30">
+
+    <application
+        android:name="com.snapmaker.s30.S30Application"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Snapmaker2FabScreen"
+        tools:replace="android:theme">
+
+        <activity
+            android:name="com.snapmaker.s30.modules.home.MainActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.snapmaker.s30.modules.home.HomeActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <!-- Guide -->
+        <activity
+            android:name="fabscreen.features.welcome.s20.WelcomeActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.guide.s20._3dp.Guide3DPActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.guide.s20.laser.GuideLaserActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.guide.s20.cnc.GuideCNCActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <activity
+            android:name="fabscreen.features.guide.s20.laser._10w.Guide10wLaserActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <activity
+            android:name="fabscreen.features.guide.s20.rotary.laser.GuideRotaryLaserActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <activity
+            android:name="fabscreen.features.guide.s20.rotary.cnc.GuideRotaryCNCActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <!-- File & Print -->
+        <activity
+            android:name="fabscreen.features.filemanager.s20Platform.BrowseActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.print.s20.preview.PreviewActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.print.settings.PrintSettingsActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <!-- 3DP -->
+        <activity
+            android:name="fabscreen.features.machinetools.calibration.s20._3dp.Calibration3DPActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <!-- Laser -->
+        <activity
+            android:name="fabscreen.features.machinetools.calibration.s20.laser.CalibrationLaserActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <!-- CNC -->
+        <activity
+            android:name="fabscreen.features.machinetools.cncassist.origin.CNCOriginAssistantActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <activity
+            android:name="fabscreen.features.machinetools.cncassist.bit.CNCBitAssistantActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <!-- Control -->
+        <activity
+            android:name="fabscreen.features.machinetools.control.J1ControlActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <!--  Settings -->
+        <activity
+            android:name="fabscreen.features.settings.a350.about.AboutActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.settings.a350.index.SettingsActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.settings.a350.firmware.SettingsFirmwareActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.print.print.PrintActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.remote.a350.RemoteActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.addons.emergencystop.EmergencyStopActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.settings.a350.factory.FactoryToolsActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.settings.a350.experiment.ExperimentActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.settings.a350.firmware.update.UpdateActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <!--    Add-on    -->
+        <activity
+            android:name="fabscreen.features.addons.enclosure.EnclosureActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.addons.airpurifier.AirPurifierActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <activity
+            android:name="fabscreen.features.machinetools.calibration.s20.laser._10w.camera.Laser10wCameraCalibrationActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.platform.base.view.ToastActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/DialogTheme" />
+        <activity
+            android:name="fabscreen.platform.base.view.SuperToastActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/ToastTheme" />
+        <activity
+            android:name="fabscreen.features.machinetools.calibration.s20.laser._10w.Laser10wThicknessMeasureCalibrationActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.features.machinetools.calibration.a400platform.laser.w_10.platformHeight.A400Calibration10WLaserPlatformHeightCalibrationActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <activity android:name="fabscreen.features.machinetools.calibration.a400platform.laser.w_10.thicknessMeasurement.ThicknessMeasureCalibrationActivity" />
+
+        <activity
+            android:name="fabscreen.features.print.prepare.laser.PrepareLaserActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <activity
+            android:name="fabscreen.features.print.s20.prepare.cnc.PrepareCNCActivity"
+            android:theme="@style/AppTheme.Activity" />
+        <activity
+            android:name="fabscreen.platform.base.view.debugtool.MockMachineActivity"
+            android:theme="@style/AppTheme.Activity" />
+
+        <receiver
+            android:name="fabscreen.platform.base.receiver.DeviceOwnerReceiver"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+        </receiver>
+        <receiver android:name="fabscreen.platform.base.receiver.InstallProcessReceiver">
+            <intent-filter>
+                <action android:name="com.snapmaker.updateApkBroadcast" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

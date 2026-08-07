@@ -1,0 +1,169 @@
+<resources>
+    <string name="a400_print_laser_automatic_thickness_measurement_title">Auto Measurement</string>
+    <string name="a400_print_laser_automatic_thickness_measurement_content_desc">The machine will automatically measure the material thickness and adjust the laser height.</string>
+    <string name="a400_print_laser_input_thickness_sub_title">Input Thickness</string>
+    <string name="a400_print_laser_input_thickness_content_desc">Input the material thickness. Then, the machine will adjust the laser height.</string>
+    <string name="a400_print_laser_trouch_material_surface_title">Calibration Target - Assisted</string>
+    <string name="a400_print_laser_touch_material_surface_content_desc">Lower the toolhead against the calibration target. Then, the machine will adjust the laser height.</string>
+    <string name="a400_print_laser_manual_focus_title">Manual Focus</string>
+    <string name="a400_print_laser_manual_focus_content_desc">Manually adjust the laser height. The machine use the current height of the toolhead to start the job.</string>
+    <string name="a400_print_laser_focus_lever_sub_title">Focus lever - Assisted</string>
+    <string name="a400_print_laser_focus_lever_content_desc">Lower the toolhead until the focus lever touches the calibration card on the material surface.</string>
+    <string name="a400_print_laser_input_material_thickness_sub_title">Input Material Thickness</string>
+    <string name="a400_print_laser_input_material_thickness_content_desc">Input the material thickness. The machine will adjust the laser height automatically.</string>
+
+    
+    <string name="a400_print_remaining_time_desc">Remaining Time:&#160;</string>
+    <string name="all_left_nozzle_temp_abbr">Left Nozzle Temp.</string>
+    <string name="all_right_nozzle_temp_abbr">Right Nozzle Temp.</string>
+    <string name="print_heated_bed_temp">Heated Bed Temp.</string>
+    <string name="print_laser_power">Laser Power</string>
+    <string name="print_work_speed">Work Speed</string>
+    <string name="print_cnc">Spindle Speed</string>
+    <string name="print_spindle_speed">Spindle Speed/RPM</string>
+    <string name="print_back_main">Home Screen</string>
+    <string name="print_pause">Pause</string>
+    <string name="print_resume">Resume</string>
+    <string name="print_stop">Stop</string>
+    <string name="print_stop_one_extruder">Stop One Extruder</string>
+    <string name="print_complete">Complete</string>
+
+
+    <string name="a400_print_dialog_warning_filament_run_out_triggered_content">%s is not loaded.\nTo continue printing, tap <b>Load Filament</b>.</string>
+    <string name="a400_print_set_origin_mode_basic_mode_sub_title">Basic Mode</string>
+    <string name="a400_print_set_origin_mode_advanced_mode_sub_title">Advanced Mode</string>
+    <string name="a400_print_set_origin_mode_basic_mode_desc">You need to move the toolhead to where the work origin will be, and tap <b>Run Boundary</b> to check the work area of the current position.</string>
+    <string name="a400_print_set_origin_mode_advanced_mode_desc">You need to separately set origin in each orientation, and their combination will be the work origin. You can tap <b>Run Boundary</b> to check the work area in the X and Y orientations.</string>
+    <string name="a400_print_action_stop_printing">Stop Printing</string>
+    <string name="a400_print_action_pause_printing">Pause Printing</string>
+    <string name="a400_print_action_stop_job">Stop Job</string>
+    <string name="a400_print_action_stop_the_job">Stop the Job</string>
+    <string name="a400_print_action_pause_job">Pause Job</string>
+    <string name="a400_print_action_pause_the_job">Pause the Job</string>
+    <string name="a400_print_action_confirmation_content_format">Are you sure you want to %s?</string>
+    <string name="a400_print_cnc_job_preparation">CNC Job Preparation</string>
+    <string name="a400_print_set_work_origin_format">Set Work Origin %s</string>
+    <string name="a400_print_set_format_origin">Set %s Origin</string>
+
+    <string name="a400_print_job_preparation_cnc_set_origin_xyz_desc">Fix the material to the CNC carving and cutting platform. Manually move the toolhead to the position that you want to set as the work origin. The CNC job will start with the defined origin. You can tap <b>Run Boundary</b> to check the work area of the current position.</string>
+    <string name="a400_print_job_preparation_cnc_set_origin_xy_desc">Manually move the toolhead to the position that you want to set as the work origin. The laser job will start with the defined origin. You can tap <b>Run Boundary</b> to check the work area of the current position.</string>
+    <string name="a400_print_job_preparation_laser_40w_set_origin_xy_desc">Move the toolhead (the center of the crosshairs) to the desired position for the XY work origin, based on which the laser job will start.
+        \nYou can tap <b>Run Boundary</b> to verify the work area for the current origin.</string>
+    <string name="a400_print_job_preparation_laser_2w_set_origin_xy_desc">Move the toolhead (the center of the crosshairs) to the desired position for the XY work origin, based on which the laser job will start.
+        \nYou can tap <b>Run Boundary</b> to verify the work area for the current origin.</string>
+    <string name="a400_print_laser_job_preparation_title">Laser Job Preparation</string>
+    <string name="a400_print_laser_calibration_plate_assisted_subtitle">Calibration Target - Assisted</string>
+    <string name="a400_print_laser_calibration_plate_assisted_message_desc">Place the material on the laser engraving and cutting platform, and then put the laser calibration target on top of the material. Manually lower the toolhead towards the calibration target’s surface until you feel slight resistance when you pull out the calibration target. Tap <b>Next</b>, and the machine will adjust the laser height automatically.</string>
+    <string name="a400_print_laser_manual_focus_subtitle">Manually Adjust Laser Height</string>
+    <string name="a400_print_laser_manual_focus_content">Manually move the toolhead until the laser beam is focused into the smallest spot possible. Tap <b>Next</b>, and the machine will use the current height as the laser height.</string>
+    <string name="a400_print_adjust_laser_height_title">Adjust Laser Height (1/2)</string>
+    <string name="a400_print_automatic_thickness_measurement_title">Automatic Thickness Measurement</string>
+    <string name="a400_print_automatic_thickness_measurement_message_desc">Place the material on the laser engraving and cutting platform. Based on the work origin and work area, the machine will calculate the material’s position. Then, the machien will move the toolhead to measure the material’s thickness, based on which the machine adjusts the laser height.\n\nConditions that might cause thickness measurement failure:\nThe material thickness is over 50 mm;\nThe material texture is transparent, or the material surface is glossy or specular;\nThe material color is red or black;\nThe material is hollow.</string>
+    <string name="a400_print_laser_input_material_thickness_title">Input Material Thickness</string>
+    <string name="a400_print_laser_input_material_thickness_subtitle">Material Thickness</string>
+    <string name="a400_print_laser_input_material_thickness_input_hint">Input Material Thickness</string>
+    <string name="a400_print_laser_input_material_thickness_message_desc">Measure and enter the material thickness. Then, place the material on the laser engraving and cutting platform. The machine will adjust the laser height accordingly.</string>
+    <string name="a400_print_laser_focus_lever_assisted_subtitle">Focus Lever - Assisted</string>
+    <string name="a400_print_laser_focus_lever_assisted_message_desc">1. Fix the material and put the calibration card on top of the material.
+        \n2. Lower the focus lever to touch the card until you feel slight resistance when moving the card.
+        \n3. Tap <b>Next</b>, then retract and lock the focus lever.
+    </string>
+
+    <!--  Print  -->
+    <string name="a400_print_print_setting_enclosure">Enclosure</string>
+    <string name="a400_print_print_setting_air_purifier">Air Purifier</string>
+    <string name="a400_print_print_setting_left_z_offset_title">Z Offset - Left Nozzle</string>
+    <string name="a400_print_print_setting_right_z_offset_title">Z Offset - Right Nozzle</string>
+    <string name="a400_print_print_setting_part_cooling_fan_title">Part-cooling Fan</string>
+    <string name="a400_print_print_setting_part_work_speed_title">Work Speed</string>
+    <string name="a400_print_print_setting_left_flow_rate_title">Flow Rate - Left Nozzle</string>
+    <string name="a400_print_print_setting_right_flow_rate_title">Flow Rate - Right Nozzle</string>
+    <string name="a400_print_print_setting_filament_sensor_title">Filament Sensor</string>
+    <string name="a400_print_print_setting_filament_runout_detection">Filament Runout Detection</string>
+
+    <string name="a400_print_settings_z_offset_setting_up">Up</string>
+    <string name="a400_print_settings_z_offset_setting_down">Down</string>
+    <string name="a400_dialog_print_enclosure_open_format_desc">The Enclosure door is opened, so the %s has been stopped.</string>
+    <string name="a400_dialog_print_enclosure_dialog_default_job">job</string>
+    <string name="a400_print_dialog_action_stop_title">Are you sure you want to %s?</string>
+    <string name="a400_print_complete_job_finished">Job Finished</string>
+    <string name="a400_print_cnc_set_origin_4axis_desc">If you have set the work origin using Origin Assistant, as long as the dimensions of the material remain unchanged, you can skip this step and start the job right away.</string>
+
+    <string name="a400_print_laser_4axis_input_diameter_title">Input Diameter</string>
+    <string name="a400_print_laser_4axis_input_diameter_content">Input the material thickness. Then, the machine will adjust the laser height.</string>
+    <string name="a400_print_laser_4axis_touch_material_title">Touch Material</string>
+    <string name="a400_print_laser_4axis_touch_material_content">Lower the toolhead against the material surface. Then, the machine will adjust the laser height.</string>
+    <string name="a400_print_laser_4axis_manual_focus_title">Manual Focus</string>
+    <string name="a400_print_laser_4axis_manual_focus_content">Manually adjust the laser height. The machine use the current height of the toolhead to start the job.</string>
+    <string name="a400_print_laser_4axis_input_diameter_subtitle">Input Diameter</string>
+    <string name="a400_print_laser_4axis_touch_material_subtitle">Touch Material</string>
+    <string name="a400_print_laser_4axis_input_material_diameter_title">Input Material Diameter</string>
+    <string name="a400_print_laser_4axis_material_diameter_content">Measure and input the material’s diameter. Then, fix the material to the 3-jaw chuck. The machine will adjust the laser height based on the material diameter.</string>
+    <string name="a400_print_laser_40w_4axis_material_diameter_content">1. Measure and input the material’s diameter.
+        \n2. Fix the material to the 3-jaw chuck.
+        \n3. Tap <b>Next</b>.
+    </string>
+    <string name="a400_print_laser_4axis_material_diameter_subtitle">Material Diameter</string>
+    <string name="a400_print_laser_manually_adjust_laser_height_title">Manually Adjust Laser Height</string>
+    <string name="a400_print_laser_manually_adjust_laser_height_content">Fix the material to the 3-jaw chuck. Adjust the height of the toolhead until the laser beam is focused into the smallest spot on the material surface. Tap <b>Next</b>, and the machine will use the current height as the laser height.</string>
+    <string name="a400_print_laser_touch_material_surface_title">Touch Material Surface</string>
+    <string name="a400_print_laser_touch_material_surface_content">Fix the material to the 3-jaw chuck. Lower the toolhead against the material’s top surface. Based on the given focal length, the machine will adjust the laser height.</string>
+    <string name="a400_print_laser_40w_touch_material_surface_content">1. Place the calibration card on top of the material.
+        \n2. Lower the focus lever to touch the card until you feel slight resistance when moving the card.
+        \n3. Tap <b>Next</b>, then retract and lock the focus lever.</string>
+    <string name="a400_print_laser_2w_touch_material_surface_content">1. Place the calibration card on top of the material.
+        \n2. Lower the focus lever to touch the card until you feel slight resistance when moving the card.
+        \n3. Tap <b>Next</b>, then retract and lock the focus lever.</string>
+    <string name="a400_print_job_preparation_cnc_set_origin_xyb_title">Set XYB Origin</string>
+    <string name="a400_print_job_preparation_cnc_set_origin_xyb_content">Manually move the toolhead to the position that you want to set as the work origin. The laser job will start with the defined origin. You can tap <b>Run Boundary</b> to check the work area of the current position.</string>
+    <string name="a400_print_settings_air_purifier_turn_on_title">Turn On</string>
+    <string name="a400_print_settings_air_purifier_turn_off_title">Turn Off</string>
+    <string name="a400_print_settings_air_purifier_not_powered">Not powered</string>
+    <string name="a400_print_settings_fan_speed">Wind Speed</string>
+    <string name="a400_print_settings_left_nozzle_flow_rate">Left Nozzle</string>
+    <string name="a400_print_settings_right_nozzle_flow_rate">Right Nozzle</string>
+
+    <string name="a400_print_laser_40w_how_to_use_focus_lever_helper_title">How to Use the Focus Lever</string>
+    <string name="a400_print_laser_40w_how_to_use_focus_lever_helper_desc">Turn the knob to loosen or lock the focus lever. When the lever touches the material: if aligned with Scale 0, the laser will focus on the material surface; if aligned with other scales, the focal point will move deeper inside the material.</string>
+
+    <string name="a400_print_laser_2w_how_to_use_focus_lever_helper_desc">Turn the knob to loosen or lock the focus lever. When the lever touches the material: if aligned with Focus, the laser will focus on the material surface.</string>
+
+    <!--  J1  -->
+    <string name="j1_print_stop_extruder">Choose the extruder to stop.</string>
+    <string name="j1_print_stop_job_msg">Are you sure to stop the job?</string>
+    <string name="j1_print_adjust_extruder">Extruder</string>
+    <string name="j1_print_adjust_heated_bed">Heated Bed</string>
+    <string name="j1_print_adjust_z_offset">Z Offset</string>
+    <string name="j1_print_adjust_work_speed">Work Speed</string>
+    <string name="j1_print_adjust_flow_rate">Flow Rate</string>
+    <string name="j1_print_adjust_backup_mode">Backup Mode</string>
+    <string name="j1_print_adjust_fan_speed">Fan Speed</string>
+
+    <string name="j1_print_adjust">Adjust</string>
+    <string name="print_print_mode_standard">Default Mode</string>
+    <string name="print_print_mode_back_up">Back Up Mode</string>
+    <string name="print_print_mode_clone">Copy Mode</string>
+    <string name="print_print_mode_mirror">Mirror Mode</string>
+    <string name="j1_print_remove_print_tip">Don’t remove the print until the bed cools down under 40℃.</string>
+    <string name="j1_print_pause_job_msg">Are you sure to pause the job?</string>
+    <string name="print_extruder_left">Left</string>
+    <string name="print_extruder_right">Right</string>
+
+    <string name="j1_print_setting_stop_loading">Stop Loading</string>
+    <string name="j1_print_setting_stop_unloading">Stop Unloading</string>
+    <string name="print_adjustment_z_offset_tips">When you increase the Z Offset, the heated bed will descend, and vice versa.</string>
+    <string name="ji_print_setting_extruder_left">Left</string>
+    <string name="ji_print_setting_extruder_right">Right</string>
+    <string name="print_adjustment_move_machine_msg">The extruders will move into position later for you to load or unload the filament.</string>
+    <string name="print_j1_fan_speed_l">L: %3d%%</string>
+    <string name="print_j1_fan_speed_r">R: %3d%%</string>
+
+    <string name="j1_how_to_load_filament_step_1">Step 1: Remove the top panel.</string>
+    <string name="j1_how_to_load_filament_step_2">Step 2: Hang the filament onto the filament holder, and feed the filament into the guide tube until it reaches the other end.</string>
+    <string name="j1_how_to_load_filament_step_3">Step 3: Push the toggle backward and hold; then insert the filament into the filament entry until you feel resistance (taking the left extruder for example).</string>
+    <string name="j1_how_to_load_filament_step_4">Step 4: Set a target temperature and tap Heat.</string>
+    <string name="j1_how_to_load_filament_step_5">Step 5: Tap Load until the filament oozes out of the nozzle (the extruder will automatically move to an appropriate position to start loading, if necessary).</string>
+    <string name="j1_how_to_load_filament_step_6">Step 6: Tap Stop Loading.</string>
+    <string name="j1_how_to_load_filament_step_7">Step 7: Insert the guide tube into the extruder and then snap it into the tube clip. Finally, reinstall the top panel.</string>
+
+</resources>

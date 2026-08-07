@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/ll_nozzle_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_layout_16"
+        android:background="@drawable/shape_bg_section_detail_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/rl_j1_print_z_offset_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/tv_j1_print_z_offset_title"
+                style="@style/AppTheme.TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/j1_print_adjust_z_offset" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llc_j1_print_z_offset_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_j1_print_z_offset_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_layout_12"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_j1_print_z_offset_value"
+                    style="@style/AppTheme.TextLargeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible" />
+
+                <TextView
+                    style="@style/AppTheme.TextTitlePrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/all_unit_mm_with_space" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <RelativeLayout
+                android:id="@+id/rl_j1_print_z_offset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/llc_j1_print_z_offset_value"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_layout_24">
+
+                <Button
+                    android:id="@+id/btn_j1_print_z_offset_minus"
+                    style="@style/AppTheme.TextBody1"
+                    android:layout_width="160dp"
+                    android:layout_height="58dp"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/pic_adjustment_btn_bg"
+                    android:paddingBottom="@dimen/margin_layout_8"
+                    android:text="-0.05 mm"
+                    android:textColor="@color/select_btn_white_txt" />
+
+                <Button
+                    android:id="@+id/btn_j1_print_z_offset_plus"
+                    style="@style/AppTheme.TextBody1"
+                    android:layout_width="160dp"
+                    android:layout_height="58dp"
+                    android:layout_marginStart="@dimen/margin_layout_20"
+                    android:layout_toEndOf="@id/btn_j1_print_z_offset_minus"
+                    android:background="@drawable/pic_adjustment_btn_bg"
+                    android:paddingBottom="@dimen/margin_layout_8"
+                    android:text="+0.05 mm"
+                    android:textColor="@color/select_btn_white_txt" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_j1_print_z_offset"
+                android:layout_alignLeft="@+id/rl_j1_print_z_offset"
+                android:layout_marginTop="@dimen/margin_layout_16">
+
+                <ImageView
+                    android:id="@+id/iv_j1_print_adjustment_z_offset_tips_icon"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="6dp"
+                    android:src="@drawable/icon_help_disable_32x32" />
+
+                <TextView
+                    style="@style/AppTheme.TextExplain"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/margin_layout_4"
+                    android:layout_marginStart="@dimen/margin_layout_4"
+                    android:layout_toEndOf="@+id/iv_j1_print_adjustment_z_offset_tips_icon"
+                    android:gravity="center"
+                    android:text="@string/print_adjustment_z_offset_tips" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

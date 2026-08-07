@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_print_setting_name"
+        style="@style/AppTheme.TextTitleSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="42dp"
+        android:textColor="@color/palette_grey_dim"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_dual_extruder_filament_sensor"
+        style="@style/AppTheme.TextBody2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_layout_52"
+        android:layout_marginTop="164dp"
+        android:text="@string/a400_print_print_setting_filament_runout_detection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_dual_extruder_filament_sensor_switch"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="@dimen/margin_layout_52"
+        android:layout_marginEnd="@dimen/margin_layout_52"
+        app:layout_constraintTop_toBottomOf="@id/tv_dual_extruder_filament_sensor">
+
+        <TextView
+            android:id="@+id/tv_dual_extruder_filament_sensor_desc"
+            style="@style/AppTheme.TextBody1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/a400_print_print_setting_filament_runout_detection"
+            android:textColor="@color/palette_white_pure" />
+
+        <fabscreen.platform.core.ui.common.A400SwitchCompat
+            android:id="@+id/switch_filament_sensor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:thumb="@drawable/shape_a400_switch_thumb"
+            app:track="@drawable/selector_a400_switch_track" />
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

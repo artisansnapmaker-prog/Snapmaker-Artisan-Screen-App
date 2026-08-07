@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_print_setting_name"
+        style="@style/AppTheme.TextTitleSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="42dp"
+        android:textColor="@color/palette_grey_dim"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_progress_name"
+        style="@style/AppTheme.TextBody2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_layout_52"
+        android:layout_marginTop="164dp"
+        android:text="@string/a400_print_settings_fan_speed"
+        android:textColor="?attr/theme_color_title_secondary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <fabscreen.platform.core.ui.view.FabSeekBar
+        android:id="@+id/pragress"
+        android:layout_width="511dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_progress_name" />
+
+    <TextView
+        android:id="@+id/tv_progress_value"
+        style="@style/AppTheme.TextTitleSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_layout_28"
+        android:text="70%"
+        app:layout_constraintBottom_toBottomOf="@+id/pragress"
+        app:layout_constraintLeft_toRightOf="@+id/pragress"
+        app:layout_constraintTop_toTopOf="@+id/pragress" />
+
+    <Button
+        android:id="@+id/btn_print_adjustment_cancel"
+        android:layout_width="230dp"
+        android:layout_height="92dp"
+        android:layout_marginLeft="@dimen/margin_layout_48"
+        android:layout_marginBottom="@dimen/margin_layout_48"
+        android:background="@drawable/img_next_job_background"
+        android:text="@string/all_cancel"
+        android:textAllCaps="false"
+        android:textColor="@color/palette_white_silver"
+        android:textSize="@dimen/font_size_28sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_print_adjustment_confirm"
+        style="@style/AppTheme.PrimaryButton"
+        android:layout_width="230dp"
+        android:layout_height="92dp"
+        android:layout_marginLeft="@dimen/margin_layout_24"
+        android:layout_marginRight="@dimen/margin_layout_48"
+        android:text="@string/all_confirm"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/btn_print_adjustment_cancel"
+        app:layout_constraintTop_toTopOf="@+id/btn_print_adjustment_cancel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

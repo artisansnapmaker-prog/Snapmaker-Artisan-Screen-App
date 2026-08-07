@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- A400  -->
+    <string name="all_guide_3dp_extruder_temperature_format">%d/%d°C</string>
+
+    <string name="guide_a400_thickness_m_calibration_title">Dicke M. Kalibrierung</string>
+    <string name="guide_a400_camera_calibration_title">Kamerakalibrierung</string>
+    <string name="guide_a400_setup_completed_title">Einrichtung abgeschlossen</string>
+    <string name="guide_a400_laser_3axis_msg_desc">Als nächstes müssen Sie mit den folgenden Prozessen fortfahren, um das 1600-mW-Lasermodul zu initialisieren.</string>
+    <string name="guide_a400_laser_4axis_msg_desc">Als nächstes müssen Sie mit dem folgenden Prozess fortfahren, um den 4-Achsen-Job für das 1600-mW-Lasermodul zu initialisieren.</string>
+    <string name="guide_a400_10w_laser_3axis_msg_desc">Als nächstes müssen Sie mit den folgenden Prozessen fortfahren, um das 10-W-Lasermodul zu initialisieren.</string>
+    <string name="guide_a400_10w_laser_4axis_msg_desc">Als nächstes müssen Sie mit dem folgenden Prozess fortfahren, um den 4-Achsen-Job für das 10-W-Lasermodul zu initialisieren.</string>
+    <string name="guide_a400_thickness_measurement_calibration_msg_desc">Der Bildschirm führt Sie durch die Kalibrierung der Dickenmessung.</string>
+    <string name="guide_a400_camera_calibration_msg_desc">Der Bildschirm leitet Sie an, die Kamera zu kalibrieren, damit Sie die Kameraaufnahme in Luban verwenden können.</string>
+    <string name="guide_a400_safety_goggles_title">Schutzbrillen</string>
+    <string name="guide_a400_fix_material_title">Material fixieren</string>
+    <string name="guide_a400_attach_bit_title">Bit anbringen</string>
+    <string name="guide_a400_tools_screen_title">Tools-Bildschirm</string>
+    <string name="guide_a400_cnc_3axis_msg_desc">Als Nächstes führt Sie die folgende Anleitung durch die Ersteinrichtung für CNC-Jobs.</string>
+    <string name="guide_a400_cnc_4axis_msg_desc">Als nächstes führen Sie die folgenden Prozesse durch die Ersteinrichtung für CNC-Jobs.</string>
+    <string name="guide_a400_setup_guidance_completed_title">Setup-Anleitung abgeschlossen</string>
+    <string name="guide_a400_laser_10w_success_title">Vollendet</string>
+    <string name="guide_a400_laser_10w_all_successfully_msg_desc">Herzlichen Glückwunsch! Sie haben alle Initialisierungsvorgänge abgeschlossen.</string>
+    <string name="guide_a400_start_creating">Beginnen Sie mit dem Erstellen</string>
+    <string name="a400_guide_3dp_dual_extruder_step_1_title">Filament laden</string>
+    <string name="a400_guide_3dp_dual_extruder_step_2_title"><![CDATA[Z-Offset-Kalibrierung und Heizbettnivellierung]]></string>
+    <string name="a400_guide_3dp_dual_extruder_step_3_title">XY Offset-Kalibrierung</string>
+    <string name="guide_a400_3dp_dual_extruder_msg_desc">Als nächstes müssen Sie mit den folgenden Prozessen fortfahren, um das Dual Extrusion Module zu initialisieren.</string>
+    <string name="guide_a400_3dp_single_extruder_msg_title">Als nächstes müssen Sie mit den folgenden Prozessen fortfahren, um das Single Extrusion Module zu initialisieren.</string>
+    <string name="guide_a400_dual_extruder_all_successfully_msg_desc">Herzlichen Glückwunsch! Sie haben alle Initialisierungsvorgänge abgeschlossen.</string>
+    <string name="guide_a400_dual_extruder_step_1_successfully_title">Filament geladen</string>
+    <string name="guide_a400_dual_extruder_step_1_successfully_msg">Tippen Sie auf <b>Weiter</b>, um mit der Z-Offset-Kalibrierung &amp; Heizbettnivellierung.</string>
+    <string name="guide_a400_dual_extruder_step_2_successfully_title">Kalibrierung &amp; Leveln abgeschlossen</string>
+    <string name="guide_a400_dual_extruder_step_2_successfully_msg_desc">Tippen Sie auf <b>Weiter</b>, um mit der XY-Offset-Kalibrierung fortzufahren.</string>
+
+    <!--  guide 10w  -->
+    <string name="guide_a400_laser_10w_step_1_successfully_title">Kalibrierung abgeschlossen</string>
+    <string name="guide_a400_laser_10w_step_1_successfully_msg_desc">Tippen Sie auf <b>Weiter</b>, um mit der Kamerakalibrierung fortzufahren.</string>
+    <string name="a400_guide_laser_10w_central_axis_calibration_title">Kalibrierung der Mittelachse</string>
+    <string name="a400_guide_laser_10w_central_axis_calibration_step_1_msg_desc">Der Bildschirm führt Sie durch die Kalibrierung der Mittelachse mit einem Zylindermaterial.</string>
+    <string name="guide_a400_laser_10w_4axis_successfully_msg_desc">Herzlichen Glückwunsch! Sie haben den Initialisierungsprozess abgeschlossen.</string>
+    <string name="guide_a400_central_axis_calibration_title">Kalibrierung der Mittelachse</string>
+    <string name="a400_guide_3dp_heated_bed_leveling_title">Heizbettnivellierung</string>
+    <string name="a400_guide_3dp_load_filament_title">Filament laden</string>
+    <string name="a400_guide_laser_manual_focus_calibration_title">Manuelle Fokuskalibrierung</string>
+    <string name="a400_guide_laser_manual_focus_calibration_intro_title">Manuelle Fokuskalibrierung</string>
+    <string name="a400_guide_laser_manual_focus_calibration_intro_desc">Der Bildschirm leitet Sie an, den Fokus manuell zu kalibrieren.</string>
+    <string name="a400_guide_laser_camera_capture_calibration_intro_title">Kamerakalibrierung</string>
+    <string name="a400_guide_laser_camera_capture_calibration_intro_desc">Der Bildschirm führt Sie durch die Kalibrierung der Kamera.</string>
+    <string name="a400_guide_laser_camera_capture_calibration_intro_desc_2">Tippen Sie auf <b>Weiter</b>, um mit der Kamerakalibrierung fortzufahren.</string>
+</resources>

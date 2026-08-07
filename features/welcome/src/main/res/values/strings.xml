@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="a400_welcome_hello_terms_read_and_argee_prev_format">I have read and agree to the</string>
+    <string name="a400_welcome_hello_terms_read_and_agree_next_format">&#160;<u>Terms and Conditions</u></string>
+    <string name="a400_welcome_name_title">Name Your Artisan</string>
+    <string name="a400_welcome_wifi_choose_a_network_title">Choose a Network</string>
+    <string name="a400_welcome_choose_language">Choose a Language</string>
+
+    <!--  Deprecated resources -->
+    <string name="setting_language_chinese">Chinese</string>
+    <string name="setting_language_english">English</string>
+    <string name="setting_language_deutsch">German</string>
+    <string name="setting_language_Français">French</string>
+    <string name="setting_language_japanese">Japanese</string>
+
+    <string name="setting_center_clanguage_chinese">中文</string>
+    <string name="setting_center_clanguage_english">English</string>
+    <string name="setting_center_clanguage_deutsch">Deutsch</string>
+    <string name="setting_center_clanguage_Français">Français</string>
+    <string name="setting_center_clanguage_japanese">日本語</string>
+
+    <string name="j1_terms_and_conditions_tip">I have read and accept all the terms and conditions.</string>
+    <string name="j1_user_experience_improvement_program_title">User Experience Improvement Program</string>
+    <string name="j1_user_experience_improvement_program_confirm">Yes, I’m in!</string>
+    <string name="j1_welcome_set_name_title">Name Your J1</string>
+    <string name="j1_welcome_dailog_skip_wifi_content">Skipping the Wi-Fi connection might limit some functions, yet you could set it in Settings later. Are you sure to skip?</string>
+    <string name="j1_setup_completed_title">Setup Completed</string>
+    <string name="j1_setup_completed_content">You have completed the initial setup successfully.</string>
+</resources>

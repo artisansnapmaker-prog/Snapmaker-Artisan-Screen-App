@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+
+        <shape>
+
+            <solid android:color="@color/palette_grey_nero" />
+
+        </shape>
+
+    </item>
+
+
+    <item android:width="4dp">
+
+        <shape>
+
+            <gradient
+                android:endColor="@color/palette_light_blue_ribbon"
+                android:startColor="@color/palette_blue_ribbon" />
+
+        </shape>
+
+    </item>
+
+</layer-list>

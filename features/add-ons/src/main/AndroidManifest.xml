@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fabscreen.features.addons">
+
+    <application>
+        <activity
+            android:name=".emergencystop.A400EmergencyStopActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.10transparentActivity" />
+    </application>
+</manifest>

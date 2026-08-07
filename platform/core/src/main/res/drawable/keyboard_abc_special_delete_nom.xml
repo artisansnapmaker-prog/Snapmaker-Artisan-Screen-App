@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/keyboard_special_nom"/>
+    <item android:drawable="@drawable/ic_a400_keyboard_general_del_normal"
+        android:width="40.5dp"
+        android:height="30.5dp"
+        android:gravity="center"/>
+
+</layer-list>

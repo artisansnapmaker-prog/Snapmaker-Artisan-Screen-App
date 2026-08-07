@@ -1,0 +1,173 @@
+<resources>
+    <string name="a400_print_laser_automatic_thickness_measurement_title">自动测量厚度</string>
+    <string name="a400_print_laser_automatic_thickness_measurement_content_desc">机器将自动测量材料厚度，然后调整激光高度。此模式不适用于镂空、透明、红色等材料。</string>
+    <string name="a400_print_laser_input_thickness_sub_title">输入材料厚度</string>
+    <string name="a400_print_laser_input_thickness_content_desc">机器将会依据输入的材料厚度，自动调整激光高度。</string>
+    <string name="a400_print_laser_trouch_material_surface_title">校准板辅助</string>
+    <string name="a400_print_laser_touch_material_surface_content_desc">你需要手动控制执行头贴合校准板，机器将会结合焦距调整激光高度。</string>
+    <string name="a400_print_laser_manual_focus_title">手动对焦</string>
+    <string name="a400_print_laser_manual_focus_content_desc">你需要手动控制执行头下降，直至形成最小光斑，机器将会以当前高度作为激光高度。</string>
+    <string name="a400_print_laser_focus_lever_assisted_subtitle">对焦杆辅助</string>
+    <string name="a400_print_laser_focus_lever_assisted_message_desc">1. 固定材料，然后将校准卡片放置于材料表面。
+        \n2. 使对焦杆触碰校准卡片，直到拉动卡片时有轻微阻力。
+        \n3. 点击<b>下一步</b>，然后收回并锁定对焦杆。
+    </string>
+    <string name="a400_print_laser_focus_lever_sub_title">对焦杆辅助</string>
+    <string name="a400_print_laser_focus_lever_content_desc">你需要控制执行头下降，使对焦杆触碰材料表面的校准卡片。</string>
+    <string name="a400_print_laser_input_material_thickness_sub_title">输入材料厚度</string>
+    <string name="a400_print_laser_input_material_thickness_content_desc">机器将会依据输入的材料厚度，自动调整激光高度。</string>
+
+
+    <!--  TODO: check here with resource `print_remaining_time` -->
+    <string name="a400_print_remaining_time_desc">剩余时间：</string>
+
+    <string name="print_heated_bed_temp">热床温度</string>
+    <string name="print_laser_power">激光功率</string>
+    <string name="print_cnc">主轴转速</string>
+    <string name="print_work_speed">工作速度</string>
+    <string name="print_spindle_speed">主轴转速/RPM</string>
+    <string name="print_back_main">返回主界面</string>
+    <string name="print_pause">暂停</string>
+    <string name="print_resume">恢复</string>
+    <string name="print_stop">停止 </string>
+    <string name="print_stop_one_extruder">停止单打印头</string>
+    <string name="print_complete">完成 </string>
+
+    <string name="a400_print_action_stop_printing">停止打印</string>
+    <string name="a400_print_action_pause_printing">暂停打印</string>
+    <string name="a400_print_action_confirmation_content_format">你确定要%s吗？</string>
+    <string name="a400_print_action_stop_job">停止作业</string>
+    <string name="a400_print_action_stop_the_job">停止作业</string>
+    <string name="a400_print_action_pause_job">暂停作业</string>
+    <string name="a400_print_action_pause_the_job">暂停作业</string>
+
+    <string name="calibration_select_mode_title">模式选择</string>
+    <string name="a400_print_set_origin_mode_basic_mode_sub_title">基础模式</string>
+    <string name="a400_print_set_origin_mode_advanced_mode_sub_title">高级模式</string>
+    <string name="a400_print_set_origin_mode_basic_mode_desc">你需要移动执行头到目标工作原点位置。点击<b>跑边框</b>可验证当前位置对应的工作区域。</string>
+    <string name="a400_print_set_origin_mode_advanced_mode_desc">你可以分别为 X、Y、Z 轴设置原点，其坐标组合即为工作原点。点击<b>跑边框</b>可验证 X 轴和 Y 轴方向上的工作区域。。</string>
+    <string name="a400_print_cnc_job_preparation">准备 CNC 作业</string>
+    <string name="a400_print_set_work_origin_format">设置工作原点 %s</string>
+    <string name="a400_print_set_format_origin">设置 %s 原点</string>
+    <string name="a400_print_job_preparation_cnc_set_origin_xyz_desc">将材料固定于 CNC 雕刻和切割平台上。手动控制执行头移动到目标工作原点位置，CNC 作业将会以此位置为原点开始加工。你可以点击<b>跑边框</b>来验证当前位置对应的工作区域。</string>
+    <string name="a400_print_job_preparation_cnc_set_origin_xy_desc">手动控制执行头移动到目标工作原点位置，激光作业将会以此位置为原点开始加工。你可以点击<b>跑边框</b>来验证当前位置对应的工作区域。</string>
+    <string name="a400_print_job_preparation_laser_40w_set_origin_xy_desc">控制执行头（即十字准线的中心）移动到目标工作原点位置，机器将以此位置为 XY 原点开始加工。
+        \n
+        \n开始作业前，你可以点击<b>跑边框</b>来验证当前原点位置对应的工作区域。</string>
+    <string name="a400_print_job_preparation_laser_2w_set_origin_xy_desc">控制执行头（即十字准线的中心）移动到目标工作原点位置，机器将以此位置为 XY 原点开始加工。
+        \n
+        \n开始作业前，你可以点击<b>跑边框</b>来验证当前原点位置对应的工作区域。</string>
+    <string name="a400_print_laser_job_preparation_title">准备激光作业</string>
+    <string name="a400_print_laser_calibration_plate_assisted_subtitle">校准板辅助</string>
+    <string name="a400_print_laser_calibration_plate_assisted_message_desc">将材料放置于激光雕刻和切割平台上，然后将激光校准板放置于材料上。手动控制执行头下降以贴合校准板表面，直到你拉动校准板时能感受到轻微阻力。点击<b>下一步</b>，机器将会自动调整激光高度。</string>
+    <string name="a400_print_laser_manual_focus_subtitle">手动调整激光高度</string>
+    <string name="a400_print_laser_manual_focus_content">将材料放置于激光雕刻和切割平台上。手动控制执行头移动，直至激光光束在材料表面聚合成面积最小的光斑。点击<b>下一步</b>，机器将会以当前高度作为激光高度。</string>
+    <string name="a400_print_adjust_laser_height_title">调整激光高度（1/2）</string>
+    <string name="a400_print_automatic_thickness_measurement_title">自动测量材料厚度</string>
+    <string name="a400_print_automatic_thickness_measurement_message_desc">将材料放置于激光雕刻和切割平台上。机器将会依据工作原点和工作区域，自动计算材料位置，然后移动执行头到相应位置测量材料厚度。机器根据测量到的材料厚度，自动调整激光高度。
+        \n\n以下情况可能会导致材料厚度测量失败：\n1. 材料的厚度超过 50mm；\n2. 材料的材质为透明、亮面或镜面；\n3. 材料的颜色为红色或黑色；\n4. 材料的中间有镂空</string>
+    <string name="a400_print_laser_input_material_thickness_title">输入材料厚度</string>
+    <string name="a400_print_laser_input_material_thickness_subtitle">材料厚度</string>
+    <string name="a400_print_laser_input_material_thickness_input_hint">输入材料厚度</string>
+    <string name="a400_print_laser_input_material_thickness_message_desc">测量并输入材料厚度。测量完毕后，将材料放置于激光雕刻和切割平台上。机器将会依据输入的材料厚度，自动调整激光高度。</string>
+    <string name="a400_print_print_setting_left_z_offset_title">左喷嘴 Z 轴偏移量</string>
+    <string name="a400_print_print_setting_right_z_offset_title">右喷嘴 Z 轴偏移量</string>
+    <string name="a400_print_print_setting_part_cooling_fan_title">模型冷却风扇</string>
+    <string name="a400_print_print_setting_part_work_speed_title">工作速度</string>
+    <string name="a400_print_print_setting_left_flow_rate_title">左喷嘴流量</string>
+    <string name="a400_print_print_setting_right_flow_rate_title">右喷嘴流量</string>
+    <string name="a400_print_print_setting_filament_sensor_title">耗材传感器</string>
+    <string name="a400_print_print_setting_filament_runout_detection">断料检测</string>
+    <string name="a400_print_settings_z_offset_setting_up">上</string>
+    <string name="a400_print_settings_z_offset_setting_down">下</string>
+
+    <!--  J1-->
+    <string name="j1_how_to_load_filament_step_1">步骤一：取下顶板。</string>
+    <string name="j1_how_to_load_filament_step_2">步骤二：将耗材挂在料架上，然后将耗材插入导料管，直至其从另一端伸出。</string>
+    <string name="j1_how_to_load_filament_step_3">步骤三：将滑钮向后推并按住，然后将耗材插入进料口，直至感觉到阻力（以左打印头为例）。</string>
+    <string name="j1_how_to_load_filament_step_4">步骤四：设置目标温度，然后点击加热。</string>
+    <string name="j1_how_to_load_filament_step_5">步骤五：点击进料，直至耗材从喷嘴中流出（必要时，打印头会先行移动至合适位置，以便进料与退料）。</string>
+    <string name="j1_how_to_load_filament_step_6">步骤六：点击停止进料。</string>
+    <string name="j1_how_to_load_filament_step_7">步骤七：将导料管插入打印头，再卡入导料管夹。最后，重新固定顶板。</string>
+    <string name="a400_dialog_print_enclosure_open_format_desc">外罩门被打开了，因此%s已停止。</string>
+    <string name="a400_dialog_print_enclosure_dialog_default_job">作业</string>
+
+
+    <!-- Print-->
+    <string name="j1_print_adjust">调整参数</string>
+    <string name="print_print_mode_standard">默认模式</string>
+    <string name="print_print_mode_back_up">备用模式</string>
+    <string name="print_print_mode_clone">复制模式</string>
+    <string name="print_print_mode_mirror">镜像模式</string>
+    <string name="j1_print_remove_print_tip">必须等待热床降温至 40℃ 以下，再取下模型。</string>
+    <string name="j1_print_pause_job_msg">你确定要暂停打印吗？</string>
+    <string name="print_extruder_left">左打印头</string>
+    <string name="print_extruder_right">右打印头</string>
+    <string name="j1_print_stop_extruder">选择要停止的打印头。</string>
+    <string name="j1_print_stop_job_msg">你确定要停止打印吗？</string>
+    <string name="j1_print_adjust_extruder">打印头</string>
+    <string name="j1_print_adjust_heated_bed">热床</string>
+    <string name="j1_print_adjust_z_offset">Z 轴偏移量</string>
+    <string name="j1_print_adjust_work_speed">工作速度</string>
+    <string name="j1_print_adjust_flow_rate">流量</string>
+    <string name="j1_print_adjust_backup_mode">备用模式</string>
+    <string name="j1_print_adjust_fan_speed">风扇速度</string>
+    <string name="a400_print_print_setting_enclosure">外罩</string>
+    <string name="a400_print_print_setting_air_purifier">净化器</string>
+
+    <!-- Print Setting-->
+    <string name="j1_print_setting_stop_loading">停止进料</string>
+    <string name="j1_print_setting_stop_unloading">停止退料</string>
+    <string name="print_adjustment_z_offset_tips">当你增大 Z 轴偏移量时，热床会下降相应的距离，反之亦然。</string>
+    <string name="ji_print_setting_extruder_left">左打印头</string>
+    <string name="ji_print_setting_extruder_right">右打印头</string>
+    <string name="print_adjustment_move_machine_msg">打印头稍后将移动至合适位置，便于你进行装料或退料。</string>
+    <string name="print_j1_fan_speed_l">L: %3d%%</string>
+    <string name="print_j1_fan_speed_r">R: %3d%%</string>
+
+    <!--  a400-->
+    <string name="a400_print_cnc_set_origin_4axis_desc">若你已使用对刀助手完成了工作原点的设置，那么在材料尺寸不变的前提下，你可以跳过此步骤直接开始 CNC 作业。</string>
+    <string name="a400_print_dialog_action_stop_title">你确定要%s吗？</string>
+    <string name="a400_print_laser_4axis_input_diameter_title">输入材料直径</string>
+    <string name="a400_print_laser_4axis_input_diameter_content">机器将会依据输入的材料直径，自动调整激光高度。</string>
+    <string name="a400_print_laser_4axis_touch_material_title">贴合材料表面</string>
+    <string name="a400_print_laser_4axis_touch_material_content">你需要手动控制执行头贴合材料上表面，机器将会结合焦距调整激光高度。</string>
+    <string name="a400_print_laser_4axis_manual_focus_title">手动对焦</string>
+    <string name="a400_print_laser_4axis_manual_focus_content">你需要手动控制执行头下降，直至形成最小光斑，机器将会以当前高度作为激光高度。</string>
+    <string name="a400_print_laser_4axis_input_diameter_subtitle">输入材料直径</string>
+    <string name="a400_print_laser_4axis_touch_material_subtitle">贴合材料表面</string>
+    <string name="a400_print_laser_4axis_input_material_diameter_title">输入材料直径</string>
+    <string name="a400_print_laser_4axis_material_diameter_content">测量并输入材料直径，然后将材料固定到三爪卡盘中。机器将会依据输入的材料直径，自动调整激光高度。</string>
+    <string name="a400_print_laser_40w_4axis_material_diameter_content">测量并输入材料直径，然后将材料固定到三爪卡盘中。机器将会依据输入的材料直径，自动调整激光高度。</string>
+    <string name="a400_print_laser_4axis_material_diameter_subtitle">材料直径</string>
+    <string name="a400_print_laser_manually_adjust_laser_height_title">手动调整激光高度</string>
+    <string name="a400_print_laser_manually_adjust_laser_height_content">把材料固定到三爪卡盘中，然后手动控制执行头下降，直至激光光束在材料上表面聚合成面积最小的光班，点击<b>下一步</b>，机器将会以当前高度作为激光高度。</string>
+    <string name="a400_print_laser_touch_material_surface_title">贴合材料表面</string>
+    <string name="a400_print_laser_touch_material_surface_content">将材料固定到三爪卡盘中，然后手动控制执行头下降，直至其贴合材料上表面。机器将结合已知的焦距自动调整激光高度。</string>
+    <string name="a400_print_laser_40w_touch_material_surface_content">1. 将校准卡片放置于材料的上表面。
+        \n2. 使对焦杆触碰校准卡片，直到拉动卡片时有轻微阻力。
+        \n3. 点击<b>下一步</b>，然后收回并锁定对焦杆。</string>
+    <string name="a400_print_laser_2w_touch_material_surface_content">1. 将校准卡片放置于材料的上表面。
+        \n2. 使对焦杆触碰校准卡片，直到拉动卡片时有轻微阻力。
+        \n3. 点击<b>下一步</b>，然后收回并锁定对焦杆。</string>
+    <string name="a400_print_job_preparation_cnc_set_origin_xyb_title">设置 XYB 原点</string>
+    <string name="a400_print_job_preparation_cnc_set_origin_xyb_content">手动控制执行头移动到目标工作原点位置，机器将会以此位置为原点开始激光作业。你可以点击<b>跑边框</b>来验证当前位置对应的工作区域。</string>
+    <string name="print_adjust_enclosure_on">外罩门状态：开</string>
+    <string name="print_adjust_enclosure_off">外罩门状态：关</string>
+    <string name="print_prepare_for_laser_work_title">准备激光作业</string>
+    <string name="a400_print_settings_air_purifier_turn_on_title">开启净化器</string>
+    <string name="a400_print_settings_air_purifier_turn_off_title">关闭净化器</string>
+    <string name="a400_print_settings_air_purifier_not_powered">未通电</string>
+    <string name="a400_print_settings_fan_speed">风速</string>
+    <string name="a400_print_settings_left_nozzle_flow_rate">左喷嘴流量</string>
+    <string name="a400_print_settings_right_nozzle_flow_rate">右喷嘴流量</string>
+    <string name="a400_print_complete_job_finished">作业完成</string>
+
+
+    <string name="a400_print_laser_40w_how_to_use_focus_lever_helper_title">如何使用对焦杆</string>
+    <string name="a400_print_laser_40w_how_to_use_focus_lever_helper_desc">通过转动旋钮，可以松开或锁定对焦杆。当对焦杆触碰材料时：若对齐刻度 0，焦点将恰好落在材料表面；若对齐其他刻度，焦点将下沉至材料内部的对应深度。</string>
+
+    <string name="a400_print_laser_2w_how_to_use_focus_lever_helper_desc">通过旋转旋钮，可以松开或锁定对焦杆。当对焦杆对齐刻度 Focus 时，焦点将恰好落在材料表面。</string>
+
+
+</resources>

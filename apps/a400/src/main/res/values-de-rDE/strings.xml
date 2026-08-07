@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Fabscreen A400</string>
+    <string name="home_control">Steuerung</string>
+    <string name="home_calibration">Kalibrieren</string>
+    <string name="home_setting">Einstellungen</string>
+
+    <string name="a400_snapmaker_artisan">Snapmaker Artisan</string>
+    <string name="a400_firmawre_updeta_title">Update Verfügbar</string>
+    <string name="a400_firmawre_updeta_content">Möchten Sie jetzt aktualisieren??</string>
+    <string name="a400_start_fail_msg">Initialisierung fehlgeschlagen. Bitte starten Sie die Maschine neu. Wenn das Problem weiterhin besteht, wenden Sie sich bitte an unseren Support unter support@snapmaker.com.</string>
+    <string name="a400_snapmaker_logo_desc">Snapmaker logo</string>
+
+</resources>

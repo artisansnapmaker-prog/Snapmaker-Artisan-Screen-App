@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <TextView
+        android:id="@+id/tv_print_setting_name"
+        style="@style/AppTheme.TextTitleSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="42dp"
+        android:textColor="@color/palette_grey_dim"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_purifier"
+        android:layout_width="434dp"
+        android:layout_height="326dp"
+        android:layout_marginTop="208dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pic_air_purifier_content_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/ab_purifier_power"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="@dimen/margin_layout_32"
+        android:layout_marginTop="164dp"
+        android:background="@drawable/select_ari_purifier_switch_bg"
+        app:layout_constraintStart_toEndOf="@+id/iv_purifier"
+        app:layout_constraintTop_toTopOf="@+id/iv_purifier" />
+
+    <TextView
+        android:id="@+id/tv_air_purifier_switch_title"
+        style="@style/AppTheme.TextBody2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_layout_12"
+        android:gravity="center"
+        android:text="@string/a400_print_settings_air_purifier_turn_on_title"
+        app:layout_constraintEnd_toEndOf="@+id/ab_purifier_power"
+        app:layout_constraintStart_toStartOf="@+id/ab_purifier_power"
+        app:layout_constraintTop_toBottomOf="@+id/ab_purifier_power" />
+
+    <RelativeLayout
+        android:id="@+id/sbg_fan_speed"
+        android:layout_width="465dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginBottom="94dp"
+        android:paddingLeft="4dp"
+        android:paddingTop="4dp"
+        android:paddingRight="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/bg_snap_black_round">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            app:tabIndicator="@drawable/all_button_square_default_selected"
+            app:tabIndicatorColor="@color/palette_grey_mine_shaft"
+            app:tabIndicatorHeight="64dp"
+            app:tabMinWidth="149dp"
+            app:tabRippleColor="@color/transparent"
+            app:tabSelectedTextColor="@color/palette_white_pure"
+            app:tabTextAppearance="@style/PanelTabLayTheme"
+            app:tabTextColor="@color/palette_grey_dim" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_no_power_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/palette_grey_nero_transparent_10"
+        android:clickable="true"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_no_power_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:background="@drawable/ic_yellow_warn" />
+
+        <TextView
+            style="@style/AppTheme.TextBody1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_layout_24"
+            android:text="@string/a400_print_settings_air_purifier_not_powered"
+            android:textColor="@color/palette_white_pure" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_filter_life"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_layout_10"
+        android:text="@string/air_purifier_filter_life"
+        android:textSize="@dimen/font_size_h3"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <fabscreen.platform.core.ui.view.RectEnergyBar.RectEnergyBar
+        android:id="@+id/reb_lifetime"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="@dimen/margin_layout_10"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

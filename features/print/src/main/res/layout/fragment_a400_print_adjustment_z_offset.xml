@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_print_setting_name"
+        style="@style/AppTheme.TextTitleSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="42dp"
+        android:textColor="@color/palette_grey_dim"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/rl_offset_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="203dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_offset_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/palette_white_pure"
+            android:textSize="72sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_offset_value"
+            android:layout_toRightOf="@+id/tv_offset_value"
+            android:text="@string/all_unit_mm"
+            android:textColor="@color/palette_white_pure"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/sbg_z_offset_steps"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginRight="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_offset_value"
+        android:background="@drawable/bg_snap_black_round">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            app:tabIndicator="@drawable/all_button_square_default_selected"
+            app:tabIndicatorColor="@color/palette_grey_mine_shaft"
+            android:layout_margin="2dp"
+            app:tabIndicatorHeight="65dp"
+            app:tabMinWidth="149dp"
+            app:tabRippleColor="@color/transparent"
+            app:tabSelectedTextColor="@color/palette_white_pure"
+            app:tabTextAppearance="@style/PanelTabLayTheme"
+            app:tabTextColor="@color/palette_grey_dim" />
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_z_offset_up"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/control_btn_up_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sbg_z_offset_steps" />
+
+    <Button
+        android:id="@+id/btn_z_offset_down"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="@dimen/margin_layout_80"
+        android:background="@drawable/control_btn_down_background"
+        app:layout_constraintStart_toEndOf="@+id/btn_z_offset_up"
+        app:layout_constraintTop_toTopOf="@+id/btn_z_offset_up" />
+
+    <TextView
+        style="@style/AppTheme.TextBody2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_layout_8"
+        android:gravity="center"
+        android:text="@string/a400_print_settings_z_offset_setting_up"
+        app:layout_constraintEnd_toEndOf="@+id/btn_z_offset_up"
+        app:layout_constraintStart_toStartOf="@+id/btn_z_offset_up"
+        app:layout_constraintTop_toBottomOf="@+id/btn_z_offset_up" />
+
+    <TextView
+        style="@style/AppTheme.TextBody2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_layout_8"
+        android:gravity="center"
+        android:text="@string/a400_print_settings_z_offset_setting_down"
+        app:layout_constraintEnd_toEndOf="@+id/btn_z_offset_down"
+        app:layout_constraintStart_toStartOf="@+id/btn_z_offset_down"
+        app:layout_constraintTop_toBottomOf="@+id/btn_z_offset_down" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

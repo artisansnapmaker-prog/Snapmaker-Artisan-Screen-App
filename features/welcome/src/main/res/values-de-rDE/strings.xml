@@ -1,0 +1,21 @@
+<resources>
+
+    <string name="a400_welcome_hello_terms_read_and_argee_prev_format">Ich habe die gelesen und stimme ihnen zu</string>
+    <string name="a400_welcome_hello_terms_read_and_agree_next_format">&#160;<u>Geschäftsbedingungen</u></string>
+    <string name="a400_welcome_name_title">Nennen Sie Ihren Handwerker</string>
+    <string name="a400_welcome_wifi_choose_a_network_title">Wähle ein Netzwerk</string>
+    <string name="a400_welcome_choose_language">Wählen Sie eine Sprache</string>
+
+    <!--  Deprecated resources -->
+    <string name="setting_language_chinese">Chinese</string>
+    <string name="setting_language_english">English</string>
+    <string name="setting_language_deutsch">German</string>
+    <string name="setting_language_Français">French</string>
+    <string name="setting_language_japanese">Japanese</string>
+
+    <string name="setting_center_clanguage_chinese">中文</string>
+    <string name="setting_center_clanguage_english">English</string>
+    <string name="setting_center_clanguage_deutsch">Deutsch</string>
+    <string name="setting_center_clanguage_Français">Français</string>
+    <string name="setting_center_clanguage_japanese">日本語</string>
+</resources>

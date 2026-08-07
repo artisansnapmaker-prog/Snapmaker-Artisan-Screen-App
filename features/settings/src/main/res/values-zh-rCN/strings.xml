@@ -1,0 +1,307 @@
+<resources>
+    <string name="setting_language_chinese">Chinese</string>
+    <string name="setting_language_english">English</string>
+    <string name="setting_language_deutsch">German</string>
+    <string name="setting_language_Français">French</string>
+    <string name="setting_language_japanese">Japanese</string>
+
+    <string name="setting_center_clanguage_chinese">中文</string>
+    <string name="setting_center_clanguage_english">English</string>
+    <string name="setting_center_clanguage_deutsch">Deutsch</string>
+    <string name="setting_center_clanguage_Français">Français</string>
+    <string name="setting_center_clanguage_japanese">日本語</string>
+
+    <string name="a400_settings_remote_connection">远程连接</string>
+    <string name="a400_settings_remote_allow_remote_connection_title">允许远程连接控制</string>
+    <string name="a400_settings_remote_allow_remote_connection_content">允许通过 Snapmaker Luban 远程连接控制机器。</string>
+    <string name="a400_settings_remote_safe_mode_title">安全模式</string>
+    <string name="a400_settings_remote_safe_mode_content">通过 Snapmaker Luban 连接机器时，屏幕将被锁定无法操作。</string>
+
+    <string name="a400_settings_remote_connection_verification">连接验证</string>
+    <string name="a400_reset">重置</string>
+    <string name="a400_settings_maintenance_machine_information">机器信息</string>
+    <string name="a400_settings_restore_to_factory_settings">恢复出厂设置</string>
+    <string name="a400_reset_msg">您所有的数据和更新将被删除!</string>
+
+    <!-- Setting-->
+    <string name="j1_setting_about_machine_name">本机名称</string>
+    <string name="j1_setting_about_machine_model">本机型号</string>
+    <string name="j1_setting_about_ip_address">IP 地址</string>
+    <string name="j1_setting_about_mac_address">MAC 地址</string>
+    <string name="j1_setting_about_storage">存储</string>
+    <string name="j1_setting_about_build_volume">成型尺寸</string>
+    <string name="j1_setting_sys_logs">系统日志</string>
+    <string name="j1_setting_about_compliance_certification">合规声明</string>
+    <string name="j1_setting_about_compliance_certification_content"><b>FCC Compliance</b>
+\nThis device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) This device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
+\n\n <b>Note</b>: This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation.
+This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation.
+\nIf this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+\n- Reorient or relocate the receiving antenna.
+\n- Increase the separation between the equipment and receiver.
+\n- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+\n- Consult the dealer or an experienced radio/TV technician for help.
+\n\n<b>Caution</b>: Changes or Modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
+\n\n<b>FCC Radiation Exposure Statement</b>: This equipment complies with FCC radiation exposure limits set forth for an uncontrolled environment. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
+
+\n\n<b>ISEDC Compliance</b>
+\nThis device contains license-exempt transmitter(s)/receiver(s) that comply with Innovation, Science and Economic Development Canada’s license-exempt RSS(s). Operation is subject to the following two conditions:
+\n(1) This device may not cause interference.
+\n(2) This device must accept any interference, including interference that may cause undesired operation of the device.
+\nL’émetteur/récepteur exempt de licence contenu dans le présent appareil est conforme aux CNR d’Innovation, Sciences et Développement économique Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
+\n(1) L’appareil ne doit pas produire de brouillage
+\n(2) L’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+</string>
+    <string name="j1_setting_about_clear_cache">清除触控屏数据</string>
+    <string name="ji_settting_about_clean_cache">你确定要清除触控屏数据（但保留主控数据）吗？清除后，你需重新进行向导流程。</string>
+    <string name="j1_setting_about_usb_flash_drive">U 盘</string>
+
+    <string name="j1_setting_general_basic">常规</string>
+    <string name="j1_setting_general_wizard">向导</string>
+    <string name="j1_setting_general_advanced">高级</string>
+    <string name="j1_setting_general_extruder_left">断料续打—左打印头</string>
+    <string name="j1_setting_general_extruder_right">断料续打—左打印头</string>
+    <string name="j1_setting_general_light">照明</string>
+    <string name="j1_setting_general_factory_reset">恢复出厂设置</string>
+    <string name="j1_setting_general_factory_factory_reset_content">你确定要删除所有数据和本地文件，并恢复出厂设置吗？</string>
+    <string name="j1_setting_general_delete_data">你确定要删除所有本地文件和向导数据吗？</string>
+    <string name="j1_setting_machine_settings">机器设置</string>
+    <string name="j1_settings_user_experience_program">用户体验改进计划</string>
+    <string name="j1_settings_user_experience_program_content">亲爱的 Snapmaker 用户，
+\nSnapmaker 始终致力于提供超越用户期望的产品与服务。为帮助我们更好地了解、满足你的需求，提高产品质量和服务，Snapmaker 诚邀你参与我们的用户体验改进计划。若你同意参与用户体验改进计划，即表示你已仔细阅读并完全同意本协议（未成年人请在监护人的陪同下阅读）。 随着产品的改进，Snapmaker 可能会不定时更新本协议。如有任何变更，我们将在产品或相关页面的显着位置通知你。若你不接受此类变更，你有权随时选择退出 Snapmaker 用户体验改进计划。若你继续参与该计划，即表示你同意此类变更。
+
+\n\n<b>信息收集</b>
+\n一旦你同意加入用户体验改进计划，Snapmaker 将定期以匿名的方式收集你的设备信息及使用信息，收集该类信息的目的是为了帮助改进我们的产品和服务。
+在用户体验改进计划中，Snapmaker 仅收集你的以下信息：
+	    \n1. 机器的操作系统和固件版本
+		\n2. 偏好设置
+	    \n3. G 代码文件的内容细节和打印参数
+		\n4. 与机器交互时的特定行为数据（如点击、滑动、添加、删除等）
+
+\n\n<b>信息使用</b>
+\nSnapmaker 承诺遵守相关法律法规，并仅会将收集到的信息用于改进产品和服务。我们完全尊重你的隐私，并将严格依据隐私协议处理你在用户体验计划中提供的信息。我们将使用 Google Analytics（Google Analytics 遵守《通用数据保护条例》）。受制于 IP 匿名化限制，我们不会且无法单独获取或者跟踪你的 IP 地址、数据等信息。
+
+\n\n<b>退出计划</b>
+\n你可以随时在设置 > 使用条款界面加入或退出 Snapmaker 用户体验改进计划。当你退出该计划后，我们将不再收集【信息收集】章节中提到的任何信息。  </string>
+
+    <string name="j1_setting_update_network_abonormal">网络异常</string>
+    <string name="j1_setting_update_already_latest">已是最新版</string>
+    <string name="j1_setting_update_firmware_downloaded">固件已下载</string>
+    <string name="j1_setting_update_unable_t_check_for_update">无法检查更新</string>
+    <string name="j1_setting_update_unable_t_check_for_update_content">因机器未联网，系统无法检查固件的版本更新。</string>
+    <string name="a400_replace_module_intro_main_desc">接下来，屏幕将会引导你更换模组。更换完毕后，主板将自动重启。</string>
+    <string name="a400_replace_module_switch_mode">切换工作模式</string>
+    <string name="a400_replace_module_title">更换模组</string>
+    <string name="all_firmware_update">固件更新</string>
+    <string name="all_module_assistant">模组助手</string>
+    <string name="all_about_machine">关于本机</string>
+    <string name="all_maintenance">机器维护</string>
+    <string name="all_terms_and_conditions">使用条款</string>
+    <string name="a400_maintenance_machine_info_title">机器信息</string>
+    <string name="all_online">在线</string>
+    <string name="all_offline">离线</string>
+    <string name="all_on">开</string>
+    <string name="all_off">关</string>
+    <string name="all_open">开启</string>
+    <string name="all_closed">关闭</string>
+    <string name="all_fan_speed">风扇速度</string>
+    <string name="all_cover">净化器内盖</string>
+    <string name="all_filter_detection_title">滤芯检测</string>
+    <string name="all_led_strip_title">LED 灯条</string>
+    <string name="all_enclosure_door_title">外罩门</string>
+    <string name="a400_machine_info_camera_connection_title">摄像头</string>
+    <string name="a400_machine_info_fire_sensor_title">火焰传感器</string>
+    <string name="all_exhaust_fan_title">排气扇</string>
+    <string name="all_limit_switch_title">限位开关</string>
+    <string name="all_temperature_title">温度</string>
+    <string name="all_rh_title">湿度</string>
+    <string name="a400_machine_info_heat_circulation_fan_title">热循环风扇</string>
+    <string name="a400_machine_info_is_drying_title">烘干</string>
+    <string name="a400_machine_info_spindle_speed_title">主轴转速</string>
+    <string name="a400_machine_info_laser_power_title">激光功率</string>
+    <string name="a400_machine_info_orientation_detect_title">姿态检测</string>
+    <string name="a400_machine_info_laser_emitter_temp_title">激光器温度</string>
+    <string name="a400_machine_info_nozzle_temp_title">喷嘴温度</string>
+    <string name="a400_machine_info_filament_detect_title">断料检测</string>
+    <string name="a400_machine_info_part_cooling_fan_title">模型冷却风扇</string>
+    <string name="a400_machine_info_heat_dissipation_fan">散热风扇</string>
+    <string name="a400_machine_info_left_nozzle_temp_title">左喷嘴温度</string>
+    <string name="a400_machine_info_right_nozzle_temp_title">右喷嘴温度</string>
+    <string name="a400_machine_info_filament_detect_l_title">左喷嘴断料检测</string>
+    <string name="a400_machine_info_filament_detect_r_title">右喷嘴断料检测</string>
+    <string name="a400_machine_info_left_part_cooling_fan_title">左模型冷却风扇</string>
+    <string name="a400_machine_info_right_part_cooling_fan_title">右模型冷却风扇</string>
+    <string name="all_linear_module_x_title">X 轴直线模组</string>
+    <string name="all_linear_module_y1_title">直线模组 Y1</string>
+    <string name="all_linear_module_z1_title">直线模组 Z1</string>
+    <string name="all_linear_module_z2_title">直线模组 Z2</string>
+    <string name="a400_about_please_connect_luban_first">Please connect Luban to the machine first.</string>
+    <string name="all_main_board">控制器</string>
+    <string name="replace_module_title">更换模组</string>
+    <string name="replace_module_initialize_2_3">初始化（2/3）</string>
+    <string name="replace_module_confirm_title">确认已更换模组</string>
+    <string name="replace_module_recognition_fail">识别失败</string>
+    <string name="replace_module_fail_dialog_content">检查所有连接线是否已正确连接，确认后点击<b>重试</b>，主板将自动重启。若重启后仍失败，请通过 support@snapmaker.com 联系技术支持。</string>
+    <string name="replace_module_calibrate_module">校准模组</string>
+    <string name="replace_module_home_screen_title">返回主界面</string>
+    <string name="all_skip_calibration">无需校准</string>
+    <string name="a400_settings_module_assist_title">模组助手</string>
+    <string name="replace_module_need_calibration_desc">以下模组需要校准，请点击<b>校准模组</b>以继续。</string>
+    <string name="replace_module_complete_desc">恭喜！你已完成模组更换。</string>
+    <string name="replace_hotend_pull_filament_out_tips">请拔出耗材</string>
+    <string name="replace_hotend_mainboard_updating_tips">主板重启中...</string>
+    <string name="replace_hotend_stop_replace">停止更换</string>
+    <string name="replace_hotend_stop_replace_desc">你尚未完成热端更换，确定要停止吗？</string>
+    <string name="replace_hotend_title">更换热端</string>
+    <string name="replace_hotend_set_heating_temp">设置便于退料的喷嘴温度（1/6）</string>
+    <string name="replace_hotend_heat_nozzle_2_6">加热喷嘴（2/6）</string>
+    <string name="replace_hotend_manual_unloading">手动退料（3/6）</string>
+    <string name="replace_hotend_nozzle_cooldown">冷却喷嘴（4/6）</string>
+    <string name="all_initialize_title">初始化</string>
+    <string name="replace_hotend_l_nozzle_temp_title">左喷嘴</string>
+    <string name="replace_hotend_r_nozzle_temp_title">右喷嘴</string>
+    <string name="replace_hotend_z_calibration">Z 轴偏移校准</string>
+    <string name="all_loading_please_wait">请稍等...</string>
+    <string name="maintainence_config_params_title">配置参数</string>
+    <string name="a400_maintenance_config_single_extruder_initial_z_title">Z 轴偏移量</string>
+    <string name="a400_maintenance_config_left_extruder_initial_z_title">左喷嘴 Z 轴偏移量</string>
+    <string name="a400_maintenance_config_right_extruder_initial_z_title">右喷嘴 Z 轴偏移量</string>
+    <string name="a400_maintenance_config_double_extruder_x_offset_title">X 轴偏移量</string>
+    <string name="a400_maintenance_config_double_extruder_y_offset_title">Y 轴偏移量</string>
+    <string name="a400_maintenance_config_laser_focal_len_title">激光焦距</string>
+    <string name="a400_maintenance_config_platform_height_title">平台高度</string>
+    <string name="a400_maintenance_config_rotary_central_axis_height_title">中轴线高度</string>
+    <string name="a400_maintenance_config_fire_sensor_sensitivity_title">火焰传感器灵敏度</string>
+    <string name="a400_maintenance_config_indicator_x_offset_title">十字激光指示器 X 方向偏移</string>
+    <string name="a400_maintenance_config_indicator_y_offset_title">十字激光指示器 Y 方向偏移</string>
+    <string name="a400_maintenance_config_laser_indicator_power">弱光出光功率（%）</string>
+
+    <string name="a400_settings_set_dual_extruder_version_failed_undefined_error_msg">错误码： %d</string>
+    <string name="a400_settings_set_dual_extruder_version_failed_200_error_msg">错误码： %d 双喷嘴模组版本不支持。</string>
+    <string name="a400_settings_set_dual_extruder_version_failed_201_error_msg">错误码： %d 参数非法。</string>
+    <string name="a400_settings_set_dual_extruder_version_failed_202_error_msg">错误码： %d 当前模组不支持 V2。</string>
+    <string name="a400_settings_set_dual_extruder_version_failed_203_error_msg">错误码： %d 当前模组仅支持 V2。</string>
+
+    <string name="a400_settings_set_laser_indicator_power_failed_title">设置弱光出光功率失败</string>
+    <string name="a400_settings_set_laser_indicator_power_failed_default_msg_format">错误码: %d</string>
+    <string name="a400_settings_set_laser_indicator_power_failed_timeout_msg_format">错误码: %d 机器响应超时。</string>
+
+    <string name="input_machine_name_title">机器名称</string>
+    <string name="replace_hotend_intro_content">接下来，屏幕将会引导你更换热端。更换完毕后，主板将自动重启。</string>
+    <string name="replace_hotend_do_replace_title">请更换热端</string>
+    <string name="replace_hotend_do_replace_content">请拆下原热端，并安装新热端。</string>
+    <string name="a400_settings_update_success_restart_now">立即重启</string>
+    <string name="a400_settings_terms_and_conditions_title">使用条款</string>
+    <string name="a400_firmware_update_local_update_title">本地更新</string>
+    <string name="a400_firmware_update_firm_version_title">固件版本 %s</string>
+    <string name="a400_firmware_update_new_update_available">发现新版本</string>
+    <string name="a400_firmware_update_new_version_downloaded">已下载最新的固件版本</string>
+    <string name="a400_firmware_update_download_fail">下载失败</string>
+    <string name="a400_settings_export_log_to_usb_popup_title">到 U 盘</string>
+    <string name="a400_settings_export_log_to_luban_popup_title">到 Snapmaker Luban</string>
+    <string name="all_updating">更新中...</string>
+    <string name="update_j1_updating_tips">Keep the machine powered on during updating</string>
+    <string name="update_checking_update_">检查更新中...</string>
+    <string name="a400_module_assist_current_plug_in_modules_title">当前连接模组</string>
+    <string name="a400_settings_about_work_area_title">工作区域</string>
+    <string name="a400_settings_about_ip_address_title">IP 地址</string>
+    <string name="a400_settings_about_mac_address_title">MAC 地址</string>
+    <string name="a400_settings_about_sn_title">序列号</string>
+    <string name="a400_settings_about_verify_code_title">验证码</string>
+    <string name="a400_settings_about_storage_title">存储</string>
+    <string name="a400_settings_about_system_logs_title">系统日志</string>
+    <string name="a400_settings_about_compliance_certification_title">合规认证</string>
+    <string name="a400_settings_about_clear_cache_title">删除所有 G 代码和缓存</string>
+    <string name="a400_settings_replace_module_complete_title">模组更换完成</string>
+    <string name="a400_settings_replace_hotend_nozzle_cooling_down_tips">正在冷却喷嘴至 45℃，请稍等</string>
+    <string name="a400_settings_replace_nozzle_heating_the_nozzle_title">喷嘴加热中...</string>
+    <string name="a400_settings_machine_info_dual_extrusion_module_title">双喷头模组</string>
+    <string name="a400_settings_machine_info_single_extrusion_module_title">单喷头模组</string>
+    <string name="a400_settings_machine_info_10w_laser_module_title">10W 激光模组</string>
+    <string name="a400_settings_machine_info_1600mw_laser_module_title">1600mW 激光模组</string>
+    <string name="a400_settings_machine_info_20w_laser_module_title">20W 激光模组</string>
+    <string name="a400_settings_machine_info_40w_laser_module_title">40W 激光模组</string>
+    <string name="a400_settings_machine_info_2w_laser_module_title">2W 激光模组</string>
+    <string name="a400_settings_machine_info_filament_dryer_title">耗材干燥箱</string>
+    <string name="a400_settings_update_success_restart_to_apply_desc">本次已更新的硬件（重启后生效）</string>
+    <string name="a400_settings_update_success_will_update_when_plugged_in">连接到机器时将自动更新的硬件</string>
+    <string name="a400_settings_update_success_hardware_updated">本次已更新的硬件</string>
+    <string name="j1_update_success_the_update_has_been_installed">The update has been installed</string>
+    <string name="a400_setting_unstable_network_connection">请检查网络连接后重试</string>
+    <array name="a400_settings_remote_connection_verification_mode_array">
+        <item>仅首次连接</item>
+        <item>每次连接</item>
+    </array>
+    <string name="a400_setting_Export">导出</string>
+    <string name="a400_maintenance_config_params_fdm_title">3D 打印校准参数</string>
+    <string name="a400_maintenance_config_params_laser_title">激光校准参数</string>
+    <string name="a400_replace_module_switch_mode_desc">若要更换执行头、直线模组、旋转模组或热床，请启用该开关。<b>若要更换其他扩展组件，请务必关闭该开关</b>。</string>
+    <string name="a400_replace_module_restarting_desc">主板重启中...</string>
+    <string name="a400_replace_module_success_tips">初始化成功，请确认已更换的模组和扩展组件。</string>
+    <string name="a400_replace_module_confirm_removed_title">移除的模组和扩展组件</string>
+    <string name="a400_replace_module_confirm_added_title">新增的模组和扩展组件</string>
+    <string name="a400_firmware_update_firmware">固件版本：</string>
+    <string name="a400_settings_about_machine_name_title">本机名称</string>
+    <string name="a400_settings_about_machine_model_title">本机型号</string>
+    <string name="a400_settings_about_certification_page_title">合规认证</string>
+    <string name="a400_settings_about_certification_page_content">内容</string>
+    <string name="a400_settings_factory_reset_title">恢复出厂设置</string>
+    <string name="a400_settings_factory_reset_msg">恢复出厂设置将会清除所有数据和本地文件，你确定要继续吗？清除后，你需要重新进行初始化流程。</string>
+    <string name="a400_settings_clean_cache_title">清除所有 G 代码和缓存</string>
+    <string name="a400_settings_clean_cache_msg">你确定要清除所有 G 代码和缓存吗？所有本地 G 代码以及日志文件等缓存数据将被清空。</string>
+    <string name="a400_settings_replace_module_power_off_title">机器即将断电</string>
+    <string name="a400_settings_replace_module_power_off_msg">机器即将断开集成控制器接口的供电，点击<b>下一步</b>以继续。</string>
+
+    <string name="a400_replace_module_all_modules_power_off">已断开当前所有模组的供电</string>
+    <string name="a400_replace_module_mode_off_tip_1_title">执行头 &amp; 旋转模组</string>
+    <string name="a400_replace_module_mode_off_tip_1">1. 请拆下原模组、装上新模组，并更换至对应的工作平台。\n2. 确认所有连接线均正确连接后，点击<b>下一步</b>。</string>
+    <string name="a400_replace_module_mode_off_tip_2_title">扩展组件</string>
+    <string name="a400_replace_module_mode_off_tip_2">1. 请拆下想要移除的模组，或装上想要新增的模组。\n2. 确认所有连接线均正确连接后，点击<b>下一步</b>。</string>
+    <string name="a400_replace_module_tap_help_tips">如需查看更详细的操作指引，请点击 {icon} 按钮。</string>
+    <string name="a400_replace_module_instruction_warning_1">已断开除外罩外当前所有模组的供电</string>
+    <string name="a400_replace_module_instruction_warning_2">更换过程中请勿断开外罩模组的连接</string>
+    <string name="a400_settings_replace_module_restart_required_title">需要重启</string>
+    <string name="a400_settings_replace_module_restart_required_msg">请确认你已完成模组更换，然后点击重启。随后主板将自动<b>重启</b>。</string>
+    <string name="a400_replace_module_instruction_tip_2">确认所有连接线均正确连接后，点击<b>下一步</b>。</string>
+    <string name="a400_replace_module_instruction_tip_1">请拆下原模组，并装上新模组。</string>
+    <string name="a400_settings_replace_module_na">无</string>
+    <string name="a400_settings_replace_module_to_guide_desc">初始化指引</string>
+    <string name="a400_settings_replace_hotend_manual_unload_desc">点击下方按钮为左喷嘴或右喷嘴退料。</string>
+    <string name="a400_settings_replace_hotend_unload_l_filament">左喷嘴退料</string>
+    <string name="a400_settings_replace_hotend_unload_r_filament">右喷嘴退料</string>
+    <string name="a400_settings_replace_module_mode_keep4pinOn_operable_tip">已断开集成控制器以下接口的供电：
+        \n·执行头
+        \n·X、Y、Z（直线模组）
+        \n·Motion 1、Motion 2（旋转模组）
+        \n·热床</string>
+    <string name="a400_settings_replace_module_mode_keep_4pin_on_inoperable_tip">请勿拔、插以下模组：
+        \n·外罩
+        \n·空气净化器
+        \n·耗材干燥箱</string>
+    <string name="a400_settings_replace_module_mode_keep_4pin_on_step_tip">1.请拆下原模组，装上新模组，并更换至对应的工作平台。
+        \n2.确认所有连接线均正确连接后，点击<b>下一步</b>。
+</string>
+    <string name="a400_settings_replace_module_mode_keep_4pin_off_operable_tip">已断开当前所有模组对应接口的供电</string>
+    <string name="a400_settings_replace_module_mode_keep_4pin_off_inoperable_tip">请勿拔、插以下模组：
+        \n·执行头
+        \n·直线模组
+        \n·旋转模组
+        \n·热床</string>
+    <string name="a400_settings_replace_module_mode_keep_4pin_off_step_tip">1.请拆下想要移除的模组，或装上想要新增的模组。
+        \n2.确认所有连接线均正确连接后，点击<b>下一步</b>。
+</string>
+    <string name="a400_settings_module_assistant_unloading_check_title">退料提示</string>
+    <string name="a400_settings_module_assistant_unloading_check_message">在更换 3D 打印模组之前，请先进行退料，将耗材从模组中取出。</string>
+    <string name="a400_settings_module_assistant_unloading_check_unloaded">确认</string>
+    <string name="a400_settings_two_point_o_old_update_title">更新固件</string>
+    <string name="a400_settings_two_point_o_old_update_main_message">当前的固件版本暂不支持 2.0 执行头，请按照以下步骤操作：</string>
+    <string name="a400_settings_two_point_o_old_update_message">1.前往 https://support.snapmaker.com 下载最新固件并保存至 U 盘；\n
+2.将 U 盘插入机器，然后点击<b>本地更新</b>。</string>
+    <string name="a400_settings_two_point_o_old_update_emergency_escape_exit_content">紧急逃生出口已触发，请问是否继续？</string>
+
+
+    <string name="a400_settings_module_assistant_park_toolhead_bed">移动执行头和热床至易于更换的位置</string>
+
+    <string name="a400_dialog_settings_wifi_password_length_invalid_title">密码不合法</string>
+    <string name="a400_dialog_settings_wifi_password_length_invalid_desc">密码需包含 8 到 63 个字符，请重新检查密码是否正确。</string>
+</resources>

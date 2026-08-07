@@ -1,0 +1,208 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <string name="a400_settings_remote_connection">Remote-Verbindung</string>
+    <string name="a400_settings_remote_allow_remote_connection_title">Remote-Verbindung zulassen</string>
+    <string name="a400_settings_remote_allow_remote_connection_content">Erlauben Sie Snapmaker Luban, sich mit dieser Maschine zu verbinden und sie zu steuern.</string>
+    <string name="a400_settings_remote_safe_mode_title">Abgesicherter Modus</string>
+    <string name="a400_settings_remote_safe_mode_content">Wenn Sie mit Luban verbunden sind, wird der Touchscreen deaktiviert.</string>
+    <string name="a400_settings_remote_connection_verification">Verbindungsabfrage</string>
+    <array name="a400_settings_remote_connection_verification_mode_array">
+        <item>Nur das erste Mal</item>
+        <item>Immer</item>
+    </array>
+    <string name="a400_settings_terms_experience_improvement_page_title">Programm zur Verbesserung der Benutzerfreundlichkeit</string>
+    <string name="a400_settings_terms_experience_improvement_page_content">Inhalt</string>
+    <string name="a400_settings_about_certification_page_title">Compliance-Zertifizierung</string>
+    <string name="a400_settings_about_certification_page_content">Inhalt</string>
+    <string name="a400_settings_maintenance_machine_information">Maschineninformationen</string>
+    <string name="a400_settings_restore_to_factory_settings">Werkseinstellungen wiederherstellen</string>
+    <string name="a400_reset_msg">Alle Ihre Daten und Updates werden gelöscht!</string>
+    <string name="a400_replace_module_intro_main_desc">Der Bildschirm führt Sie an, um das Modul zu ersetzen. Nach dem Austausch wird das Mainboard automatisch neu gestartet.</string>
+    <string name="a400_replace_module_switch_mode">Schaltfunktionen</string>
+    <string name="a400_replace_module_title">Modul ersetzen</string>
+    <string name="a400_replace_module_switch_mode_desc">Schalten Sie dies ein, um den Werkzeugkopf, das Linearmodul, das Drehmodul oder das beheizte Bett zu ersetzen. Andernfalls müssen Sie dies ausschalten.</string>
+    <string name="a400_replace_module_instruction_tip_2">Stellen Sie sicher, dass alle Kabel korrekt angeschlossen sind, und tippen Sie dann auf <b>Weiter</b>.</string>
+    <string name="a400_replace_module_instruction_tip_1">Lösen Sie das vorhandene Modul und hängen Sie das neue Modul an.</string>
+    <string name="a400_replace_module_instruction_warning_1">Alle Module außer dem Gehäuse wurden ausgeschaltet</string>
+    <string name="a400_replace_module_instruction_warning_2">Trennen Sie das Gehäuse während des Austauschs NICHT</string>
+    <string name="a400_replace_module_mode_off_tip_1">1. Trennen Sie das vorhandene Modul, hängen Sie das neue Modul an und wechseln Sie dann zur entsprechenden Arbeitsplattform.\n2. Stellen Sie sicher, dass alle Kabel korrekt angeschlossen sind, und tippen Sie dann auf <b>Weiter</b>.</string>
+    <string name="a400_replace_module_mode_off_tip_2">1. Trennen Sie das vorhandene Modul, das Sie entfernen möchten, oder hängen Sie das neue Modul an, das Sie hinzufügen möchten.\n2. Stellen Sie sicher, dass alle Kabel korrekt angeschlossen sind, und tippen Sie dann auf <b>Weiter</b>.</string>
+    <string name="a400_replace_module_all_modules_power_off">Alle Module wurden ausgeschaltet</string>
+    <string name="a400_replace_module_mode_off_tip_1_title">Werkzeugkopf &amp; Drehmodul</string>
+    <string name="a400_replace_module_mode_off_tip_2_title">Addon</string>
+    <!-- use {icon} to insert icon with help of spannable string-->
+    <string name="a400_replace_module_tap_help_tips">Für detailliertere Anweisungen tippen Sie auf {icon}.</string>
+    <string name="a400_replace_module_restarting_desc">Das Mainboard wird neu gestartet...</string>
+    <string name="a400_replace_module_success_tips">Erfolgreich initialisiert. Bitte bestätigen Sie das ersetzte Modul und Addon.</string>
+    <string name="a400_replace_module_confirm_removed_title"><![CDATA[Modul & Addon entfernt]]></string>
+    <string name="a400_replace_module_confirm_added_title"><![CDATA[Modul & Addon hinzugefügt]]></string>
+    <string name="a400_replace_module_complete_module_need_calibrate_desc">Das folgende Modul muss kalibriert werden. Tippen Sie auf <b>Modul kalibrieren</b>, um fortzufahren.</string>
+    <string name="a400_replace_hotend_complete_desc">Die folgende Düse muss kalibriert werden. Tippen Sie auf <b>Z Offsetkalibrierung</b>, um fortzufahren.</string>
+    <string name="all_firmware_update">Firmware Update</string>
+    <string name="all_module_assistant">Assistent Modul</string>
+    <string name="all_about_machine">Über die Maschine</string>
+    <string name="all_maintenance">Wartung</string>
+    <string name="all_terms_and_conditions">Allgemeine Geschäftsbedingungen</string>
+    <string name="a400_maintenance_machine_info_title">Maschineninformationen</string>
+    <string name="all_online">Online</string>
+    <string name="all_offline">Offline</string>
+    <string name="all_on">An</string>
+    <string name="all_off">Aus</string>
+    <string name="all_open">Öffnen</string>
+    <string name="all_closed">Geschlossen</string>
+    <string name="all_fan_speed">Fan Speed</string>
+    <string name="all_limit_switch_title">Endschalter</string>
+    <string name="all_cover">Cover</string>
+    <string name="all_filter_detection_title">Filter Erkennung</string>
+    <string name="all_led_strip_title">LED Licht</string>
+    <string name="all_exhaust_fan_title">Gehäuse Lüfter</string>
+    <string name="all_enclosure_door_title">Gehäuse Tür</string>
+    <string name="all_temperature_title">Temperatur</string>
+    <string name="all_rh_title">Relative Luftfeuchtigkeit (RH)</string>
+    <string name="a400_machine_info_heat_circulation_fan_title">Wärmeumwälzventilator</string>
+    <string name="a400_machine_info_is_drying_title">Trocknen</string>
+    <string name="a400_machine_info_spindle_speed_title">Spindeldrehzahl</string>
+    <string name="a400_machine_info_laser_power_title">Laser Power</string>
+    <string name="a400_machine_info_orientation_detect_title">Orientierungserkennung.</string>
+    <string name="a400_machine_info_laser_emitter_temp_title">Laser Emitter Temp.</string>
+    <string name="a400_machine_info_camera_connection_title">Kameraverbindung</string>
+    <string name="a400_machine_info_nozzle_temp_title">Düse Temp.</string>
+    <string name="a400_machine_info_filament_detect_title">Filamenterkennung.</string>
+    <string name="a400_machine_info_part_cooling_fan_title">Bauteillüfter</string>
+    <string name="a400_machine_info_heat_dissipation_fan">Wärmeableitungsventilator</string>
+    <string name="a400_machine_info_left_nozzle_temp_title">Linke Düse Temp.</string>
+    <string name="a400_machine_info_right_nozzle_temp_title">Rechte Düse Temp.</string>
+    <string name="a400_machine_info_filament_detect_l_title">Filamenterkennung Links</string>
+    <string name="a400_machine_info_filament_detect_r_title">Filamenterkennung Rechts</string>
+    <string name="a400_machine_info_left_part_cooling_fan_title">Linker Bauteillüfter</string>
+    <string name="a400_machine_info_right_part_cooling_fan_title">Rechter Bauteillüfter</string>
+    <string name="all_linear_module_x_title">X-axis Linear Modul</string>
+    <string name="all_linear_module_y1_title">Linear Module Y1</string>
+    <string name="all_linear_module_z1_title">Linear Module Z1</string>
+    <string name="all_linear_module_y2_title">Linear Module Y2</string>
+    <string name="all_linear_module_z2_title">Linear Module Z2</string>
+    <string name="a400_about_please_connect_luban_first">Bitte verbinden Sie Luban zuerst mit der Maschine.</string>
+    <string name="all_main_board">Hauptplatine</string>
+    <string name="replace_module_title">Modul ersetzen</string>
+    <string name="replace_module_initialize_2_3">Initialisieren(2/3)</string>
+    <string name="replace_module_confirm_title">Ersetzendes Modul bestätigen&#160;</string>
+    <string name="replace_module_recognition_fail">Erkennung fehlgeschlagen</string>
+    <string name="replace_module_fail_dialog_content">Überprüfen Sie, ob alle Kabel korrekt angeschlossen sind. Wenn ja, tippen Sie auf <b>Wiederholen</b>, und das Mainboard wird neu gestartet. Wenn das Problem weiterhin besteht, wenden Sie sich bitte an unseren Support unter support@snapmaker.com.</string>
+    <string name="replace_module_calibrate_module">Kalibriermodul</string>
+    <string name="replace_module_home_screen_title">Startbildschirm</string>
+    <string name="all_skip_calibration">Kalibrierung überspringen</string>
+    <string name="a400_settings_module_assist_title">Assistent Modul</string>
+    <string name="replace_module_need_calibration_desc">Das folgende Modul muss kalibriert werden. Tippen Sie auf <b>Modul kalibrieren</b>, um fortzufahren.</string>
+    <string name="replace_module_complete_desc">Herzlichen Glückwunsch! Sie haben den Modulaustausch abgeschlossen.</string>
+    <string name="replace_hotend_pull_filament_out_tips">Ziehen Sie das Filament aus der Düse.</string>
+    <string name="replace_hotend_mainboard_updating_tips">Das Mainboard wird neu gestartet...</string>
+    <string name="replace_hotend_stop_replace">Austausch stoppen</string>
+    <string name="replace_hotend_stop_replace_desc">Der Hot-End-Austausch ist noch nicht abgeschlossen. Willst du es stoppen?</string>
+    <string name="replace_hotend_title">Hot End tauschen</string>
+    <string name="replace_hotend_set_heating_temp">Stellen Sie die Temperatur für das Entladen ein (1/6)</string>
+    <string name="replace_hotend_heat_nozzle_2_6">Düse Heizen (2/6)</string>
+    <string name="replace_hotend_manual_unloading">Manuelles Entladen (3/6)</string>
+    <string name="replace_hotend_nozzle_cooldown">Düsenabklingzeit (4/6)</string>
+    <string name="all_initialize_title">Initialisieren</string>
+    <string name="replace_hotend_l_nozzle_temp_title">L Düse Temp.</string>
+    <string name="replace_hotend_r_nozzle_temp_title">R Düse Temp.</string>
+    <string name="replace_hotend_z_calibration">Z Offset Kalibrierung</string>
+    <string name="replace_hotend_skip_calibration">Kalibrierung überspringen</string>
+    <string name="replace_hotend_complete_title">Hot End getauscht</string>
+    <string name="replace_hotend_intro_content">Der Bildschirm führt Sie an, um das heiße Ende zu ersetzen. Nach dem Austausch wird das Mainboard automatisch neu gestartet.</string>
+    <string name="replace_hotend_do_replace_title">Tauschen Sie das Hot End</string>
+    <string name="replace_hotend_do_replace_content">Lösen Sie das vorhandene Hot-End und befestigen Sie das neue Hot-End.</string>
+    <string name="all_loading_please_wait">Bitte warten...</string>
+    <string name="a400_maintenance_config_params_fdm_title">3D-Druck-Kalibrierungsparameter</string>
+    <string name="a400_maintenance_config_params_laser_title">Laserkalibrierungsparameter</string>
+    <string name="a400_maintenance_config_single_extruder_initial_z_title">Z Offset</string>
+    <string name="a400_maintenance_config_left_extruder_initial_z_title">Z Offset - Linke Düse</string>
+    <string name="a400_maintenance_config_right_extruder_initial_z_title">Z Offset - Rechte Düse</string>
+    <string name="a400_maintenance_config_double_extruder_x_offset_title">X Offset</string>
+    <string name="a400_maintenance_config_double_extruder_y_offset_title">Y Offset</string>
+    <string name="a400_maintenance_config_laser_focal_len_title">Brennweite</string>
+    <string name="a400_maintenance_config_platform_height_title">Plattformhöhe</string>
+    <string name="a400_maintenance_config_rotary_central_axis_height_title">Höhe der zentralen Achse</string>
+    <string name="a400_settings_update_success_restart_now">Jetzt neu starten</string>
+    <string name="a400_settings_terms_and_conditions_title">Allgemeine Geschäftsbedingungen</string>
+    <string name="a400_firmware_update_local_update_title">Lokales Update</string>
+    <string name="a400_firmware_update_firm_version_title">Firmware Version %s</string>
+    <string name="a400_firmware_update_firmware">"Firmware: "</string>
+    <string name="a400_firmware_update_new_update_available">Update verfügbar</string>
+    <string name="a400_firmware_update_new_version_downloaded">Neueste Version heruntergeladen</string>
+    <string name="a400_firmware_update_download_fail">Download fehlgeschlagen</string>
+    <string name="a400_settings_export_log_to_usb_popup_title">Zum USB-Flash-Laufwerk</string>
+    <string name="a400_settings_export_log_to_luban_popup_title">Zu Luban</string>
+    <string name="all_updating">Updating...</string>
+    <string name="a400_module_assist_current_plug_in_modules_title">Angeschlossenes Modul</string>
+    <string name="a400_settings_about_machine_name_title">Maschinenname</string>
+    <string name="a400_settings_about_machine_model_title">Maschinenmodell</string>
+    <string name="a400_settings_about_work_area_title">Arbeitsbereiche</string>
+    <string name="a400_settings_about_ip_address_title">IP Adresse</string>
+    <string name="a400_settings_about_mac_address_title">MAC Adresse</string>
+    <string name="a400_settings_about_sn_title">Seriennummer</string>
+    <string name="a400_settings_about_verify_code_title">Verifizierungscode</string>
+    <string name="a400_settings_about_storage_title">Speicher</string>
+    <string name="a400_settings_about_system_logs_title">System Logs</string>
+    <string name="a400_settings_about_compliance_certification_title">Compliance-Zertifizierung</string>
+    <string name="a400_settings_about_clear_cache_title">Löschen Sie alle G-Codes und Cache</string>
+    <string name="a400_settings_replace_module_complete_title">Modul ersetzt</string>
+    <string name="a400_settings_replace_hotend_nozzle_cooling_down_tips">Bitte warten Sie, bis die Düse auf 45°C abgekühlt ist</string>
+    <string name="a400_settings_replace_nozzle_heating_the_nozzle_title">Erhitzen der Düse...</string>
+    <string name="a400_settings_machine_info_dual_extrusion_module_title">Duales Extrusionsmodul</string>
+    <string name="a400_settings_machine_info_single_extrusion_module_title">Einzelnes Extrusionsmodul</string>
+    <string name="a400_settings_machine_info_10w_laser_module_title">10W Laser Modul</string>
+    <string name="a400_settings_machine_info_filament_dryer_title">Filamenttrockner</string>
+    <string name="a400_settings_machine_info_200w_cnc_module_title">200W CNC Modul</string>
+    <string name="a400_settings_update_success_restart_to_apply_desc">Aktualisierte Hardware (gültig nach dem Neustart)</string>
+    <string name="a400_settings_update_success_will_update_when_plugged_in">Hardware, die aktualisiert werden soll, wenn sie verbunden ist</string>
+    <string name="a400_settings_update_success_hardware_updated">Hardware aktualisiert</string>
+    <string name="a400_setting_unstable_network_connection">Überprüfen Sie die Netzwerkkonnektivität und versuchen Sie es erneut</string>
+    <string name="a400_setting_Export">Export</string>
+    <string name="a400_settings_factory_reset_title">Werkseinstellungen</string>
+    <string name="a400_settings_factory_reset_msg">Wenn Sie das Zurücksetzen auf die Werkseinstellungen anwenden, werden alle Daten und lokalen Dateien gelöscht. Sie müssen die Initialisierungsprozesse nach dem Zurücksetzen erneut durchführen.</string>
+    <string name="a400_settings_clean_cache_title">Löschen Sie alle G-Codes und Cache</string>
+    <string name="a400_settings_clean_cache_msg">Sind Sie sicher, dass Sie den gesamten G-Code und Cache löschen möchten? Alle lokalen G-Code-Dateien und Cache einschließlich Systemprotokolle werden gelöscht.</string>
+    <string name="a400_settings_replace_module_power_off_title">Maschine Wird Ausgeschaltet</string>
+    <string name="a400_settings_replace_module_power_off_msg">Die Anschlüsse des integrierten Controllers werden ausgeschaltet. Tippen Sie auf <b>Weiter</b>, um fortzufahren.</string>
+    <string name="a400_settings_replace_module_restart_required_title">Neustart erforderlich</string>
+    <string name="a400_settings_replace_module_restart_required_msg">Bestätigen Sie, dass Sie den Austausch des Moduls abgeschlossen haben, und tippen Sie dann auf <b>Neu starten</b>.</string>
+    <string name="a400_settings_replace_module_na">N/A</string>
+    <string name="a400_settings_replace_module_to_guide_desc">Initialisierung</string>
+    <string name="a400_settings_replace_hotend_manual_unload_desc">Tippen Sie, um die linke oder rechte Düse zu entladen.</string>
+    <string name="a400_settings_replace_hotend_unload_l_filament">Linke Düse entladen</string>
+    <string name="a400_settings_replace_hotend_unload_r_filament">Rechte Düse entladen</string>
+    <string name="a400_settings_replace_module_mode_keep4pinOn_operable_tip">Die folgenden Anschlüsse am integrierten Controller wurden ausgeschaltet:
+\n·Toolhead
+\n·X, Y, Z (für Linearmodule)
+\n·Bewegung 1, Bewegung 2 (für Drehmodul)
+\n·Beheiztes Bett</string>
+    <string name="a400_settings_replace_module_mode_keep_4pin_on_inoperable_tip">Ziehen Sie die folgenden Module NICHT ab oder schließen Sie sie an:
+\n·Gehäuse
+\n·Luftreiniger
+\n·Filamenttrockner</string>
+    <string name="a400_settings_replace_module_mode_keep_4pin_on_step_tip">1.Trennen Sie das vorhandene Modul, hängen Sie das neue Modul an und wechseln Sie dann zur entsprechenden Arbeitsbühne.
+\n2. Stellen Sie sicher, dass alle Kabel korrekt angeschlossen sind, und tippen Sie dann auf <b>Weiter</b>. </string>
+    <string name="a400_settings_replace_module_mode_keep_4pin_off_operable_tip">Alle Ports der derzeit angeschlossenen Module wurden ausgeschaltet</string>
+    <string name="a400_settings_replace_module_mode_keep_4pin_off_inoperable_tip">Ziehen Sie die folgenden Module NICHT ab oder schließen Sie sie an:
+\n·Toolhead
+\n·Lineares Modul
+\n·Rotationsmodul
+\n·Beheiztes Bett
+    </string>
+    <string name="a400_settings_replace_module_mode_keep_4pin_off_step_tip">1.Trennen Sie das vorhandene Modul, das Sie entfernen möchten, oder hängen Sie das neue Modul an, das Sie hinzufügen möchten.
+\n2. Stellen Sie sicher, dass alle Kabel korrekt angeschlossen sind, und tippen Sie dann auf <b>Weiter</b>.
+    </string>
+    <string name="a400_settings_module_assistant_unloading_check_title">Entladeprüfung</string>
+    <string name="a400_settings_module_assistant_unloading_check_message">Bevor Sie das 3D-Druckmodul ersetzen, stellen Sie sicher, dass Sie das Filament zuerst aus dem Modul entladen haben.</string>
+    <string name="a400_settings_module_assistant_unloading_check_unloaded">Nicht geladen</string>
+    <string name="a400_settings_two_point_o_old_update_title">Firmware Update</string>
+    <string name="a400_settings_two_point_o_old_update_main_message">Die aktuelle Firmware-Version unterstützt die 2.0-Toolheads noch nicht. Bitte führen Sie die folgenden Schritte aus:</string>
+    <string name="a400_settings_two_point_o_old_update_message">1.Laden Sie die neueste Firmware von https://support.snapmaker.com herunter und speichern Sie sie auf einem USB-Flash-Laufwerk;\n
+        2.Stecken Sie das USB-Flash-Laufwerk in die Maschine und tippen Sie auf <b>Lokales Update</b>.</string>
+    <string name="a400_settings_two_point_o_old_update_emergency_escape_exit_content">Notaus wurde ausgelöst, möchten Sie fortfahren?</string>
+    <string name="a400_settings_module_assistant_park_toolhead_bed"><![CDATA[Werkzeugkopf & Bett Parken]]></string>
+    <string name="a400_dialog_settings_wifi_password_length_invalid_title">Passwort ungültig</string>
+    <string name="a400_dialog_settings_wifi_password_length_invalid_desc">Das Passwort muss 8 - 63 Zeichen enthalten, bitte überprüfen Sie das Passwort erneut.</string>
+
+</resources>

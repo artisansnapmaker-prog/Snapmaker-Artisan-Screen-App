@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="GradientCircularProgressBar">
+        <attr name="gcpb_indicator_width" format="reference|dimension" />
+        <attr name="gcpb_start_color" format="reference|color" />
+        <attr name="gcpb_end_color" format="reference|color" />
+        <attr name="gcpb_progress" format="integer" />
+        <attr name="gcpb_max_progress" format="integer" />
+    </declare-styleable>
+</resources>

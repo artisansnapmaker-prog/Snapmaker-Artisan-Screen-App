@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:id="@+id/v_container"
+        android:layout_width="580dp"
+        android:layout_height="336dp"
+        android:layout_marginTop="126dp"
+        android:background="@drawable/all_dialog_round_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/tv_heating_animation"
+        android:layout_width="112dp"
+        android:layout_height="112dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="@id/v_container"
+        app:layout_constraintStart_toStartOf="@id/v_container"
+        android:src="@drawable/pic_a400_leveling_bed_heating"
+        app:layout_constraintTop_toTopOf="@id/v_container" />
+
+    <TextView
+        android:id="@+id/tv_heating_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/a400_settings_replace_nozzle_heating_the_nozzle_title"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/v_container"
+        app:layout_constraintStart_toStartOf="@id/v_container"
+        app:layout_constraintTop_toBottomOf="@id/tv_heating_animation" />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tv_temp_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        tools:text="L Nozzle Temp. : -/-°C | R Nozzle Temp. : -/-°C"
+        android:textColor="#848484"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/v_container"
+        app:layout_constraintStart_toStartOf="@id/v_container"
+        app:layout_constraintTop_toBottomOf="@id/tv_heating_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

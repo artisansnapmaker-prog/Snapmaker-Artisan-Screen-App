@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_custom_keyboard"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/palette_black_transparent_80"
+    android:windowBackground="@color/transparent"
+    android:paddingTop="220dp">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:background="@color/palette_grey_mine_shaft">
+
+        <TextView
+            android:id="@+id/tv_keyboard_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:visibility="gone"
+            android:textColor="@color/palette_white_silver"
+            android:textSize="@dimen/font_size_24sp"
+            tools:text="@string/placeholder" />
+
+        <EditText
+            android:id="@+id/et_keyboard_inner_edit"
+            style="@style/AppTheme.EditText.CustomKeyboardEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_keyboard_title"
+            android:layout_centerHorizontal="true"
+            android:enabled="false"
+            android:gravity="center"
+            android:textAlignment="center"
+            tools:text="@string/placeholder" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/keyboard_view_rl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="36dp"
+        android:paddingBottom="36dp"
+        android:background="?attr/theme_color_section_detail_background">
+
+        <fabscreen.platform.core.ui.view.customkeyboard.FabKeyBoardView
+            android:id="@+id/keyboard_view_t9like_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="?attr/theme_color_section_detail_background"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:keyBackground="@drawable/btn_keyboard_key_123"
+            android:keyTextColor="@color/palette_white_pure"
+            android:keyTextSize="@dimen/font_size_34sp"
+            android:labelTextSize="@dimen/font_size_34sp"
+            android:shadowColor="@color/black"
+            android:shadowRadius="0.0"
+            android:visibility="gone" />
+
+        <fabscreen.platform.core.ui.view.customkeyboard.FabKeyBoardView
+            android:id="@+id/keyboard_view_qwerty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="?attr/theme_color_section_detail_background"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:keyBackground="@drawable/btn_keyboard_abc_key"
+            android:keyTextColor="@color/palette_white_pure"
+            android:keyTextSize="@dimen/font_size_34sp"
+            android:labelTextSize="@dimen/font_size_34sp"
+            android:shadowColor="@color/black"
+            android:shadowRadius="0.0"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>

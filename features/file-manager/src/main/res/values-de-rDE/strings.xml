@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--A400-->
+    <string name="a400_browse_file">Datei:&#160;</string>
+    <string name="all_usb">USB</string>
+    <string name="all_browser_back_to_uppper_level_title">Zurück</string>
+    <string name="all_browse_storage_empty">Leer</string>
+    <string name="a400_file_return_to_previous_menu">Zurück zum vorherigen Menü</string>
+    <string name="a400_file_manager_a400_procedure_start_confirm_dialog_title">%s Starten</string>
+    <string name="a400_file_manager_a400_procedure_start_confirm_dialog_content_3dp">Reinigen Sie die Glasbauplatte und die Düsen, bevor Sie auf <b>Weiter</b> tippen.</string>
+
+    <string name="a400_copy_successfully">Kopiert</string>
+    <string name="a400_delete_successfully">Gelöscht</string>
+    <string name="a400_browse_copy_error">Fehler beim Kopieren</string>
+    <string name="a400_browse_delete_error">Fehler beim Löschen</string>
+    <string name="all_browse_deleting">Löschen...</string>
+
+    <string name="all_browse_copying_to_usb">Kopieren der Datei auf USB...</string>
+    <string name="all_browse_copying_to_local">Kopieren der Datei nach Local...</string>
+    <string name="all_browse_copy_to_usb">Auf USB kopieren</string>
+    <string name="all_browse_copy_to_local">Nach lokal kopieren</string>
+    <string name="all_browse_usb_not_recognized">USB-Flash-Laufwerk wird nicht erkannt</string>
+    <string name="all_browse_usb_not_recognized_content">Bitte schließen Sie das USB-Flash-Laufwerk wieder an oder ersetzen Sie es. Mögliche Ursache: \n
+
+1. Das Dateisystem des USB-Flash-Laufwerks ist nicht FAT32. \n
+
+2. Das USB-Flash-Laufwerk hat eine Fehlfunktion.
+    </string>
+
+    <string name="a400_file_detail_dialog_inconsistent_tool_head_title">Inkonsistenter Werkzeugkopf</string>
+    <string name="a400_file_detail_dialog_inconsistent_tool_head_message">Der durch die G-Code-Datei definierte Toolhead ist unvereinbar mit dem der Maschine, was Probleme verursachen kann. Möchtest du weitermachen?</string>
+    <string name="a400_file_detail_dialog_inconsistent_tool_head_tip">Datei: %s\nMaschine: %s</string>
+    <string name="a400_file_detail_dialog_inconsistent_tool_head_3dp">Single Extrusion Modul</string>
+    <string name="a400_file_detail_dialog_inconsistent_tool_head_3dp_double">Dual Extrusion Modul</string>
+    <string name="a400_file_detail_dialog_inconsistent_tool_head_cnc">CNC Modul</string>
+    <string name="a400_file_detail_dialog_inconsistent_tool_head_cnc_200">200W CNC Modul</string>
+    <string name="a400_file_detail_dialog_inconsistent_tool_head_laser">1600mW Laser Modul</string>
+    <string name="a400_file_detail_dialog_inconsistent_tool_head_laser_10">10W Laser Modul</string>
+    <string name="a400_file_detail_dialog_inconsistent_nozzle_diameter_title">Inconsistent Düse Durchmesser</string>
+    <string name="a400_file_detail_dialog_inconsistent_nozzle_diameter_warm_tip_file">Datei:</string>
+    <string name="a400_file_detail_dialog_inconsistent_nozzle_diameter_warm_tip_machine">Maschine:</string>
+    <string name="a400_file_detail_dialog_inconsistent_nozzle_diameter_warm_tip_left"> Düse L - %s </string>
+    <string name="a400_file_detail_dialog_inconsistent_nozzle_diameter_warm_tip_right"> Düse R - %s</string>
+    <string name="a400_file_detail_dialog_inconsistent_nozzle_diameter_message">Der durch die G-Code-Datei definierte Düsendurchmesser stimmt nicht mit dem der Maschine überein, was zu Problemen führen kann. Möchtest du weitermachen?</string>
+
+    <string name="a400_file_detail_tool_head_title">Werkzeugkopf</string>
+    <string name="a400_file_detail_3_axis_title">3-axis</string>
+    <string name="a400_file_detail__4_axis_title">4-axis</string>
+    <string name="a400_file_detail_job_type_title">Job Type</string>
+    <string name="a400_file_detail_work_size_title">Arbeitsgröße</string>
+    <string name="a400_file_detail_work_origin_title">Arbeits Nullpunkt</string>
+    <string name="a400_file_detail_layer_number_layer_ht_title">Schichtnummer / Schichth.</string>
+    <string name="a400_file_detail_material_required_title">Benötigtes Material</string>
+    <string name="a400_file_detail_warning_info_empty_desc">Für diesen G-Code sind keine verfügbaren Informationen verfügbar. Sie können Snapmaker Luban verwenden, um Ihren G-Code zu generieren und es dann erneut zu versuchen.</string>
+    <string name="all_file_details_filament">Filament</string>
+    <string name="all_file_details_nozzle_temp">Düse Temp.</string>
+    <string name="all_file_details_nozzle_diameter">Düsendurchmesser</string>
+    <string name="all_file_details_heated_bed_temp">Heizbett Temp.</string>
+    <string name="all_file_details_estimated_time">Geschätzte Zeit</string>
+
+    <string name="a400_browse_file_detail_fdm_heated_bed_mode_title">Heizbett Bereich</string>
+    <string name="a400_popup_fdm_heated_bed_mode_whole_bed">Ganzes Bett</string>
+    <string name="a400_popup_fdm_heated_bed_mode_inner_zone">Innere Zone</string>
+
+
+    <!--  Deprecated resources -->
+    <string name="browser_usb_not_recognized_title">USB-Flash-Laufwerk wird nicht erkannt</string>
+    <string name="browser_usb_not_recognized_content">Bitte schließen Sie das USB-Flash-Laufwerk wieder an oder ersetzen Sie es. Mögliche Ursache: \n1. Das Dateisystem des USB-Flash-Laufwerks ist nicht FAT32. \n2. Das USB-Flash-Laufwerk hat eine Fehlfunktion.</string>
+    <string name="browser_sort_by_date_ascending">Datum (aufsteigend)</string>
+    <string name="browser_sort_by_date_descending">Datum (absteigend)</string>
+    <string name="browser_sort_by_name_ascending">Name (aufsteigend)</string>
+    <string name="browser_sort_by_name_descending">Name (absteigend)</string>
+</resources>

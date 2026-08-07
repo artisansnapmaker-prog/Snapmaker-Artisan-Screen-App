@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="center_vertical">
+        <shape android:shape="oval">
+            <stroke
+                android:width="10dp"
+                android:color="?attr/theme_color_accent_success" />
+        </shape>
+    </item>
+    <item
+        android:bottom="17dp"
+        android:end="17dp"
+        android:start="17dp"
+        android:top="17dp">
+
+        <shape android:shape="oval">
+            <stroke
+                android:width="2dp"
+                android:color="?attr/theme_color_card_view_gradient_start" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="12dp"
+    android:keyWidth="107dp"
+    android:keyHeight="80dp"
+    android:verticalGap="12dp" >
+
+    <!--  Qwerty First Row  -->
+    <!--  1 2 3 4 5 6 7 8 9 0  -->
+    <Row>
+        <Key
+            android:codes="49"
+            android:horizontalGap="0.3%p"
+            android:keyEdgeFlags="left"
+            android:keyLabel="1" />
+        <Key
+            android:codes="50"
+            android:keyLabel="2" />
+        <Key
+            android:codes="51"
+            android:keyLabel="3" />
+        <Key
+            android:codes="52"
+            android:keyLabel="4" />
+        <Key
+            android:codes="53"
+            android:keyLabel="5" />
+        <Key
+            android:codes="54"
+            android:keyLabel="6" />
+        <Key
+            android:codes="55"
+            android:keyLabel="7" />
+        <Key
+            android:codes="56"
+            android:keyLabel="8" />
+        <Key
+            android:codes="57"
+            android:keyLabel="9" />
+        <Key
+            android:codes="48"
+            android:keyEdgeFlags="right"
+            android:keyLabel="0" />
+    </Row>
+
+    <!--  Qwerty Second Row  -->
+    <!--  - / : ; ( ) $ & @ "  -->
+    <Row>
+        <!--  -  -->
+        <Key
+            android:keyOutputText="@string/char_45"
+            android:horizontalGap="0.3%p"
+            android:keyEdgeFlags="left"
+            android:keyLabel="@string/char_45" />
+        <!--  /  -->
+        <Key
+            android:keyOutputText="@string/char_47"
+            android:keyLabel="@string/char_47" />
+        <!--  :  -->
+        <Key
+            android:keyOutputText="@string/char_58"
+            android:keyLabel="@string/char_58" />
+        <!--  ;  -->
+        <Key
+            android:keyOutputText="@string/char_59"
+            android:keyLabel="@string/char_59" />
+        <!--  (  -->
+        <Key
+            android:keyOutputText="@string/char_40"
+            android:keyLabel="@string/char_40" />
+        <!--  )  -->
+        <Key
+            android:keyOutputText="@string/char_41"
+            android:keyLabel="@string/char_41" />
+        <!--  $  -->
+        <Key
+            android:keyOutputText="@string/char_36"
+            android:keyLabel="@string/char_36" />
+        <!--  &  -->
+        <Key
+            android:keyOutputText="@string/char_38"
+            android:keyLabel="@string/char_38" />
+        <!--  @  -->
+        <Key
+            android:keyOutputText="@string/char_64"
+            android:keyLabel="@string/char_64" />
+        <!--  "  -->
+        <Key
+            android:keyOutputText="@string/strsign2"
+            android:keyEdgeFlags="right"
+            android:keyLabel="@string/strsign2" />
+    </Row>
+
+    <!--  Qwerty Third Row  -->
+    <!--  [#+=] , . ? ! ' [Backspace]  -->
+    <Row>
+        <!--  [#+=]  -->
+        <Key
+            android:codes="300100"
+            android:horizontalGap="0.3%p"
+            android:keyEdgeFlags="left"
+            android:keyLabel="#+=" />
+        <!--  ,  -->
+        <Key
+            android:keyOutputText="@string/char_44"
+            android:keyWidth="160dp"
+            android:horizontalGap="52dp"
+            android:keyLabel="@string/char_44" />
+        <!--  .  -->
+        <Key
+            android:keyOutputText="@string/char_46"
+            android:keyWidth="160dp"
+            android:keyLabel="@string/char_46" />
+        <!--  ?  -->
+        <Key
+            android:keyOutputText="@string/char_63"
+            android:keyWidth="160dp"
+            android:keyLabel="@string/char_63" />
+        <!--  !  -->
+        <Key
+            android:keyOutputText="@string/char_33"
+            android:keyWidth="160dp"
+            android:keyLabel="@string/char_33" />
+        <!--  '  -->
+        <Key
+            android:keyOutputText="@string/char_39"
+            android:keyWidth="160dp"
+            android:keyLabel="@string/char_39" />
+        <!-- [Backspace] -->
+        <Key
+            android:codes="-5"
+            android:isRepeatable="true"
+            android:keyWidth="112dp"
+            android:horizontalGap="60dp"
+            android:keyEdgeFlags="right" />
+    </Row>
+
+    <!--  Qwerty Forth Row  -->
+    <!--  [Switch] [    ⎵    ] [Cancel] [Done]  -->
+    <Row android:rowEdgeFlags="bottom">
+        <!--    Number/Symbol keyboard changed    -->
+        <Key
+            android:codes="456456"
+            android:horizontalGap="0.3%p"
+            android:keyWidth="227dp"
+            android:keyLabel="ABC" />
+
+        <!--    Long key [Space]    -->
+        <Key
+            android:codes="32"
+            android:keyWidth="466dp"
+            android:keyLabel="@string/all_space" />
+
+        <!--    Custom Key [Cancel]    -->
+        <Key
+            android:codes="200100"
+            android:keyWidth="227dp"
+            android:keyLabel="@string/all_cancel" />
+
+        <!--    Custom Key [Done]    -->
+        <Key
+            android:codes="200200"
+            android:keyWidth="227dp"
+            android:keyEdgeFlags="right"
+            android:keyLabel="@string/all_done" />
+    </Row>
+
+</Keyboard>

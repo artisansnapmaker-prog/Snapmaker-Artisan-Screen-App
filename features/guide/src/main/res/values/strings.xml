@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- A400  -->
+    <string name="all_guide_3dp_extruder_temperature_format">%d/%d°C</string>
+
+    <string name="guide_a400_thickness_m_calibration_title">Thickness M. Calibration</string>
+    <string name="guide_a400_camera_calibration_title">Camera Calibration</string>
+    <string name="guide_a400_setup_completed_title">Setup Completed</string>
+    <string name="guide_a400_laser_3axis_msg_desc">Next, you need to proceed with the following processes to initialize the 1600mW Laser Module.</string>
+    <string name="guide_a400_laser_4axis_msg_desc">Next, you need to proceed with the following process to initialize the 4-axis job for the 1600mW Laser Module.</string>
+    <string name="guide_a400_10w_laser_3axis_msg_desc">Next, you need to proceed with the following processes to initialize the 10W Laser Module.</string>
+    <string name="guide_a400_10w_laser_4axis_msg_desc">Next, you need to proceed with the following process to initialize the 4-axis job for the 10W Laser Module.</string>
+    <string name="guide_a400_20w_laser_3axis_msg_desc">Next, you need to proceed with the following processes to initialize the 20W Laser Module.</string>
+    <string name="guide_a400_20w_laser_4axis_msg_desc">Next, you need to proceed with the following process to initialize the 4-axis job for the 20W Laser Module.</string>
+    <string name="guide_a400_40w_laser_3axis_msg_desc">Next, you need to proceed with the following processes to initialize the 40W Laser Module.</string>
+    <string name="guide_a400_40w_laser_4axis_msg_desc">Next, you need to proceed with the following process to initialize the 4-axis job for the 40W Laser Module.</string>
+    <string name="guide_a400_2w_laser_3axis_msg_desc">Next, you need to proceed with the following processes to initialize the 2W Laser Module.</string>
+    <string name="guide_a400_2w_laser_4axis_msg_desc">Next, you need to proceed with the following process to initialize the 4-axis job for the 2W Laser Module.</string>
+
+    <string name="guide_a400_thickness_measurement_calibration_msg_desc">The screen will guide you to calibrate the thickness measurement.</string>
+    <string name="guide_a400_camera_calibration_msg_desc">The screen will guide you to calibrate the camera, so that you can use Camera Capture in Snapmaker Luban.</string>
+    <string name="guide_a400_safety_goggles_title">Safety Goggles</string>
+    <string name="guide_a400_fix_material_title">Fix Material</string>
+    <string name="guide_a400_attach_bit_title">Attach Bit</string>
+    <string name="guide_a400_tools_screen_title">Tools Screen</string>
+    <string name="guide_a400_cnc_3axis_msg_desc">Next, the following guidance will walk you through the initial setup for CNC job.</string>
+    <string name="guide_a400_cnc_4axis_msg_desc">Next, the following processes to will walk you through the initial setup for CNC job.</string>
+    <string name="guide_a400_setup_guidance_completed_title">Setup Guidance Completed</string>
+    <string name="guide_a400_laser_10w_success_title">Completed</string>
+    <string name="guide_a400_laser_10w_all_successfully_msg_desc">Congrats! You have completed all initialization processes.</string>
+    <string name="guide_a400_laser_20w_success_title">Completed</string>
+    <string name="guide_a400_laser_20w_all_successfully_msg_desc">Congrats! You have completed all initialization processes.</string>
+    <string name="guide_a400_laser_40w_success_title">Completed</string>
+    <string name="guide_a400_laser_40w_all_successfully_msg_desc">Congrats! You have completed all initialization processes.</string>
+    <string name="guide_a400_laser_2w_success_title">Completed</string>
+    <string name="guide_a400_laser_2w_all_successfully_msg_desc">Congrats! You have completed all initialization processes.</string>
+    <string name="guide_a400_start_creating">Start Creating</string>
+    <string name="a400_guide_3dp_dual_extruder_step_1_title">Load Filament</string>
+    <string name="a400_guide_3dp_dual_extruder_step_2_title"><![CDATA[Z Offset Calibration & Heated Bed Leveling]]></string>
+    <string name="a400_guide_3dp_dual_extruder_step_3_title">XY Offset Calibration</string>
+    <string name="guide_a400_3dp_dual_extruder_msg_desc">Next, you need to proceed with the following processes to initialize the Dual Extrusion Module.</string>
+    <string name="guide_a400_3dp_single_extruder_msg_title">Next, you need to proceed with the following processes to initialize the Single Extrusion Module.</string>
+    <string name="guide_a400_dual_extruder_all_successfully_msg_desc">Congrats! You have completed all initialization processes.</string>
+    <string name="guide_a400_dual_extruder_step_1_successfully_title">Filament Loaded</string>
+    <string name="guide_a400_dual_extruder_step_1_successfully_msg">Tap <b>Continue</b> to proceed with Z Offset Calibration &amp; Heated Bed Leveling.</string>
+    <string name="guide_a400_dual_extruder_step_2_successfully_title">Clibration &amp; Leveling Completed</string>
+    <string name="guide_a400_dual_extruder_step_2_successfully_msg_desc">Tap <b>Continue</b> to proceed with XY Offset Calibration.</string>
+
+    <!--  guide 10w  -->
+    <string name="guide_a400_laser_10w_step_1_successfully_title">Calibration Completed</string>
+    <string name="guide_a400_laser_10w_step_1_successfully_msg_desc">Tap <b>Continue</b> to proceed with Camera Calibration.</string>
+    <string name="a400_guide_laser_10w_central_axis_calibration_title">Central Axis Calibration</string>
+    <string name="a400_guide_laser_10w_central_axis_calibration_step_1_msg_desc">The screen will guide you to calibrate the central axis with a cylinder material.</string>
+    <string name="guide_a400_laser_10w_4axis_successfully_msg_desc">Congrats! You have completed the initialization process.</string>
+    <string name="guide_a400_central_axis_calibration_title">Central Axis Calibration</string>
+    <string name="a400_guide_3dp_heated_bed_leveling_title">Heated Bed Leveling</string>
+    <string name="a400_guide_3dp_load_filament_title">Load Filament</string>
+    <string name="a400_guide_laser_manual_focus_calibration_title">Manual Focus Calibration</string>
+    <string name="a400_guide_laser_manual_focus_calibration_intro_title">Manual Focus Calibration</string>
+    <string name="a400_guide_laser_manual_focus_calibration_intro_desc">The screen will guide you to manually calibrate the focus.</string>
+    <string name="a400_guide_laser_camera_capture_calibration_intro_title">Camera Calibration</string>
+    <string name="a400_guide_laser_camera_capture_calibration_intro_desc">The screen will guide you to calibrate the camera.</string>
+    <string name="a400_guide_laser_camera_capture_calibration_intro_desc_2">Tap <b>Continue</b> to proceed with Camera Calibration.</string>
+
+    <string name="guide_a400_laser_40w_platform_height_calibration_title">Platform Height Calibration</string>
+    <string name="guide_a400_platform_height_calibration_msg_desc">Next, the Touchscreen will guide you to calibrate the platform height. This allows the machine to adjust the laser height automatically based on the input material thickness in future processes,  optimizing engraving and cutting results.</string>
+
+    <string name="guide_a400_laser_2w_platform_height_calibration_title">Platform Height Calibration</string>
+    <!--  J1  -->
+    <string name="wizard">Wizard</string>
+    <string name="introduce">We will guide you through the basic preparations for the machine to start printing, including four main steps as follows (about 20–30 min).</string>
+    <string name="heating_check">Heating Check</string>
+    <string name="z_offset_calibration">Z Offset Calibration</string>
+    <string name="xy_Offset_calibration">XY Offset Calibration</string>
+    <string name="calibrationcheck">Calibration Check</string>
+    <string name="heating_tips">When you see this icon, be careful of hot surfaces.</string>
+    <string name="remove_glass">Remove the PEI glass plate first.</string>
+    <string name="i_removed">I\'ve removed it</string>
+    <string name="guide_success_content">Now you can start making!</string>
+    <string name="guide_success_title">Wizard Completed</string>
+
+    <string name="j1_guide_safety_glass_title">Safety Notes</string>
+    <string name="j1_guide_safety_glass_one">Handle the PEI glass plate with care.</string>
+    <string name="j1_guide_safety_glass_two">Avoid direct touch with the PEI glass plate and the bed when the bed is heated over 40℃.</string>
+</resources>

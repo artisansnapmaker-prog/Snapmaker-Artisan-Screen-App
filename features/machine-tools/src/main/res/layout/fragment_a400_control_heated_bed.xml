@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/theme_color_card_view_background">
+
+    <LinearLayout
+        android:id="@+id/li_a400_control_heated_bed_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/margin_layout_48"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/a400_bg_rounded_rectangle_background_m"
+        android:padding="6dp"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/tv_switch_whole"
+            style="@style/AppTheme.TextBody1"
+            android:layout_width="206dp"
+            android:layout_height="68dp"
+            android:background="@drawable/a400_bg_rounded_rectangle_gradient_background_m"
+            android:gravity="center"
+            android:text="@string/all_heated_bed_whole_bed"
+            android:textColor="?attr/theme_color_title_primary" />
+
+        <TextView
+            android:id="@+id/tv_switch_inner"
+            style="@style/AppTheme.TextBody1"
+            android:layout_width="206dp"
+            android:layout_height="68dp"
+            android:background="@drawable/a400_bg_rounded_rectangle_gradient_background_m"
+            android:gravity="center"
+            android:text="@string/all_heated_bed_inner_zone"
+            android:textColor="?attr/theme_color_title_primary" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_a400_control_heated_bed_deco"
+        style="@style/AppTheme.LineDropShadow"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/margin_layout_132" />
+
+    <RelativeLayout
+        android:id="@+id/rl_a400_control_heated_bed_whole"
+        android:layout_width="570dp"
+        android:layout_height="570dp"
+        android:layout_below="@id/view_a400_control_heated_bed_deco"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="15dp">
+
+        <fabscreen.platform.core.ui.view.RotateButtonView
+            android:id="@+id/rbv_control_heated_bed"
+            android:layout_width="570dp"
+            android:layout_height="570dp"
+            android:layout_centerInParent="true"
+            app:srv_innerRingNumber="23"
+            app:srv_textUnitType="℃" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/rbv_control_heated_bed"
+            android:layout_alignEnd="@+id/rbv_control_heated_bed"
+            android:layout_alignBottom="@+id/rbv_control_heated_bed"
+            android:layout_marginBottom="20dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_heated_bed_control_switch"
+                android:layout_width="228dp"
+                android:layout_height="117dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/pic_a400_cnc_off_bg"
+                android:textAllCaps="false"
+                android:textColor="@color/palette_white_silver"
+                android:textSize="@dimen/font_size_24sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/rbv_control_heated_bed"
+            android:layout_alignTop="@+id/rbv_control_heated_bed"
+            android:layout_alignEnd="@+id/rbv_control_heated_bed"
+            android:layout_alignBottom="@+id/rbv_control_heated_bed"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_heated_bed_title"
+                style="@style/AppTheme.TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/calibration_heated_bed_heated_bed_temp"
+                android:textColor="?attr/theme_color_tab_uncheck" />
+
+            <LinearLayout
+                android:id="@+id/ll_heated_bed_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_heated_bed_title"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_cur_temp_heated_bed"
+                    style="@style/AppTheme.TextLargeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    tools:text="100" />
+
+                <TextView
+                    style="@style/AppTheme.TextLargeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="\/"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_target_temp_heated_bed"
+                    style="@style/AppTheme.TextLargeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    tools:text="100" />
+
+                <TextView
+                    style="@style/AppTheme.TextTitleSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/margin_layout_4"
+                    android:paddingTop="15dp"
+                    android:text="@string/all_unit_temperature"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/AppTheme.TextExplain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_heated_bed_value"
+                android:layout_centerHorizontal="true"
+                android:text="@string/all_current_target"
+                android:textColor="?attr/theme_color_tab_uncheck" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

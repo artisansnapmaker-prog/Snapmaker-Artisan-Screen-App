@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_nozzle_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_layout_20"
+        android:background="@drawable/all_category_button"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_layout_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Brightness"
+            android:textColor="@color/default_theme_desc2"
+            android:textSize="@dimen/font_size_h3" />
+
+        <TextView
+            android:id="@+id/tv_j1_print_adjustment_lighting_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_layout_20"
+            android:text="@string/all_High"
+            android:textColor="@color/custom_grey_200"
+            android:textSize="@dimen/font_size_h2" />
+
+        <co.ceryle.segmentedbutton.SegmentedButtonGroup
+            android:id="@+id/sbg_j1_print_adjustment_lighting"
+            style="@style/AppTheme.SegmentedButtonGroup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_segmented_button"
+            android:layout_marginStart="@dimen/margin_layout_20"
+            android:layout_marginTop="@dimen/margin_layout_10"
+            android:layout_marginEnd="@dimen/margin_layout_20"
+            app:sbg_position="0">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="8dp"
+                android:text="@string/all_off"
+                android:textAllCaps="false"
+                android:textColor="@color/default_theme_desc1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="8dp"
+                android:text="@string/all_medium"
+                android:textAllCaps="false"
+                android:textColor="@color/default_theme_desc1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="8dp"
+                android:text="@string/all_High"
+                android:textAllCaps="false"
+                android:textColor="@color/default_theme_desc1" />
+        </co.ceryle.segmentedbutton.SegmentedButtonGroup>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

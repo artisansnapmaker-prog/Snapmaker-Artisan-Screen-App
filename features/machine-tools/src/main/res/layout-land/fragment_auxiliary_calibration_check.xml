@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/widget_top_bar_j1_back_only"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/fg_bg_round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_show_image"
+            android:layout_width="188dp"
+            android:layout_height="204dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:elevation="250dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/rl_text_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="@dimen/margin_layout_16"
+            android:layout_toEndOf="@+id/iv_show_image">
+
+            <TextView
+                android:id="@+id/tv_preparation"
+                style="@style/AppTheme.TextTitleSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical"
+                android:text="@string/preparation" />
+
+            <ImageView
+                android:id="@+id/iv_text_line_point_1"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_below="@id/tv_preparation"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/point" />
+
+            <TextView
+                android:id="@+id/tv_text_line_1"
+                style="@style/AppTheme.TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_preparation"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/iv_text_line_point_1"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="10sp"
+                android:text="@string/installed_glass"
+                android:textColor="?attr/theme_color_body_secondary1" />
+
+            <ImageView
+                android:id="@+id/iv_text_line_point_3"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_below="@id/tv_text_line_1"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:src="@drawable/point"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_text_line_3"
+                style="@style/AppTheme.TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_text_line_1"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/iv_text_line_point_3"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="10sp"
+                android:text="@string/lossen_gif"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_text_line_point_2"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_below="@id/tv_text_line_3"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:src="@drawable/point" />
+
+            <TextView
+                android:id="@+id/tv_text_line_2"
+                style="@style/AppTheme.TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_text_line_3"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/iv_text_line_point_2"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="10sp"
+                android:text="@string/clean_nozzles"
+                android:textColor="?attr/theme_color_body_secondary1" />
+
+            <RelativeLayout
+                android:id="@+id/rl_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_text_line_2"
+                android:layout_alignParentStart="true"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/iv_text_line_heating"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="13dp"
+                    android:src="@drawable/point" />
+
+                <TextView
+                    android:id="@+id/tv_text_line_heating"
+                    style="@style/AppTheme.TextBody2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@+id/iv_text_line_heating"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="10sp"
+                    android:text="@string/heating_nozzles_bed" />
+
+
+                <ImageView
+                    android:id="@+id/iv_nozzle_state_left"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/tv_text_line_heating"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/icon_nozzle_left_normal_64x64" />
+
+                <TextView
+                    android:id="@+id/tv_nozzle_state_left"
+                    style="@style/AppTheme.TextBody2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_text_line_heating"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@+id/iv_nozzle_state_left"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="10sp"
+                    android:text="@string/all_extruder_temperature_format"
+                    android:textAppearance="@style/remove_the_" />
+
+                <ImageView
+                    android:id="@+id/iv_nozzle_state_right"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/tv_text_line_heating"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_toEndOf="@+id/tv_nozzle_state_left"
+                    android:src="@drawable/icon_nozzle_right_normal_64x64" />
+
+                <TextView
+                    android:id="@+id/tv_nozzle_state_right"
+                    style="@style/AppTheme.TextBody2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_text_line_heating"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@+id/iv_nozzle_state_right"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="10sp"
+                    android:text="@string/all_extruder_temperature_format"
+                    android:textAppearance="@style/remove_the_" />
+
+                <ImageView
+                    android:id="@+id/iv_bed_state"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/tv_text_line_heating"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_toEndOf="@+id/tv_nozzle_state_right"
+                    android:src="@drawable/ic_heated_bed_normal_64x64" />
+
+                <TextView
+                    android:id="@+id/tv_bed_state"
+                    style="@style/AppTheme.TextBody2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_text_line_heating"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@+id/iv_bed_state"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="10sp"
+                    android:text="@string/all_extruder_temperature_format"
+                    android:textAppearance="@style/remove_the_" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_text_line_point_4"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_below="@id/rl_3"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:src="@drawable/point" />
+
+            <TextView
+                android:id="@+id/tv_text_line_4"
+                style="@style/AppTheme.TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_3"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/iv_text_line_point_4"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="10sp"
+                android:text="@string/load_filaments_tip"
+                android:textColor="?attr/theme_color_body_secondary1" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_temp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape_bg_section_detail_normal" />
+
+        <TextView
+            android:id="@+id/tv_calibration_load_filament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_temp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:gravity="center"
+            android:text="Load Filament >"
+            android:textAppearance="@style/remove_the_"
+            android:textColor="?attr/theme_color_primary" />
+
+        <Button
+            android:id="@+id/btn_next"
+            style="@style/AppTheme.PrimaryButton"
+            android:layout_width="140dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="6dp"
+            android:text="Next" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

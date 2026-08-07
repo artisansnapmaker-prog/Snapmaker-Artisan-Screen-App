@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="all_guide_3dp_extruder_temperature_format">%d/%d°C</string>
+    <string name="wizard">Wizard</string>
+    <string name="introduce">本向导将指引你完成机器打印前的基本准备（约 20 至 30 分钟），主要包括以下四个步骤：</string>
+    <string name="heating_check">热床调平</string>
+    <string name="z_offset_calibration"> Z 轴偏移校准</string>
+    <string name="xy_Offset_calibration">XY 轴偏移校准</string>
+    <string name="calibrationcheck">校准验证</string>
+    <string name="heating_tips">When you see this icon, be careful of hot surfaces.</string>
+    <string name="remove_glass">Remove the PEI glass plate first.</string>
+    <string name="i_removed">I\'ve removed it</string>
+    <string name="guide_success_content">开始你的造物之旅吧！</string>
+    <string name="guide_success_title">向导完成</string>
+    <string name="guide_a400_thickness_m_calibration_title">材料厚度测量校准</string>
+    <string name="guide_a400_camera_calibration_title">摄像头校准</string>
+    <string name="guide_a400_setup_completed_title">机器设置完成</string>
+    <string name="guide_a400_laser_3axis_msg_desc">接下来，你需要进行以下流程，以完成 1600mW 激光模组的初始化。</string>
+    <string name="guide_a400_laser_4axis_msg_desc">接下来，你需要进行以下流程，以完成 1600mW 激光模组四轴作业的初始化。</string>
+    <string name="guide_a400_10w_laser_3axis_msg_desc">接下来，你需要进行以下流程，以完成 10W 激光模组的初始化。</string>
+    <string name="guide_a400_10w_laser_4axis_msg_desc">接下来，你需要进行以下流程，以完成 10W 激光模组四轴作业的初始化。</string>
+    <string name="guide_a400_20w_laser_3axis_msg_desc">接下来，你需要进行以下流程，以完成 20W 激光模组的初始化。</string>
+    <string name="guide_a400_20w_laser_4axis_msg_desc">接下来，你需要进行以下流程，以完成 20W 激光模组四轴作业的初始化。</string>
+    <string name="guide_a400_40w_laser_3axis_msg_desc">接下来，你需要进行以下流程，以完成 40W 激光模组的初始化。</string>
+    <string name="guide_a400_40w_laser_4axis_msg_desc">接下来，你需要进行以下流程，以完成 40W 激光模组四轴作业的初始化。</string>
+    <string name="guide_a400_2w_laser_3axis_msg_desc">接下来，你需要进行以下流程，以完成 2W 激光模组的初始化。</string>
+    <string name="guide_a400_2w_laser_4axis_msg_desc">接下来，你需要进行以下流程，以完成 2W 激光模组四轴作业的初始化。</string>
+    <string name="guide_a400_thickness_measurement_calibration_msg_desc">接下来，屏幕将会引导你进行材料厚度测量校准。</string>
+    <string name="guide_a400_camera_calibration_msg_desc">接下来，屏幕将会引导你进行摄像头校准，以便使用 Snapmaker Luban 中的摄像捕捉功能。</string>
+    <string name="guide_a400_safety_goggles_title">护目镜</string>
+    <string name="guide_a400_fix_material_title">固定材料</string>
+    <string name="guide_a400_attach_bit_title">固定刀具</string>
+    <string name="guide_a400_tools_screen_title">工具页</string>
+    <string name="guide_a400_cnc_3axis_msg_desc">接下来，你将通过以下指引来熟悉 CNC 作业的初始设置。</string>
+    <string name="guide_a400_cnc_4axis_msg_desc">接下来，你将通过以下指引来熟悉 CNC 作业的初始设置。</string>
+    <string name="guide_a400_setup_guidance_completed_title">初始设置指引完成</string>
+    <string name="guide_a400_laser_10w_success_title">校准成功</string>
+    <string name="guide_a400_laser_10w_all_successfully_msg_desc">恭喜！你已完成所有的初始化流程。</string>
+    <string name="guide_a400_laser_20w_success_title">校准成功</string>
+    <string name="guide_a400_laser_20w_all_successfully_msg_desc">恭喜！你已完成所有的初始化流程。</string>
+    <string name="guide_a400_laser_40w_success_title">校准成功</string>
+    <string name="guide_a400_laser_40w_all_successfully_msg_desc">恭喜！你已完成所有的初始化流程。</string>
+    <string name="guide_a400_laser_2w_success_title">校准成功</string>
+    <string name="guide_a400_laser_2w_all_successfully_msg_desc">恭喜！你已完成所有的初始化流程。</string>
+    <string name="guide_a400_start_creating">开始创造</string>
+    <string name="a400_guide_3dp_dual_extruder_step_1_title">装料</string>
+    <string name="a400_guide_3dp_dual_extruder_step_2_title"><![CDATA[Z 轴偏移校准 & 热床调平]]></string>
+    <string name="a400_guide_3dp_dual_extruder_step_3_title">XY 轴偏移校准</string>
+    <string name="guide_a400_3dp_dual_extruder_msg_desc">接下来，你需要进行以下流程，以完成双喷头模组的初始化。</string>
+    <string name="guide_a400_3dp_single_extruder_msg_title">接下来，你需要进行以下流程，以完成单喷头模组的初始化。</string>
+    <string name="guide_a400_dual_extruder_all_successfully_msg_desc">恭喜！你已完成所有的初始化流程。</string>
+    <string name="guide_a400_dual_extruder_step_1_successfully_title">装料完成</string>
+    <string name="guide_a400_dual_extruder_step_1_successfully_msg">接下来，请点击<b>继续</b>以进入 Z 轴偏移校准及热床调平流程。</string>
+    <string name="guide_a400_dual_extruder_step_2_successfully_title">校准 &amp; 调平成功</string>
+    <string name="guide_a400_dual_extruder_step_2_successfully_msg_desc">接下来，请点击<b>继续</b>以进入 XY 轴偏移校准流程。</string>
+    <string name="guide_a400_laser_10w_step_1_successfully_title">校准成功</string>
+    <string name="guide_a400_laser_10w_step_1_successfully_msg_desc">接下来，请点击<b>继续</b>以进入摄像头校准流程。</string>
+
+    <string name="j1_guide_safety_glass_title">玻璃板安全指引</string>
+    <string name="j1_guide_safety_glass_one">移动 PEI 玻璃平台时，请轻拿轻放。</string>
+    <string name="j1_guide_safety_glass_two">当热床升温至 40℃ 以上时，避免直接触碰 PEI 玻璃平台和热床。</string>
+
+    <!-- a400-->
+    <!--guide 10w -->
+    <string name="a400_guide_laser_10w_central_axis_calibration_title">中轴线校准</string>
+    <string name="a400_guide_laser_10w_central_axis_calibration_step_1_msg_desc">接下来，屏幕将会引导你使用圆柱形材料来进行中轴线校准。</string>
+    <string name="guide_a400_laser_10w_4axis_successfully_msg_desc">恭喜！你已完成所有的初始化流程。</string>
+    <string name="guide_a400_central_axis_calibration_title">中轴线校准</string>
+    <string name="a400_guide_3dp_heated_bed_leveling_title">热床调平</string>
+    <string name="a400_guide_3dp_load_filament_title">装料</string>
+    <string name="a400_guide_laser_manual_focus_calibration_title">手动焦距校准</string>
+    <string name="a400_guide_laser_manual_focus_calibration_intro_desc">接下来，屏幕将会引导你进行手动焦距校准。</string>
+    <string name="a400_guide_laser_manual_focus_calibration_intro_title">手动焦距校准</string>
+    <string name="a400_guide_laser_camera_capture_calibration_intro_title">摄像头校准</string>
+    <string name="a400_guide_laser_camera_capture_calibration_intro_desc">接下来，屏幕将会引导你进行摄像头校准。</string>
+    <string name="a400_guide_laser_camera_capture_calibration_intro_desc_2">接下来，请点击<b>继续</b>以进入摄像头校准流程。</string>
+    <string name="guide_a400_laser_40w_platform_height_calibration_title">平台高度校准</string>
+    <string name="guide_a400_platform_height_calibration_msg_desc">接下来，触控屏将引导你校准工作平台的高度。校准后，机器即可凭借输入的材料厚度，在之后的作业中自动调整激光高度，从而实现最佳的雕刻与切割效果。</string>
+
+    <string name="guide_a400_laser_2w_platform_height_calibration_title">平台高度校准</string>
+</resources>

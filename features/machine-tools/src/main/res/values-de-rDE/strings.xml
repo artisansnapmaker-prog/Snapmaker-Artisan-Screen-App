@@ -1,0 +1,447 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="a400_calibration_thickness_measurement_title">Dickenmesskalibrierung</string>
+    <string name="a400_calibration_thickness_measurement_title_abbreviation">Dicke M. Kalibrierung</string>
+    <string name="a400_calibration_thickness_measurement_content">Die Maschine kalibriert das Dickenmesssystem automatisch mit dem Laserkalibrierungsziel. Wiederholen Sie diese Kalibrierung, nachdem Sie die Maschine wieder zusammengebaut, den Werkzeugkopf ausgetauscht haben oder wenn Sie feststellen, dass die Dickenmessung ungenau ist.</string>
+    <string name="a400_calibration_platform_height_title">Plattformhöhenkalibrierung</string>
+    <string name="a400_calibration_central_axis_title">Kalibrierung der Zentralachse</string>
+    <string name="a400_calibration_central_axis_content">Für die 4-Achsen-Bearbeitung müssen Sie die Mittelachse des Drehmoduls mit einem Zylindermaterial lokalisieren. Wenn Sie diese Kalibrierung abschließen, können Sie einen Laserjob richtig starten, indem Sie den Materialdurchmesser eingeben.</string>
+    <string name="a400_calibration_platform_height_content">Kalibrieren Sie die Höhe der Plattform mit dem Laserkalibrierungsziel, so dass Sie einen Laserjob durch Eingabe der Materialdicke starten können.</string>
+    <string name="a400_laser_calibration_camera_calibration_title">Kamerakalibrierung</string>
+    <string name="a400_laser_calibration_camera_calibration_content">Um die Kameraaufnahme in Snapmaker Luban zu verwenden, müssen Sie die Kamera kalibrieren. Wiederholen Sie diese Kalibrierung, nachdem Sie die Maschine wieder zusammengebaut oder den Werkzeugkopf ersetzt haben.</string>
+
+    <string name="a400_calibration_manual_tool_setting_title">Manuelle Werkzeugeinstellung</string>
+    <string name="a400_calibration_manual_tool_setting_content">Legen Sie den Arbeitsursprung fest, indem Sie den Werkzeugkopf manuell steuern. Sie müssen den Werkzeugkopf dorthin verschieben, wo sich der Arbeitsursprung befinden wird.</string>
+    <string name="a400_calibration_manual_tool_setting_advanced_mode_content">Legen Sie den Arbeitsursprung fest, indem Sie den Werkzeugkopf manuell steuern. Sie müssen den Ursprung in den XYZ-Orientierungen separat festlegen, und ihre Kombination wird der Arbeitsursprung sein. </string>
+    <string name="a400_calibration_bit_assistant_title">Bit-Assistent</string>
+    <string name="a400_calibration_bit_assistant_content">Der Bit-Assistent führt Sie an, um das ursprüngliche Bit und das neue Bit zu manipulieren, um die gleiche Stelle auf dem Material zu berühren. Die Maschine arbeitet den Z-Offset aus und findet automatisch den neuen Arbeitsursprung. Bevor Sie mit dem Bit-Assistenten fortfahren, lösen Sie das ursprüngliche Bit nicht.</string>
+
+
+    <string name="a400_calibration_a400_xy_material_format">Material: %s</string>
+
+    <string name="all_material_PLA">PLA</string>
+    <string name="all_material_PETG">PETG</string>
+    <string name="all_material_ABS">ABS</string>
+    <string name="a400_calibration_xy_mode_custom">Benutzerdefeniert</string>
+    <string name="all_material_CUSTOM">Custom Material</string>
+
+    <string name="a400_calibration_leveling_xy_selection_left_temperature_title">Düse L: Drucktemperatur.</string>
+    <string name="a400_calibration_leveling_xy_selection_right_temperature_title">Düse R: Drucktemperatur.</string>
+    <string name="a400_calibration_leveling_xy_selection_left_stand_by_temperature_title">Düse L: Standby Temp.</string>
+    <string name="a400_calibration_leveling_xy_selection_right_stand_by_temperature_title">Düse R: Standby Temp.</string>
+    <string name="a400_calibration_leveling_xy_selection_heated_bed_temperature_title">Heizbett Temp.</string>
+    <string name="a400_calibration_heated_bed_leveling_auto_content">Der Werkzeugkopf untersucht und erhält automatisch Daten für bestimmte Punkte auf dem beheizten Bett, um die Bewegung der beiden Düsen während des Drucks entsprechend anzupassen.</string>
+    <string name="a400_calibration_heated_bed_leveling_manual_content">Steuern Sie den Werkzeugkopf manuell, um Daten für bestimmte Punkte auf dem beheizten Bett zu untersuchen und zu erhalten. Die Bewegung der beiden Düsen wird während des Drucks entsprechend eingestellt.</string>
+
+    <string name="a400_calibration_heated_bed_leveling_content_1">Heizen von Bett und Düse (1/2)</string>
+    <string name="a400_calibration_heated_bed_leveling_content_2">Kalibrierungspunkte kalibrieren (2/2)</string>
+    <string name="a400_calibration_heated_bed_leveling_content_3">Kalibrierungspunkte kalibrieren (3/3)</string>
+    <string name="a400_calibration_z_leveling_title">Z Offset Kalibrierung</string>
+    <string name="a400_calibration_xy_leveling_title">XY Offset Kalibrierung</string>
+
+
+    <string name="a400_calibration_z_leveling_sensor_calibration_manual_calibrating_content">Senken Sie die rechte Düse des Werkzeugkopfes mit der Kalibrierkarte manuell gegen die Oberfläche der 3D-Druckplattform ab, bis Sie einen leichten Widerstand spüren, wenn Sie die Kalibrierungskarte herausziehen, und sie sollte zerknittert sein, wenn Sie sie nach vorne drücken.</string>
+    <string name="a400_calibration_heft">L</string>
+    <string name="a00_calibration_right">R</string>
+    <string name="a400_calibration_headted_bed_leveling_guide">Automatisch kalibrieren... %1$d/%2$d</string>
+    <string name="a400_calibration_headted_bed_leveling_time">Geschätzte Zeit %d s. %d s Link.</string>
+    <string name="a400_calibration_headted_bed_leveling_wait_time">Geschätzte Zeit XX s. XX s Link.</string>
+    <string name="preparation">Vorbereitung</string>
+
+
+    <string name="a400_calibration_cnc_manual_tool">Manuelle Werkzeugeinstellung</string>
+    <string name="a400_calibration_cnc_manual_tool_content">Sie müssen den Werkzeugkopf dorthin verschieben, wo der Arbeitsursprung sein wird.</string>
+    <string name="a400_calibration_cnc_manual_tool_advanced_mode_content">Sie müssen den Ursprung in den XYZ-Orientierungen separat festlegen, und ihre Kombination wird der Arbeitsursprung sein.</string>
+    <string name="a400_calibration_cnc_tool_change">Bit-Assistent</string>
+    <string name="a400_calibration_cnc_tool_change_stop_title">Bit-Assistent</string>
+    <string name="a400_cnc_tool_change_assistant_content_">Der Bit-Assistent führt Sie an, um das vorhandene Bit und das neue Bit zu manipulieren, um die gleiche Stelle auf dem Material zu berühren. Die Maschine arbeitet den Z-Offset aus und findet automatisch den neuen Arbeitsursprung. Bevor Sie mit dem Bit-Assistenten fortfahren, trennen Sie das vorhandene Bit nicht.</string>
+    <string name="a400_calibration_cnc_origin_assistant_content">Für die 4-Achsen-Bearbeitung können Sie den Ursprungsassistenten verwenden, um umgehend den Arbeitsursprung festzulegen, der im System gespeichert wird. Solange die Abmessungen des Materials in zukünftigen Schnitzsitzungen unverändert bleiben, können Sie also Ihre Dateien auswählen und sofort beginnen.</string>
+
+
+    <string name="a400_calibration_auto_content">Der Werkzeugkopf untersucht und erhält automatisch Daten für bestimmte Punkte (%s) auf der 3D-Druckplattform, um die Bewegung der beiden Düsen während des Druckens entsprechend anzupassen.</string>
+    <string name="a400_calibration_manual_content">Steuern Sie den Werkzeugkopf manuell, um Daten für bestimmte Punkte (%s) auf der 3D-Druckplattform zu untersuchen und zu erhalten. Die Bewegung der beiden Düsen wird während des Drucks entsprechend eingestellt.</string>
+
+
+    <string name="a400_leveling_bed_calibration_left_point_content">Drehen Sie das vordere linke Daumenrad unter dem beheizten Bett, um den Z-Offset des linken Werkzeugkopfes an der linken Stelle einzustellen, und kalibrieren Sie es mit der Kalibrierungskarte.</string>
+    <string name="a400_leveling_bed_calibration_datum_title">Datumspunkt kalibrieren</string>
+    <string name="a400_leveling_bed_calibration_datum_content">Legen Sie die Kalibrierkarte zwischen den linken Werkzeugkopf und das beheizte Bett und tippen Sie auf Weiter. Stellen Sie dann den Z-Offset ein, bis Sie beim Herausziehen der Kalibrierkarte leichten Widerstand spüren, und er sollte zerknittert sein, wenn Sie ihn nach vorne drücken.</string>
+
+    <string name="a400_leveling_bed_calibration_right_point_content">Drehen Sie das vordere rechte Rändelrad unter das beheizte Bett, um den Z-Offset des linken Werkzeugkopfes an der rechten Stelle einzustellen, und kalibrieren Sie es mit der Kalibrierkarte.</string>
+
+
+
+    <string name="a400_calibration_complete_continue_calibration">Kalibrierung fortsetzen</string>
+    <string name="a400_calibration_complete_home_screen">Startbildschirm</string>
+
+
+    <string name="all_extruder_temperature_format">%d/%d°C</string>
+    <string-array name="a400_calibration_leveling_grid_types_array">
+        <item>3 × 3</item>
+        <item>5 × 5</item>
+        <item>9 × 9</item>
+    </string-array>
+
+
+
+    <string name="a400_control_laser_open">1. Stellen Sie sicher, dass Sie die Gehäusetür geschlossen haben.
+
+\n2. Stellen Sie sicher, dass die aktuelle Arbeitsplattform die Lasergravur- und Schneidplattform ist.</string>
+    <string name="a400_control_cnc_open_title">Die Spindel des CNC-Moduls beginnt zu arbeiten</string>
+    <string name="a400_control_cnc_open">1. Stellen Sie sicher, dass Sie die Gehäusetür geschlossen oder die CNC-Sicherheitsbrille getragen haben.
+
+\N2. Stellen Sie sicher, dass die aktuelle Arbeitsplattform die CNC-Schnitt- und Schneideplattform ist.</string>
+    <string name="a400_control_switching_extruder">Düse wird Gewechselt...</string>
+    <string name="all_left_nozzle_temp_abbr">Linke Düse Temp.</string>
+    <string name="all_right_nozzle_temp_abbr">Rechte Düse Temp.</string>
+    <string name="a400_print_dialog_warning_filament_run_out_action_load_filament">Filament laden</string>
+    <string name="a400_print_dialog_warning_filament_run_out_action_heating_nozzle">Erhitzen der Düse...</string>
+    <string name="a400_print_dialog_warning_filament_run_out_pull_out_filament_content">Manullay ziehen Sie das Filament heraus und legen Sie es wieder in das Filamentführungsrohr ein, bis Sie spüren können, dass das Filament ergriffen und eingezogen wird.</string>
+    <string name="a400_print_dialog_warning_filament_run_out_insert_filament_title">Filament einfügen</string>
+    <string name="a400_print_dialog_warning_filament_run_out_insert_filament_content">Führen Sie das neue Filament manuell in das Filamentführungsrohr ein, bis Sie spüren können, dass das Filament ergriffen und eingezogen wird.</string>
+    <string name="a400_calibration_leveling_bed_heating_desc">Heizen des Heizbett\'s und der Düse...</string>
+    <string name="a400_calibration_leveling_bed_heating_nozzle_temp_title">Linke Düse Temp：</string>
+    <string name="a400_calibration_leveling_bed_heating_Heated_bed_title">Heizbett Temp：</string>
+    <string name="a400_calibration_leveling_bed_heating_temperature_format">/%3d℃</string>
+    <string name="a400_calibration_camera_calibration_10w_title">Kamerakalibrierung</string>
+    <string name="a400_calibration_platform_height_calibration_10w_title">Plattformhöhenkalibrierung</string>
+    <string name="a400_calibration_complete_thk_measure">Herzlichen Glückwunsch! Sie haben die Dickenmesskalibrierung abgeschlossen.</string>
+
+    <string name="a400_calibration_platform_height_calibration_10w_content">Platzieren Sie das Laserkalibrierungsziel auf der Lasergravur und Schneideplattform. Senken Sie den Werkzeugkopf manuell in Richtung der Oberfläche des Kalibrierziels, bis Sie leichten Widerstand spüren, wenn Sie das Kalibrierziel herausziehen.</string>
+    <string name="a400_calibration_platform_height_calibration_10w_complete_title">Abgeschlossen</string>
+    <string name="a400_calibration_platform_height_calibration_10w_complete_content">Herzlichen Glückwunsch! Sie haben die Plattformhöhenkalibrierung abgeschlossen.</string>
+    <string name="a400_calibration_camera_calibration_10w_2_title">Kamerakalibrierung</string>
+    <string name="a400_calibration_camera_calibration_10w_content">Kalibriermaterial reparieren (1/2)</string>
+    <string name="a400_calibration_camera_calibration_10w_2_content">Auto Calibration (2/2)</string>
+    <string name="a400_calibration_thickness_measure_4_1_title">Dickenmesskalibrierung</string>
+    <string name="a400_calibration_thickness_measure_4_1_content">Auto Kalibrierung (3/3)</string>
+    <string name="a400_calibration_thickness_measure_calibrating">Kalibrierung...</string>
+    <string name="a400_calibration_thickness_measure_verifying">Überprüfen Sie...</string>
+    <string name="a400_calibration_thickness_measure_failed">Kalibrierung fehlgeschlagen</string>
+    <string name="a400_calibration_thickness_measure_failed_content">Die Kalibrierung der Dickenmessung ist fehlgeschlagen. Bitte versuchen Sie es erneut oder beenden Sie es.</string>
+    <string name="a400_calibration_thickness_measure_title">Dickenmesskalibrierung</string>
+    <string name="a400_calibration_thickness_measure_second_title">Measure Platform Height </string>
+    <string name="a400_calibration_thickness_measure_content">Messen Sie die Plattformhöhe (1/3)</string>
+    <string name="a400_calibration_thickness_measure_3_1_title">Dickenmesskalibrierung</string>
+    <string name="a400_calibration_thickness_measure_3_1_content">Platzieren Sie das Kalibrierungsziel (2/3)</string>
+    <string name="a400_calibration_thickness_measure_3_1_second_title">Platzieren Sie das Kalibrierungsziel</string>
+    <string name="a400_calibration_thickness_measure_3_1_second_content">Platzieren Sie das Laserkalibrierungsziel in der Mitte der Plattform und stellen Sie sicher, dass der rote Punkt auf seine Oberfläche fällt.</string>
+    <string name="a400_calibration_camera_calibration_10w_second_title">Kalibriermaterial reparieren</string>
+    <string name="a400_calibration_camera_calibration_10w_second_content">Befestigen Sie ein Stück leeres und weißes A4-Papier in der Mitte der Lasergravur- und Schneidplattform. \n\nNachdem Sie auf <b>Weiter</b> getippt haben, schneidet die Maschine ein Quadrat auf das Papier, um die Kamera zu kalibrieren.</string>
+    <string name="a400_calibration_laser_on_reminder">Stellen Sie sicher, dass Sie die Gehäusetür schließen.</string>
+
+    <string name="a400_cnc_tri_axial_guide_accept"><Data><![CDATA[Ich habe die <font color="#FFFFFF"><b>Kurzanleitung</b></font> Gründlich und fixieren Sie das Material entsprechend.]]></Data></string>
+    <string name="a400_cnc_four_axial_guide_accept"><Data><![CDATA[Ich habe die <b><font color="#FFFFFF">Kurzanleitung des Rotary-Moduls</font></b> Gründlich und fixieren Sie das Material entsprechend.]]></Data></string>
+
+    <string name="a400_manual_tool_message_title">Set XYZ Startposition</string>
+    <string name="a400_manual_tool_message">Bewegen Sie den Werkzeugkopf manuell an die Position, die Sie als Arbeitsursprung festlegen möchten. Der CNC-Job beginnt mit dem definierten Ursprung.</string>
+    <string name="a400_manual_tool_title">Manuelle Werkzeugeinstellung</string>
+    <string name="a400_manual_tool_stop_title">Stop Tool Setting</string>
+    <string name="a400_manual_tool_subheading">Arbeitsursprung festlegen (1/1)</string>
+    <string name="a400_manual_tool_four_axis_subheading">Set XYZB Herkunft (1/1)</string>
+    <string name="a400_change_tool_message">Ändern Sie das Bit mit den offenen Schraubenschlüsseln in ein neues. Stellen Sie sicher, dass das neue Bit fest befestigt ist.</string>
+    <string name="a400_calibration_leveling_xy_adjust">Schieben Sie, um das beste Linienpaar auszuwählen</string>
+    <string name="a400_calibration_leveling_xy_adjust_content">(Die obere Linie sollte am horizontalsten auf der unteren Linie zentriert sein)</string>
+    <string name="calibration_a400_leveling_xy_title">XY Offset-Kalibrierung</string>
+    <string name="calibration_a400_leveling_xy_content_x">X-Offset kalibrieren (2/6)</string>
+    <string name="calibration_a400_leveling_xy_content_x_4">X-Offset kalibrieren (2/4)</string>
+    <string name="calibration_a400_leveling_xy_print_models_content">Kalibrierungsmodelle drucken (1/6)</string>
+    <string name="calibration_a400_leveling_xy_x_value_confirm_dialog_title">X-Offset speichern</string>
+    <string name="calibration_a400_leveling_xy_x_value_confirm_dialog_content">Der aktuelle X-Offset wird als X-Offset der beiden Düsen gespeichert.</string>
+    <string name="calibration_a400_leveling_xy_content_y">Kalibrierung Und Offset (3/6)</string>
+    <string name="calibration_a400_leveling_xy_content_y_4">Kalibrierung Und Offset (3/4)</string>
+    <string name="calibration_a400_leveling_xy_prepare_check">Vorbereitung auf die Kalibrierungsprüfung (4/6)</string>
+    <string name="calibration_a400_leveling_xy_y_value_confirm_dialog_title">Speichern Und Offset</string>
+    <string name="calibration_a400_leveling_xy_y_value_confirm_dialog_content">Der aktuelle Y-Offset wird als Y-Offset der beiden Düsen gespeichert.</string>
+    <string name="calibration_a400_leveling_xy_prepare_check_sub_title">Vorbereitung auf die Kalibrierungsprüfung</string>
+    <string name="calibration_a400_leveling_xy_prepare_check_content">1. Reinigen Sie die Glasbauplatte.
+
+\n2. Tippen Sie auf <b>Überprüfung starten</b>. Die Maschine druckt dann ein eingebautes Modell, um das Kalibrierergebnis zu überprüfen.
+    </string>
+    <string name="calibration_a400_leveling_xy_print_check_mode">Check-Modell drucken (5/6)</string>
+    <string name="calibration_a400_leveling_xy_observe_check_model">Beobachtungs-Check-Modell (6/6)</string>
+    <string name="calibration_a400_leveling_xy_observe_check_model_content">Beobachten Sie, ob der Rand des Modells ausgerichtet gedruckt wird und ob es eine Farbmischung zwischen den verschiedenfarbigen Bereichen gibt, und entscheiden Sie dann, ob Sie neu kalibrieren möchten oder nicht.</string>
+    <string name="calibration_a400_leveling_xy_recalibrate">Neu kalibrieren</string>
+    <string name="calibration_complete_dual_extruder_xy">Herzlichen Glückwunsch! Sie haben die XY Offset-Kalibrierung abgeschlossen.</string>
+    <string name="calibration_complete_platform_height">Herzlichen Glückwunsch! Sie haben die Plattformhöhenkalibrierung abgeschlossen.</string>
+    <string name="calibration_complete_central_axis_calibration_desc">Herzlichen Glückwunsch! Sie haben die Kalibrierung der Zentralachse abgeschlossen.</string>
+    <string name="calibration_a400_camera_doing">Calibrating...</string>
+    <string name="calibration_complete_camera_cali">Herzlichen Glückwunsch! Sie haben die Kamerakalibrierung abgeschlossen.</string>
+    <string name="calibration_cnc_manual_tool_start_job">Start Job</string>
+    <string name="calibration_cnc_manual_tool_success">Abgeschlossen</string>
+    <string name="calibration_cnc_change_tool_success">Abgeschlossen</string>
+    <string name="calibration_cnc_manual_tool_success_msg">Herzlichen Glückwunsch! Sie haben die manuelle Werkzeugeinstellung abgeschlossen.</string>
+    <string name="calibration_cnc_change_tool_success_msg">Herzlichen Glückwunsch! Sie haben den Bit-Assistenten abgeschlossen.</string>
+    <string name="calibration_cnc_tool_change_first_steps">Touch Material (1/3)</string>
+    <string name="calibration_cnc_tool_change_second_steps">Bit ändern (2/3)</string>
+    <string name="calibration_cnc_tool_change_third_steps">Touch Material (3/3)</string>
+    <string name="calibration_cnc_tool_change_first_steps_content_title">Touch Material</string>
+    <string name="calibration_cnc_tool_change_first_steps_content">Manipulieren Sie den Werkzeugkopf, um eine beliebige Stelle auf der Materialoberfläche mit der Kalibrierkarte zu berühren, bis Sie leichten Widerstand spüren, wenn Sie die Kalibrierkarte herausziehen, und sie sollte zerknittert sein, wenn Sie sie nach vorne drücken.</string>
+    <string name="calibration_cnc_tool_change_third_steps_content">Manipulieren Sie das neue Bit, um die gleiche gewählte Stelle zu berühren, indem Sie den Z-Offset mit der Kalibrierungskarte einstellen, bis Sie beim Herausziehen der Kalibrierungskarte leichten Widerstand spüren, und er sollte zerknittert sein, wenn Sie ihn nach vorne drücken.</string>
+    <string name="print_stop_printing">Druck Stoppen</string>
+    <string name="print_confirmation_content">Sind Sie sicher, dass Sie es wollen?</string>
+    <string name="print_xy_offset_calibration_title">XY Offset-Kalibrierung</string>
+    <string name="print_xy_offset_calibration_subtitle">Check-Modell drucken (5/6)</string>
+    <string name="print_print_calibration_models">Kalibrierungsmodelle drucken (1/6)</string>
+    <string name="print_print_calibration_models_4">Kalibrierungsmodelle drucken (1/4)</string>
+
+    <!--  Unsorted resources  -->
+    <string name="guide_a400_camera_calibration_1_2_subtitle">Kalibriermaterial reparieren</string>
+    <string name="guide_a400_camera_calibration_1_2_msg">1. Bereiten Sie ein Stück leeres und weißes A4-Papier vor.
+
+\N2. Folgen Sie der <b>Quick Start Guide</b>, um sie in der Mitte der Lasergravur- und Schneidplattform zu befestigen.
+
+\n\nNachdem Sie auf <b>Weiter</b> getippt haben, schneidet die Maschine ein Quadrat auf dem Papier, um die Kamera zu kalibrieren.</string>
+    <string name="open_laser_title">Laser Wird Eingeschaltet</string>
+    <string name="guide_a400_cnc_1_4_subtitle">Schutzbrillen (1/4)</string>
+    <string name="guide_a400_cnc_2_4_subtitle">Fixmaterial (2/4)</string>
+    <string name="guide_a400_cnc_3_4_subtitle">Bit anbringen (3/4)</string>
+    <string name="guide_a400_cnc_4_4_subtitle">Werkzeug-Bildschirm (4/4)</string>
+    <string name="guide_a400_cnc_1_4_msg">Um die Sicherheit zu gewährleisten, stellen Sie sicher, dass Sie und alle Umstehenden die CNC-Sicherheitsbrille jedes Mal korrekt tragen, bevor Sie sich auf einen Job vorbereiten, und tragen sie während des gesamten Bearbeitungsprozesses.</string>
+    <string name="guide_a400_cnc_2_4_four_axial_msg"><![CDATA[Bevor Sie mit einer Arbeit beginnen, müssen Sie die <b>Schnellstartanleitung des Drehmoduls</b> befolgen, um das mitgelieferte Zylindermaterial auf dem 3-Backenfutter zu befestigen. Sie können den Reitstock bei Bedarf anbringen, um die Stabilität zu verbessern.]]> </string>
+    <string name="guide_a400_cnc_2_4_tri_axial_msg"><![CDATA[Bevor Sie mit einem Job beginnen, müssen Sie die <b>Quick Start Guide</b> befolgen, um das bereitgestellte Material mit den Klemmsätzen auf der CNC-Schnitt- und Schneidplattform zu befestigen.]]></string>
+    <string name="guide_a400_cnc_3_4_four_axial_msg"><![CDATA[Bevor Sie mit einem Job beginnen, müssen Sie der <b>Quick Start Guide des Rotary Module</b> folgen, um das Bit in die ER11-Spanne einzuführen und es dann mit den beiden mitgelieferten Schraubenschlüsseln auf den Werkzeugkopf zu drehen.]]></string>
+    <string name="guide_a400_cnc_3_4_tri_axial_msg"><![CDATA[Bevor Sie mit einem Auftrag beginnen, müssen Sie der <b>Quick Start Guide</b> folgen, um das Bit in die ER11-Spanne einzulegen und es dann mit den beiden mitgelieferten Schraubenschlüsseln auf den Werkzeugkopf zu drehen.]]> </string>
+    <string name="guide_a400_cnc_4_4_four_axial_msg"><![CDATA[Sie können zum <b>Startbildschirm gehen > Werkzeuge > Ursprungsassistent</b>, um den Arbeitsursprung umgehend unter der Anleitung des Bildschirms festzulegen. <br> <br> Sie können zu Home <b>Bildschirm > Tools > Bit Assistant</b> gehen, um das Bit unter der Anleitung des Bildschirms umgehend zu ändern. <br> <br>Sie können zu <b>Startbildschirm > Extras > Manuelle Werkzeugeinstellung]]></string>
+    <string name="guide_a400_cnc_4_4_tri_axial_msg"><![CDATA[Sie können zu <b>Startbildschirm > Werkzeuge > Manuelle Werkzeugeinstellung</b> gehen, um den Arbeitsursprung manuell unter der Anleitung des Bildschirms festzulegen. <br> <br> Sie können zu <b>Startbildschirm > Werkzeuge > Bit-Assistent</b> gehen, um das Bit unter der Anleitung des Bildschirms umgehend zu ändern.]]></string>
+    <string name="guide_a400_cnc_initial_setup_guidance">Anleitung zur CNC-Ersteinrichtung</string>
+    <string name="guide_a400_load_filament">Filament laden</string>
+    <string name="guide_a400_load_filament_msg">Der Bildschirm führt Sie zum Laden des Filaments.</string>
+    <string name="guide_a400_double_extruder_step_1_2_subtitle">Linke Düse laden (1/2)</string>
+    <string name="guide_a400_double_extruder_step_2_2_subtitle">Rechte Düse laden (2/2)</string>
+    <string name="guide_a400_double_extruder_step_1_2_msg">
+        1. Hängen Sie das schwarze PLA-Filament, das mit der Maschine geliefert wird, an den linken Filamenthalter.
+
+\n2. Stecken Sie das Filament in das linke Filamentrohr und füttern Sie es weiter, bis Sie spüren können, dass das Filament ergriffen und eingezogen wird. Sie hören einen schnellen Ton, nachdem die Düse geladen wurde.
+    </string>
+    <string name="guide_a400_double_extruder_step_2_2_msg">
+         1.Hängen Sie das mit der Maschine gelieferte PLA-Filament an den rechten Filamenthalter.
+
+\n2. Stecken Sie das Filament in das rechte Filamentrohr und füttern Sie es weiter, bis Sie spüren können, dass das Filament ergriffen und eingezogen wird. Sie hören einen schnellen Ton, nachdem die Düse geladen wurde.
+    </string>
+    <string name="guide_a400_heating_the_left_nozzle">Erhitzen der linken Düse...</string>
+    <string name="guide_a400_extruding_the_filament">Extrudieren des Filaments...</string>
+    <string name="guide_a400_extruding_the_filament_tips">Bitte warten Sie ein paar Sekunden.</string>
+    <string name="guide_a400_nozzle_left_load_confirm_dialog_title">Linke Düse geladen</string>
+    <string name="guide_a400_nozzle_left_load_confirm_dialog_content">Beobachten Sie, ob ein Filament aus der linken Düse kommt.
+\nWenn ja, dann wird das Filament geladen und Sie können auf <b>Weiter</b> tippen.
+\nWenn nicht, tippen Sie auf <b>Filament laden</b>, um es erneut zu laden.
+    </string>
+    <string name="guide_a400_nozzle_right_load_confirm_dialog_title">Rechte Düse geladen</string>
+    <string name="guide_a400_nozzle_right_load_confirm_dialog_content">
+        Beobachten Sie, ob ein Filament aus der rechten Düse kommt.
+\nWenn ja, wird das Filament geladen und Sie können auf <b>Fertig</b> tippen, um fortzufahren.
+\nWenn nicht, tippen Sie auf <b>Filament laden</b>, um erneut zu laden.
+    </string>
+    <string name="guide_a400_moving">Fährt...</string>
+    <string name="guide_a400_double_extruder_step_2_title">Z Offset kalibrierung &amp; Beheizte Bettnivellierung</string>
+    <string name="guide_a400_double_extruder_step_2_dialog_title">Zlibration &amp; Nivellierung</string>
+    <string name="guide_a400_double_extruder_step_2_msg">Die Maschine kalibriert automatisch den Z-Offset und nivelliert das beheizte Bett. Es wird erwartet, dass es 3 Minuten dauert.
+
+\nWenn die Z-Offset-Kalibrierung und die Beheizte Bettnivellierung abgeschlossen ist, wechselt die Maschine zur XY-Offset-Kalibrierung und druckt automatisch die Kalibrierungsmodelle.
+
+\nReinigen Sie die Glasbauplatte und die Düsen, bevor Sie tippen<b>Start</b>.
+    </string>
+    <string name="guide_a400_double_extruder_step_1_2_title">Z Offset-Kalibrierung</string>
+    <string name="guide_a400_double_extruder_step_1_for_1_3">Linke Düse kalibrieren (1/3)</string>
+    <string name="guide_a400_double_extruder_step_1_for_1_3_content_title">Linke Düse kalibrieren</string>
+    <string name="guide_a400_double_extruder_step_1_for_2_3_subtitle">Rechte Düse kalibrieren (2/3)</string>
+    <string name="guide_a400_double_extruder_step_1_for_2_3_content_title">Rechte Düse kalibrieren</string>
+    <string name="guide_a400_double_extruder_step_3_title">XY Offset-Kalibrierung</string>
+    <string name="guide_a400_double_extruder_step_3_msg">Die Maschine druckt jeweils ein Kalibrierungsmodell für die X- und Y-Orientierung.
+
+\nSie müssen das beste Linienpaar in den gedruckten Modellen finden, um die Versätze der beiden Düsen in der X- und Y-Ausrichtung zu kalibrieren.
+
+\nDanach können Sie wählen, ob Sie die Kalibrierungsergebnisse überprüfen müssen, indem Sie ein Prüfmodell drucken.</string>
+    <string name="guide_a400_recalibrate_msg">Die Kalibriermodelle werden erneut gedruckt. Reinigen Sie die Bauplatte, bevor Sie auf <b>Weiter</b> tippen.</string>
+    <string name="all_cnc_turn_off">Ausschalten</string>
+    <string name="all_cnc_turn_on">Einschalten</string>
+    <string name="a400_leveling_z_calibration_l">Automatische Kalibrierung der linken Düse...</string>
+    <string name="a400_leveling_z_manual_content">Senken Sie die %s-Düse des Werkzeugkopfes mit der Kalibrierkarte manuell gegen die Oberfläche der 3D-Druckplattform ab, bis Sie einen leichten Widerstand spüren, wenn Sie die Kalibrierkarte herausziehen, und sie sollte zerknittert sein, wenn Sie sie nach vorne drücken.</string>
+    <string name="a400_leveling_z_calibration_manual_save_l">Höhe sparen - linke Düse</string>
+    <string name="a400_leveling_z_calibration_manual_save_r">Höhe sparen - Rechte Düse</string>
+    <string name="a400_leveling_z_calibration_manual_save_l_content">Die aktuelle Z-Höhe wird als anfängliche Druckhöhe der linken Düse gespeichert.</string>
+    <string name="a400_leveling_z_calibration_manual_save_r_content">Die aktuelle Z-Höhe wird als anfängliche Druckhöhe der rechten Düse gespeichert.</string>
+    <string name="a400_go_home">Home</string>
+
+    <string name="calibration_a400_double_extruder_z_offset_step_one">Linke Düse kalibrieren (1/2)</string>
+    <string name="calibration_a400_double_extruder_z_offset_step_two">Rechte Düse kalibrieren (2/2)</string>
+
+    <!--  Calibration General  -->
+    <string name="calibration_heated_bed_leveing_title">Beheizte Bettnivellierung</string>
+    <string name="calibration_Z_offset_calibration_title">Z Offset Klibrierung</string>
+    <string name="calibration_XY_offset_calibration_title">XY Offset Kalibrierung</string>
+    <string name="calibration_a400_procedure_start_confirm_dialog_title">%s Wird beginnen</string>
+    <string name="calibration_a400_procedure_start_confirm_dialog_content_3dp">Reinigen Sie die Glasbauplatte und die Düsen, bevor Sie auf <b>Weiter</b> tippen.</string>
+    <string name="calibration_a400_procedure_start_confirm_dialog_content_laser">Reinigen Sie die Lasergravur- und Schneidplattform, bevor Sie <b>Weiter</b> tippen.</string>
+
+
+    <!-- extruder calibration-->
+    <string name="calibration_auto_mode">Auto Modus</string>
+    <string name="calibration_manual_mode">Manueller Modus</string>
+    <string name="calibration_base_mode">Basismodus</string>
+    <string name="calibration_advanced_mode">Erweiterter Modus</string>
+    <string name="calibration_sensor_travel_calibration">Sensorkalibrierung</string>
+    <string name="calibration_z_sensor_calibration">Sensorkalibrierung</string>
+    <string name="calibration_a400_z_manual_mode_content">Steuern Sie die linke und rechte Düse manuell, um die Kalibrierkarte zu berühren, um den aktuellen Z-Offset zu erhalten, damit die beiden Düsen beim Drucken in der richtigen und gleichen Höhe arbeiten können.</string>
+    <string name="calibration_a400_xy_manual_mode_content">Die Maschine druckt jeweils ein Kalibrierungsmodell für die X- und Y-Orientierung. Sie müssen das beste Linienpaar in den gedruckten Modellen finden, um die Versätze der beiden Düsen in den X- und Y-Ausrichtungen zu kalibrieren. Danach können Sie wählen, ob Sie die Kalibrierungsergebnisse überprüfen müssen, indem Sie ein Prüfmodell drucken.</string>
+    <string name="calibration_a400_z_auto_mode_content">Die linke und rechte Düse berühren nacheinander automatisch die 3D-Druckplattform, um den Z-Offset zu kalibrieren, so dass die beiden Düsen beim Drucken in der richtigen und gleichen Höhe arbeiten können.</string>
+    <string name="calibration_a400_z_sensor_mode_content">Kalibrieren Sie die Fahrstrecke des Sensors. Wenn Sie feststellen, dass das Ergebnis des Auto-Modus ungenau ist, müssen Sie eine Sensorkalibrierung durchführen.</string>
+    <string name="calibration_heated_z_leveling_auto_content">Die linke und rechte Düse berühren automatisch die Glasbauplatte, um den Z-Offset zu kalibrieren.</string>
+    <string name="calibration_heated_z_leveling_manual_content">Kalibrieren Sie den Z-Offset, indem Sie die linke und rechte Düse manuell steuern.</string>
+    <string name="calibration_heated_z_leveling_sensor_travel_calibration_content">Wenn Sie feststellen, dass das Ergebnis des Auto-Modus ungenau ist, müssen Sie eine Sensorkalibrierung durchführen.</string>
+
+    <string name="a400_calibration_z_leveling_auto_left">Automatische Kalibrierung der linken Düse...</string>
+    <string name="a400_calibration_z_leveling_auto_right">Automatische Kalibrierung der richtigen Düse...</string>
+    <string name="a400_calibration_z_leveling_sensor_height">Automatische Kalibrierung der %s-Düse (%d/%d)</string>
+    <string name="a400_calibration_z_leveling_z_offset">Manuelle Kalibrierung der %s-Düse (%d/%d)</string>
+    <string name="calibration_z_leveling_sensor_submit_nozzle_l_title">Höhe speichern - linke Düse</string>
+    <string name="calibration_z_leveling_sensor_submit_nozzle_r_title">Höhe speichern - Rechte Düse</string>
+    <string name="calibration_z_leveling_sensor_submit_nozzle_r_content">Die aktuelle Z-Höhe wird als anfängliche Druckhöhe der rechten Düse gespeichert.</string>
+    <string name="calibration_z_leveling_sensor_submit_nozzle_l_content">Die aktuelle Z-Höhe wird als anfängliche Druckhöhe der linken Düse gespeichert.</string>
+    <string name="a400_calibration_manual_calibration_of_nozzle_r_title">Manuelle Kalibrierung der rechten Düse</string>
+    <string name="a400_calibration_manual_calibration_of_nozzle_r_content">Senken Sie die rechte Düse des Werkzeugkopfes mit der Kalibrierkarte manuell gegen die Oberfläche der 3D-Druckplattform ab, bis Sie einen leichten Widerstand spüren, wenn Sie die Kalibrierungskarte herausziehen, und sie sollte zerknittert sein, wenn Sie sie nach vorne drücken.</string>
+    <string name="a400_calibration_manual_calibration_of_nozzle_l_title">Manuelle Kalibrierung der linken Düse</string>
+    <string name="a400_calibration_manual_calibration_of_nozzle_l_content">Senken Sie die linke Düse des Werkzeugkopfes mit der Kalibrierkarte manuell gegen die Oberfläche der 3D-Druckplattform ab, bis Sie einen leichten Widerstand spüren, wenn Sie die Kalibrierungskarte herausziehen, und sie sollte zerknittert sein, wenn Sie sie nach vorne drücken.</string>
+    <string name="a400_extruder_z_offset_completed_title">Abgeschlossen</string>
+    <string name="a400_extruder_z_offset_completed_content">Herzlichen Glückwunsch! Sie haben die Z-Offset-Kalibrierung abgeschlossen.</string>
+
+    <!-- heated bed calibration-->
+    <string name="calibration_heated_bed_leveling_title">Beheizte Bettnivellierung</string>
+    <string name="calibration_heated_bed_leveling_sub_title">Kalibrierungspunkte kalibrieren %s</string>
+    <string name="calibration_heated_bed_leveling_completed_title">Abgeschlossen</string>A400LevelingXYCalibrationInfoFragment
+    <string name="calibration_heated_bed_leveling_completed_content">Herzlichen Glückwunsch! Sie haben die beheizte Bettennivellierung abgeschlossen.</string>
+    <string name="calibration_heated_bed_calibration_point">Kalibrierpunkte</string>
+    <string name="calibration_heated_bed_heated_bed_temp">Heizbett Temp.</string>
+
+    <!--CNC four axis Origin Assistant-->
+    <string name="a400_cnc_origin_assistant_length_title">Messen und geben Sie die Länge und den Durchmesser des Materials ein.</string>
+    <string name="calibration_cnc_origin_assistant">Herkunftsassistent</string>
+    <string name="calibration_cnc_origin_assistant_stop_title">Herkunftsassistent</string>
+    <string name="a400_cnc_origin_set_material_title">Set Material (1/9)</string>
+    <string name="a400_cnc_origin_set_material_length">Länge</string>
+    <string name="a400_cnc_origin_set_material_diameter">Durchmesser</string>
+    <string name="a400_cnc_origin_fix_material_title">Fix Material (2/9)</string>
+    <string name="a400_cnc_origin_fix_material_content">Befestigen Sie das Material am 3-Backenfutter und lassen Sie keine Lücke zwischen ihren Kontaktflächen.</string>
+    <string name="a400_cnc_origin_fix_material_waring">Installieren Sie den Reitstock jetzt nicht, sonst stößt das Bit in den Reitstock.</string>
+    <string name="a400_cnc_origin_select_bit_title">Bit auswählen (3/9)</string>
+    <string name="a400_cnc_origin_operation_instruction_title">Betriebsanweisung (4/9)</string>
+    <string name="a400_cnc_origin_open_glass_msg">Bevor Sie mit dem Origin Assistant fortfahren, stellen Sie sicher, dass Sie die CNC-Sicherheitsbrille tragen.</string>
+    <string name="a400_cnc_origin_custom_bit_msg">Messen und geben Sie die Länge und den Durchmesser des Bits ein.</string>
+    <string name="a400_cnc_origin_origin_assistant_go_home">Home...</string>
+    <string name="a400_cnc_origin_origin_assistant_set_x1_tip">Der Werkzeugkopf bewegt sich in die Nähe von X1…</string>
+    <string name="a400_cnc_origin_origin_assistant_set_x2_tip">Der Werkzeugkopf bewegt sich in die Nähe X2…</string>
+    <string name="a400_cnc_origin_origin_assistant_set_y_tip">Der Werkzeugkopf bewegt sich in die Nähe von Y…</string>
+    <string name="a400_cnc_origin_origin_assistant_set_z_tip">Der Werkzeugkopf bewegt sich in die Nähe von Z…</string>
+    <string name="a400_cnc_origin_origin_assistant_set_x1_msg">Bewegen Sie das Bit an die auf dem Bildschirm angezeigte Position und berühren Sie das Material mit dem Schaft des Bits und nicht mit seiner Spitze. Tippen Sie dann auf <b>Set X1</b>.</string>
+    <string name="a400_cnc_origin_origin_assistant_set_x2_msg">Bewegen Sie das Bit an die auf dem Bildschirm angezeigte Position und berühren Sie das Material mit dem Schaft des Bits und nicht mit seiner Spitze. Tippen Sie dann auf <b>Set X2</b>.</string>
+    <string name="a400_cnc_origin_origin_assistant_set_y_msg">Bewegen Sie das Bit an die auf dem Bildschirm angezeigte Position und berühren Sie das Material mit dem Schaft des Bits und nicht mit seiner Spitze. Tippen Sie dann auf <b>Set Y</b>.</string>
+    <string name="a400_cnc_origin_origin_assistant_set_z_msg">Bewegen Sie das Bit an die Position, die auf dem Bildschirm angezeigt wird. Tippen Sie dann auf <b>Z einstellen</b>.</string>
+    <string name="a400_cnc_origin_origin_assistant_set_b_msg">Drehen Sie das Material an die gewünschte Position. Tippen Sie dann auf <b>B einstellen</b>.</string>
+    <string name="a400_cnc_origin_origin_assistant_set_x1_subtitle">Set X1 (5/9)</string>
+    <string name="a400_cnc_origin_origin_assistant_set_x2_subtitle">Set X2 (6/9)</string>
+    <string name="a400_cnc_origin_origin_assistant_set_y_subtitle">Set Y (7/9)</string>
+    <string name="a400_cnc_origin_origin_assistant_set_z_subtitle">Set Z (8/9)</string>
+    <string name="a400_cnc_origin_origin_assistant_set_b_subtitle">Set B (9/9)</string>
+    <!-- control-->
+    <!-- Air purifier-->
+    <string name="a400_control_air_purifier_turn_on_title">Einschalten</string>
+    <string name="a400_control_air_purifier_turn_off_title">Ausschalten</string>
+    <string name="a400_control_air_purifier_settings">Luftreiniger-Einstellungen</string>
+    <string name="a400_control_air_purifier_settings_laser_and_cut_title">Lasergravur und Schneideauftrag</string>
+    <string name="a400_control_air_purifier_settings_auto_power_on_title">Automatisches Einschalten</string>
+    <string name="a400_control_air_purifier_settings_auto_power_off_title">Automatische Abschaltung</string>
+    <string name="a400_control_air_purifier_settings_3dp_job_title">3D Druck Job</string>
+    <string name="a400_control_air_purifier_settings_cnc_job_title">CNC Schnitzkunst Job</string>
+    <string name="a400_control_air_purifier_settings_timer_title">Timer</string>
+    <string name="a400_control_air_purifier_settings_timer_close_title">Ende</string>
+    <string name="a400_control_air_purifier_settings_timer_one_title">1 min</string>
+    <string name="a400_control_air_purifier_settings_timer_three_title">3 min</string>
+    <string name="a400_control_air_purifier_settings_timer_five_title">5 min</string>
+    <string name="a400_control_air_purifier_settings_timer_eight_title">8 min</string>
+    <string name="a400_control_air_purifier_settings_timer_ten_title">10 min</string>
+    <string name="a400_control_air_purifier_settings_timer_thirty_title">Dreißig Minuten</string>
+    <string name="a400_control_air_purifier_settings_setting_fail_msg">Einstellung fehlgeschlagen</string>
+    <!-- enclosure-->
+    <string name="a400_control_enclosure_settings">Gehäuseeinstellungen</string>
+    <string name="a400_control_enclosure_door_detection">Türerkennung</string>
+    <string name="a400_control_enclosure_temp_monitor">RH/Temp.Monitor</string>
+    <string name="a400_control_enclosure_temp">Temp</string>
+    <string name="a400_control_enclosure_rh">RH</string>
+    <string name="a400_control_filament_dryer_dry">Trocknen</string>
+    <string name="a400_control_filament_dryer_stop_dry">Hör auf zu trocknen</string>
+    <string name="a400_not_powered">Nicht angetrieben</string>
+    <string name="a400_control_move">Bewegen</string>
+    <string name="a400_control_filament">Filament</string>
+    <string name="a400_control_heated_bed">Heizbett</string>
+    <string name="a400_control_enclosure">Gehäuse</string>
+    <string name="a400_control_air_purifier">Luftreinigung</string>
+    <string name="a400_control_filament_dryer">Filamenttrockner</string>
+    <string name="a400_control_laser">Laser</string>
+    <string name="a400_control_spindle">Spindel</string>
+    <string name="a400_laser_central_axis_calibration_material_cylinder_material">Cylinder Material</string>
+    <string name="all_material_diameter">Durchmesser</string>
+    <string name="a400_calibration_4axis_central_axis_title">Materialdurchmesser einstellen</string>
+    <string name="a400_calibration_4axis_central_axis_content">Messen und geben Sie den Durchmesser des Materials ein. Befestigen Sie dann das Material am 3-Backenfutter.</string>
+    <string name="a400_central_axis_calibration">Kalibrierung der Zentralachse</string>
+    <string name="a400_set_material_diameter_1_2">Set Material Durchmesser (1/2)</string>
+    <string name="a400_touch_material_2_2">Touch Material (2/2)</string>
+    <string name="a400_calibration_axis_touch_material_title">Touch Material</string>
+    <string name="a400_calibration_axis_touch_material_content">Befestigen Sie das Material am 3-Backenfutter. Senken Sie den Werkzeugkopf mit der Kalibrierkarte manuell gegen die Oberseite des Materials ab, bis Sie beim Herausziehen der Kalibrierkarte leichten Widerstand spüren, und er sollte zerknittert sein, wenn Sie ihn nach vorne drücken.</string>
+    <string name="a400_control_there_matrix_title">3 × 3</string>
+    <string name="a400_control_five_matrix_title">5 × 5</string>
+    <string name="a400_control_nine_matrix_title">9 × 9</string>
+
+    <!--Manual tool setting-->
+    <string name="a400_calibration_four_axis_manual_tool_setting_content">Legen Sie den Arbeitsursprung fest, indem Sie den Werkzeugkopf manuell steuern. Sie müssen den Ursprung in den XYZB-Orientierungen separat festlegen, und ihre Kombination wird der Arbeitsursprung sein.</string>
+
+    <!-- laser guide Manual Focus Calibration-->
+    <string name="calibration_manual_focus_calibration_title">Manuelle Fokuskalibrierung</string>
+    <string name="calibration_manual_focus_calibration_desc">Das Lasermodul graviert ein paar Skalenlinien in verschiedenen Höhen. Sie müssen die beste gravierte Linie wählen, um die Brennweite zu kalibrieren.</string>
+    <string name="calibration_manual_focus_calibration_one_subtitle">Touch Kalibrierplatte (1/4)</string>
+    <string name="calibration_manual_focus_calibration_one_four_axis_subtitle">Touch Material (1/4)</string>
+    <string name="calibration_manual_focus_calibration_one_content">Befestigen Sie ein Stück Holzmaterial an der Lasergravur- und Schneidplattform und legen Sie dann das Laserkalibrierungsziel auf das Material. Senken Sie den Werkzeugkopf manuell in Richtung der Oberfläche des Kalibrierziels, bis Sie leichten Widerstand spüren, wenn Sie das Kalibrierziel herausziehen. Tippen Sie dann auf <b>Weiter</b> und entfernen Sie das Kalibrierungsziel.</string>
+    <string name="calibration_manual_focus_calibration_one_four_axis_content">Befestigen Sie das Material am 3-Backenfutter. Senken Sie den Werkzeugkopf mit der Kalibrierkarte manuell gegen die Oberseite des Materials ab, bis Sie beim Herausziehen der Kalibrierkarte leichten Widerstand spüren, und er sollte zerknittert sein, wenn Sie ihn nach vorne drücken.</string>
+    <string name="calibration_manual_focus_calibration_one_content_title">Touch Kalibrierplatte</string>
+    <string name="calibration_manual_focus_calibration_one_four_axi_contents_title">Touch Material</string>
+    <string name="a400_laser_stop_calibration_title">Kalibrierung stoppen</string>
+    <string name="a400_laser_stop_calibration_content">Die manuelle Fokuskalibrierung ist noch nicht abgeschlossen. Willst du es stoppen?</string>
+    <string name="calibration_manual_focus_calibration_two_subtitle">Arbeitsursprung festlegen (2/4)</string>
+    <string name="calibration_manual_focus_calibration_two_content_title">Set XY Origin</string>
+    <string name="calibration_manual_focus_calibration_two_content">Bewegen Sie den Werkzeugkopf manuell an die Position, die Sie als Arbeitsursprung festlegen möchten. Das Kalibriermuster wird mit dem definierten Ursprung graviert. Sie können auf <b>Grenze ausführen</b> tippen, um den Arbeitsbereich der aktuellen Position zu überprüfen.</string>
+    <string name="calibration_manual_focus_calibration_three_subtitle">Kalibrierungsmuster gravieren (3/4)</string>
+    <string name="a400_laser_engraving">Gravur...</string>
+    <string name="a400_laser_four_axis_completed_title">Abgeschlossen</string>
+    <string name="a400_laser_four_axis_completed_content">Herzlichen Glückwunsch! Sie haben die manuelle Fokuskalibrierung abgeschlossen.</string>
+    <string name="calibration_manual_focus_calibration_four_subtitle">Kalibriert  (4/4)</string>
+    <string name="calibration_manual_focus_calibration_four_content">Schieben Sie, um die beste gravierte Linie auszuwählen</string>
+    <string name="a400_laser_four_axis_calibrate_title">Beste gravierte Linie</string>
+    <string name="a400_laser_four_axis_calibrate_four_axis_title">Kalibriert</string>
+    <string name="a400_laser_four_axis_calibrate_content">Die beste gravierte Linie ist die, die graviert wurde, als das Lasermodul die optimale Fokushöhe erreicht. Es ist die dünnste Linie und die beiden Linien daneben links und rechts sollten dicker sein.</string>
+    <string name="a400_four_axis_calibration_central_axis_content">Messen und geben Sie den Durchmesser des Materials ein. Befolgen Sie dann die <b>Quick Start Guide des Rotary Module</b>, um das Material am 3-Backenfutter zu befestigen.</string>
+    <string name="a400_four_axis_calibration_axis_touch_material_content">Senken Sie den Werkzeugkopf manuell gegen die Oberseite des Materials.</string>
+    <string name="calibration_cnc_origin_assistant_success_msg">Herzlichen Glückwunsch! Sie haben den Herkunftsassistenten abgeschlossen.</string>
+    <string name="calibration_complete_heated_bed_leveling">Herzlichen Glückwunsch! Sie haben die beheizte Bettennivellierung abgeschlossen.</string>
+    <string name="calibration_complete_z_offset_calibration">Herzlichen Glückwunsch! Sie haben die Z-Offset-Kalibrierung abgeschlossen.</string>
+    <string name="debug_machine_move_restricted">Eingeschränkte Bewegung, die maschinell gemeldet wird</string>
+
+    <string name="all_turn_off">Ausschalten</string>
+    <string name="all_turn_on">Einschalten</string>
+    <string name="filament_control_stop_heat">Heizen stoppen</string>
+    <string name="filament_control_start_heat">Heizen</string>
+    <string name="cnc_set_material_1_9">Set Material (1/9)</string>
+    <string name="cnc_fix_material_2_9">Fix Material (2/9)</string>
+    <string name="a400_load_filament_heating_content">Bitte warten Sie ein paar Sekunden.\nLinke Düsentemperatur: %s℃</string>
+    <string name="guide_a400_heating_the_left_nozzle_msg">Bitte warten Sie ein paar Sekunden.</string>
+    <string name="a400_central_axis_calibration_complete">Abgeschlossen</string>
+    <string name="calibration_a400_leveling_x_msg">Schieben Sie, um das beste Linienpaar für die X-Orientierung auszuwählen</string>
+    <string name="calibration_a400_leveling_y_msg">Schieben Sie, um das beste Linienpaar für die Y-Orientierung auszuwählen</string>
+    <string name="a400_remove_calibration_models_title">Kalibrierungsmodelle entfernen</string>
+    <string name="a400_remove_calibration_models_content">Um die Kalibrierungsmodelle zu beobachten, entfernen Sie die beiden Modelle von der Glasbauplatte.</string>
+    <string name="a400_left">Links</string>
+    <string name="a400_right">Rechts</string>
+    <string name="guide_a400_extruding_the_filament_content">Bitte warten Sie ein paar Sekunden.</string>
+    <string name="a400_choose_a_material">Wählen Sie ein Material</string>
+    <string name="calibration_a400_leveling_xy_observe_check_model_title">Beobachtungs-Check-Modell</string>
+
+</resources>
+
