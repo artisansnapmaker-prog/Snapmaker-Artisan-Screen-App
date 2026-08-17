@@ -87,7 +87,9 @@ public class HeatedBed extends Module {
         // FIXME: 2022/1/27 request multiple times
         return mConnectionController.request(0x14, 0x01, heatedBedRequest, responseStructure)
                 .doOnNext(response -> {
-                    mStatusSubject.onNext(response.dataProp);
+                    if (response.isSuccess()) {
+                        mStatusSubject.onNext(response.dataProp);
+                    }
                 });
     }
 

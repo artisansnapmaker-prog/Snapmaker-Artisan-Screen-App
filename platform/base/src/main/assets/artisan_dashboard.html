@@ -1,0 +1,1213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07110f">
+  <meta name="artisan-dashboard-token" content="__ARTISAN_DASHBOARD_TOKEN__">
+  <title>Artisan · 3D Print Console</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050908;
+      --surface: #0a1210;
+      --surface-2: #0e1916;
+      --surface-3: #13211d;
+      --line: #263a34;
+      --line-bright: #3f5c54;
+      --text: #edf8f5;
+      --muted: #8aa099;
+      --faint: #60726c;
+      --accent: #31e0cc;
+      --accent-soft: rgba(49, 224, 204, .12);
+      --good: #73e5a0;
+      --warn: #ffc461;
+      --danger: #ff6b6b;
+      --blue: #76b8ff;
+      --radius: 3px;
+      --mono: "Roboto Mono", "Cascadia Mono", Consolas, monospace;
+      --sans: Inter, Roboto, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+
+    html { min-height: 100%; background: var(--bg); }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(49, 224, 204, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(49, 224, 204, .025) 1px, transparent 1px),
+        radial-gradient(circle at 80% -20%, rgba(49, 224, 204, .12), transparent 42%),
+        var(--bg);
+      background-size: 48px 48px, 48px 48px, auto, auto;
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    button, input { font: inherit; }
+
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .topbar {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 14px clamp(18px, 3vw, 46px);
+      border-bottom: 1px solid var(--line-bright);
+      background: rgba(5, 9, 8, .94);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: #03110f;
+      background: var(--accent);
+      clip-path: polygon(0 0, 76% 0, 100% 24%, 100% 100%, 24% 100%, 0 76%);
+      font-family: var(--mono);
+      font-weight: 900;
+      letter-spacing: -.08em;
+    }
+
+    .eyebrow {
+      margin: 0 0 2px;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      overflow: hidden;
+      font-size: clamp(18px, 2.1vw, 25px);
+      font-weight: 650;
+      letter-spacing: -.025em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .top-status {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .connection {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .connection-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--faint);
+      box-shadow: 0 0 0 4px rgba(96, 114, 108, .12);
+    }
+
+    .connection.online .connection-dot {
+      background: var(--good);
+      box-shadow: 0 0 0 4px rgba(115, 229, 160, .12), 0 0 12px rgba(115, 229, 160, .38);
+    }
+
+    .updated {
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .shell {
+      width: min(1500px, 100%);
+      margin: 0 auto;
+      padding: clamp(18px, 3vw, 44px);
+    }
+
+    .alerts { display: grid; gap: 8px; margin-bottom: 16px; }
+
+    .alert {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 14px;
+      border-left: 3px solid var(--warn);
+      background: rgba(255, 196, 97, .09);
+      color: #ffe0a8;
+      font-size: 13px;
+    }
+
+    .alert.danger {
+      border-left-color: var(--danger);
+      background: rgba(255, 107, 107, .1);
+      color: #ffc0c0;
+    }
+
+    .alert.info {
+      border-left-color: var(--blue);
+      background: rgba(118, 184, 255, .08);
+      color: #bddcff;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .section-label::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, var(--line-bright), transparent);
+    }
+
+    .panel {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(14, 25, 22, .97), rgba(8, 15, 13, .97));
+      box-shadow: 0 18px 46px rgba(0, 0, 0, .2);
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: -1px auto auto -1px;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .job-panel { padding: clamp(18px, 2.5vw, 32px); }
+
+    .job-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .job-heading h2 {
+      margin: 2px 0 0;
+      max-width: 850px;
+      overflow-wrap: anywhere;
+      font-size: clamp(22px, 3.2vw, 38px);
+      font-weight: 620;
+      letter-spacing: -.035em;
+    }
+
+    .state-pill, .tiny-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      flex: none;
+      padding: 6px 10px;
+      border: 1px solid var(--line-bright);
+      color: var(--muted);
+      background: rgba(255, 255, 255, .02);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .state-pill::before, .tiny-pill::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .state-pill.active { color: var(--accent); border-color: rgba(49, 224, 204, .38); }
+    .state-pill.paused { color: var(--warn); border-color: rgba(255, 196, 97, .4); }
+    .state-pill.danger { color: var(--danger); border-color: rgba(255, 107, 107, .45); }
+
+    .job-layout {
+      display: grid;
+      grid-template-columns: minmax(230px, .72fr) minmax(0, 1.7fr);
+      gap: clamp(20px, 3vw, 38px);
+      align-items: stretch;
+    }
+
+    .job-layout > * { min-width: 0; }
+
+    .preview {
+      position: relative;
+      min-height: 230px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-bright);
+      background:
+        linear-gradient(rgba(49, 224, 204, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(49, 224, 204, .035) 1px, transparent 1px),
+        #07100e;
+      background-size: 24px 24px;
+    }
+
+    .preview::after {
+      content: "PREVIEW";
+      position: absolute;
+      left: 10px;
+      bottom: 8px;
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .16em;
+    }
+
+    .preview img {
+      width: 100%;
+      height: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      image-rendering: auto;
+    }
+
+    .preview-empty {
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+      color: var(--faint);
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .preview-cube {
+      width: 58px;
+      height: 58px;
+      border: 1px solid var(--line-bright);
+      transform: rotate(45deg);
+      box-shadow: inset 0 0 28px rgba(49, 224, 204, .08);
+    }
+
+    .job-main { min-width: 0; display: flex; flex-direction: column; }
+
+    .progress-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .progress-value {
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: clamp(30px, 4.2vw, 52px);
+      font-weight: 500;
+      letter-spacing: -.06em;
+      line-height: 1;
+    }
+
+    .progress-label { color: var(--muted); font-size: 12px; }
+
+    .progress-track {
+      position: relative;
+      height: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line-bright);
+      background: #050a09;
+    }
+
+    .progress-track::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(90deg, transparent 0 23px, rgba(5, 9, 8, .5) 23px 25px);
+      pointer-events: none;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, #18a795, var(--accent));
+      box-shadow: 0 0 18px rgba(49, 224, 204, .35);
+      transition: width .45s ease;
+    }
+
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 18px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .metric { min-width: 0; padding: 14px 13px 13px 0; }
+    .metric + .metric { padding-left: 13px; border-left: 1px solid var(--line); }
+    .metric-label { display: block; color: var(--faint); font-family: var(--mono); font-size: 9px; letter-spacing: .11em; text-transform: uppercase; }
+    .metric-value { display: block; margin-top: 4px; overflow: hidden; color: var(--text); font-family: var(--mono); font-size: clamp(15px, 1.8vw, 21px); text-overflow: ellipsis; white-space: nowrap; }
+
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 16px;
+    }
+
+    .meta-chip {
+      max-width: 100%;
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: rgba(255, 255, 255, .018);
+      font-family: var(--mono);
+      font-size: 10px;
+      overflow-wrap: anywhere;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    .control-button {
+      min-height: 44px;
+      padding: 0 17px;
+      border: 1px solid var(--line-bright);
+      border-radius: 2px;
+      color: var(--text);
+      background: var(--surface-3);
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: border-color .15s ease, background .15s ease, color .15s ease;
+    }
+
+    .control-button:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+    .control-button.primary { border-color: var(--accent); color: #03110f; background: var(--accent); }
+    .control-button.danger { margin-left: auto; border-color: rgba(255, 107, 107, .55); color: #ffb2b2; background: rgba(255, 107, 107, .08); }
+    .control-button:disabled { opacity: .34; cursor: not-allowed; }
+
+    .blocked-reason {
+      width: 100%;
+      min-height: 18px;
+      color: var(--faint);
+      font-size: 11px;
+    }
+
+    .dashboard-section { margin-top: clamp(26px, 4vw, 48px); }
+
+    .thermal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(300px, 1.25fr);
+      gap: 12px;
+    }
+
+    .thermal-card { min-height: 238px; padding: 18px; }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .card-title { margin: 0; font-size: 16px; font-weight: 650; }
+    .card-kicker { margin: 2px 0 0; color: var(--faint); font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
+
+    .temp-line { display: flex; align-items: baseline; gap: 8px; }
+    .temp-current { font-family: var(--mono); font-size: clamp(38px, 5vw, 58px); letter-spacing: -.07em; line-height: 1; }
+    .temp-unit { color: var(--muted); font-family: var(--mono); font-size: 15px; }
+    .temp-target { margin-top: 5px; color: var(--muted); font-family: var(--mono); font-size: 12px; }
+
+    .thermal-rule {
+      position: relative;
+      height: 4px;
+      margin: 18px 0;
+      overflow: hidden;
+      background: var(--line);
+    }
+
+    .thermal-rule span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+      transition: width .45s ease;
+    }
+
+    .thermal-rule.heating span {
+      background: linear-gradient(90deg, var(--warn), #ff7f55);
+      animation: heat-pulse 1.3s ease-in-out infinite alternate;
+    }
+
+    @keyframes heat-pulse { from { opacity: .55; } to { opacity: 1; } }
+
+    .detail-list { display: grid; gap: 7px; }
+    .detail-row { display: flex; justify-content: space-between; gap: 14px; color: var(--muted); font-size: 11px; }
+    .detail-row span:last-child { overflow-wrap: anywhere; color: var(--text); text-align: right; font-family: var(--mono); }
+    .detail-row .warning { color: var(--warn); }
+    .detail-row .danger { color: var(--danger); }
+
+    .bed-zones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+    .bed-zone { padding: 12px; border: 1px solid var(--line); background: rgba(255, 255, 255, .015); }
+    .bed-zone.selected { border-color: rgba(49, 224, 204, .48); background: var(--accent-soft); }
+    .zone-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .zone-name { font-weight: 650; }
+    .zone-selected { color: var(--faint); font-family: var(--mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+    .bed-zone.selected .zone-selected { color: var(--accent); }
+    .zone-temp { margin-top: 13px; font-family: var(--mono); font-size: 23px; letter-spacing: -.04em; }
+    .zone-target { color: var(--muted); font-family: var(--mono); font-size: 10px; }
+
+    .machine-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr 1.1fr;
+      gap: 12px;
+    }
+
+    .info-panel { min-height: 230px; padding: 18px; }
+    .info-panel h3 { margin: 0 0 17px; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
+
+    .info-grid { display: grid; grid-template-columns: minmax(90px, .8fr) minmax(0, 1.3fr); gap: 9px 12px; }
+    .info-grid dt { color: var(--faint); font-size: 11px; }
+    .info-grid dd { margin: 0; overflow-wrap: anywhere; color: var(--text); text-align: right; font-family: var(--mono); font-size: 11px; }
+
+    .axis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 15px; }
+    .axis { padding: 13px 9px; border: 1px solid var(--line); text-align: center; }
+    .axis-label { display: block; color: var(--accent); font-family: var(--mono); font-size: 10px; }
+    .axis-value { display: block; margin-top: 4px; font-family: var(--mono); font-size: 20px; }
+
+    .fan-list, .module-list { display: grid; gap: 8px; }
+    .fan-row { display: grid; grid-template-columns: minmax(90px, 1fr) 2fr 42px; align-items: center; gap: 9px; font-size: 10px; }
+    .fan-name { overflow: hidden; color: var(--muted); text-overflow: ellipsis; white-space: nowrap; }
+    .fan-track { height: 5px; overflow: hidden; background: var(--line); }
+    .fan-fill { height: 100%; background: var(--blue); }
+    .fan-value { color: var(--text); text-align: right; font-family: var(--mono); }
+
+    .module-row {
+      display: grid;
+      grid-template-columns: minmax(65px, .7fr) minmax(90px, 1fr) minmax(80px, .8fr);
+      gap: 8px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .module-row:last-child { border-bottom: 0; }
+    .module-row span:first-child { color: var(--accent); }
+    .module-row span:not(:first-child) { overflow-wrap: anywhere; color: var(--muted); }
+
+    .empty-copy { color: var(--faint); font-family: var(--mono); font-size: 10px; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 26px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 20;
+      right: 22px;
+      bottom: 22px;
+      max-width: min(420px, calc(100vw - 44px));
+      padding: 12px 15px;
+      border: 1px solid var(--line-bright);
+      border-left: 3px solid var(--accent);
+      background: #0b1512;
+      color: var(--text);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .45);
+      font-size: 12px;
+      transform: translateY(140%);
+      opacity: 0;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.error { border-left-color: var(--danger); }
+
+    @media (max-width: 1060px) {
+      .thermal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .thermal-card.bed { grid-column: 1 / -1; }
+      .machine-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .machine-grid .modules { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 760px) {
+      .topbar { align-items: flex-start; gap: 10px; padding: 12px 16px; }
+      .updated { display: none; }
+      .shell { padding: 16px; }
+      .job-heading { flex-direction: column; gap: 10px; }
+      .job-layout { grid-template-columns: minmax(0, 1fr); }
+      .preview { min-height: 210px; }
+      .time-grid { grid-template-columns: repeat(2, 1fr); }
+      .metric:nth-child(3) { border-left: 0; }
+      .metric:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .control-button { width: 100%; min-width: 0; }
+      .control-button.danger { grid-column: 1 / -1; margin-left: 0; }
+      .blocked-reason { grid-column: 1 / -1; }
+      .thermal-grid, .machine-grid { grid-template-columns: 1fr; }
+      .thermal-card.bed, .machine-grid .modules { grid-column: auto; }
+      footer { flex-direction: column; }
+    }
+
+    @media (max-width: 430px) {
+      .brand-mark { width: 32px; height: 32px; }
+      .top-status { gap: 6px; }
+      .connection { font-size: 10px; }
+      .thermal-grid { grid-template-columns: 1fr; }
+      .bed-zones { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">A</div>
+      <div>
+        <p class="eyebrow">FDM operations</p>
+        <h1 id="machine-name">Snapmaker Artisan</h1>
+      </div>
+    </div>
+    <div class="top-status">
+      <div class="connection" id="connection-indicator">
+        <span class="connection-dot" aria-hidden="true"></span>
+        <span id="connection-text">Connecting</span>
+      </div>
+      <div class="updated" id="updated-at">Waiting for telemetry</div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="alerts" id="alerts" role="status" aria-live="polite"></div>
+
+    <p class="section-label">Current print</p>
+    <section class="panel job-panel" aria-labelledby="job-title">
+      <div class="job-heading">
+        <div>
+          <p class="eyebrow" id="job-mode">No active job</p>
+          <h2 id="job-title">Printer ready</h2>
+        </div>
+        <span class="state-pill" id="job-state">Connecting</span>
+      </div>
+
+      <div class="job-layout">
+        <div class="preview">
+          <img id="job-thumbnail" alt="3D print preview" hidden>
+          <div class="preview-empty" id="preview-empty">
+            <span class="preview-cube" aria-hidden="true"></span>
+            <span id="preview-copy">Awaiting print job</span>
+          </div>
+        </div>
+
+        <div class="job-main">
+          <div class="progress-head">
+            <div>
+              <div class="progress-value" id="job-progress">0.0%</div>
+              <div class="progress-label" id="line-progress">No G-code streaming</div>
+            </div>
+            <span class="tiny-pill" id="job-activity">Idle</span>
+          </div>
+          <div class="progress-track" role="progressbar" id="progress-track" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+
+          <div class="time-grid">
+            <div class="metric"><span class="metric-label">Remaining</span><span class="metric-value" id="remaining-time">—</span></div>
+            <div class="metric"><span class="metric-label">Elapsed</span><span class="metric-value" id="elapsed-time">—</span></div>
+            <div class="metric"><span class="metric-label">Estimated total</span><span class="metric-value" id="estimated-time">—</span></div>
+            <div class="metric"><span class="metric-label">File size</span><span class="metric-value" id="file-size">—</span></div>
+          </div>
+
+          <div class="job-meta" id="job-meta" aria-label="Print metadata"></div>
+
+          <div class="controls">
+            <button class="control-button" type="button" id="pause-button" disabled>Pause</button>
+            <button class="control-button primary" type="button" id="resume-button" disabled>Resume</button>
+            <button class="control-button danger" type="button" id="cancel-button" disabled>Cancel print</button>
+            <div class="blocked-reason" id="blocked-reason"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-section" aria-labelledby="thermal-heading">
+      <p class="section-label" id="thermal-heading">Thermal system</p>
+      <div class="thermal-grid">
+        <article class="panel thermal-card" id="nozzle-l-card">
+          <div class="card-head">
+            <div><h3 class="card-title">Left nozzle</h3><p class="card-kicker" id="nozzle-l-kicker">Waiting for telemetry</p></div>
+            <span class="tiny-pill" id="nozzle-l-state">Unknown</span>
+          </div>
+          <div class="temp-line"><span class="temp-current" id="nozzle-l-current">—</span><span class="temp-unit">°C</span></div>
+          <div class="temp-target" id="nozzle-l-target">Target —</div>
+          <div class="thermal-rule" id="nozzle-l-rule"><span id="nozzle-l-fill"></span></div>
+          <div class="detail-list">
+            <div class="detail-row"><span>Nozzle diameter</span><span id="nozzle-l-diameter">—</span></div>
+            <div class="detail-row"><span>Nozzle model</span><span id="nozzle-l-model">—</span></div>
+            <div class="detail-row"><span>Filament sensor</span><span id="nozzle-l-filament">—</span></div>
+          </div>
+        </article>
+
+        <article class="panel thermal-card" id="nozzle-r-card">
+          <div class="card-head">
+            <div><h3 class="card-title">Right nozzle</h3><p class="card-kicker" id="nozzle-r-kicker">Waiting for telemetry</p></div>
+            <span class="tiny-pill" id="nozzle-r-state">Unknown</span>
+          </div>
+          <div class="temp-line"><span class="temp-current" id="nozzle-r-current">—</span><span class="temp-unit">°C</span></div>
+          <div class="temp-target" id="nozzle-r-target">Target —</div>
+          <div class="thermal-rule" id="nozzle-r-rule"><span id="nozzle-r-fill"></span></div>
+          <div class="detail-list">
+            <div class="detail-row"><span>Nozzle diameter</span><span id="nozzle-r-diameter">—</span></div>
+            <div class="detail-row"><span>Nozzle model</span><span id="nozzle-r-model">—</span></div>
+            <div class="detail-row"><span>Filament sensor</span><span id="nozzle-r-filament">—</span></div>
+          </div>
+        </article>
+
+        <article class="panel thermal-card bed">
+          <div class="card-head">
+            <div><h3 class="card-title">Heated bed</h3><p class="card-kicker" id="bed-kicker">Waiting for telemetry</p></div>
+            <span class="tiny-pill" id="bed-mode">Unknown</span>
+          </div>
+          <div class="bed-zones">
+            <div class="bed-zone" id="bed-inner-card">
+              <div class="zone-head"><span class="zone-name">Inner zone</span><span class="zone-selected" id="bed-inner-selected">Standby</span></div>
+              <div class="zone-temp" id="bed-inner-current">— °C</div>
+              <div class="zone-target" id="bed-inner-target">Target —</div>
+            </div>
+            <div class="bed-zone" id="bed-outer-card">
+              <div class="zone-head"><span class="zone-name">Outer zone</span><span class="zone-selected" id="bed-outer-selected">Standby</span></div>
+              <div class="zone-temp" id="bed-outer-current">— °C</div>
+              <div class="zone-target" id="bed-outer-target">Target —</div>
+            </div>
+          </div>
+          <div class="detail-list" style="margin-top: 16px">
+            <div class="detail-row"><span>Active footprint</span><span id="bed-footprint">—</span></div>
+            <div class="detail-row"><span>Telemetry</span><span id="bed-telemetry">Waiting</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="dashboard-section" aria-labelledby="machine-heading">
+      <p class="section-label" id="machine-heading">Machine overview</p>
+      <div class="machine-grid">
+        <article class="panel info-panel">
+          <h3>Identity & software</h3>
+          <dl class="info-grid">
+            <dt>Model</dt><dd id="machine-model">—</dd>
+            <dt>Serial number</dt><dd id="machine-serial">—</dd>
+            <dt>Controller firmware</dt><dd id="controller-firmware">—</dd>
+            <dt>Update package</dt><dd id="package-version">—</dd>
+            <dt>Fabscreen app</dt><dd id="app-version">—</dd>
+            <dt>Product / head</dt><dd id="product-head">—</dd>
+          </dl>
+        </article>
+
+        <article class="panel info-panel">
+          <h3>Position & network</h3>
+          <div class="axis-grid">
+            <div class="axis"><span class="axis-label">X</span><span class="axis-value" id="axis-x">—</span></div>
+            <div class="axis"><span class="axis-label">Y</span><span class="axis-value" id="axis-y">—</span></div>
+            <div class="axis"><span class="axis-label">Z</span><span class="axis-value" id="axis-z">—</span></div>
+          </div>
+          <dl class="info-grid">
+            <dt>Axes</dt><dd id="homed-state">—</dd>
+            <dt>IP address</dt><dd id="ip-address">—</dd>
+            <dt>MAC address</dt><dd id="mac-address">—</dd>
+            <dt>Machine state</dt><dd id="machine-state">—</dd>
+          </dl>
+        </article>
+
+        <article class="panel info-panel modules">
+          <h3>Cooling & modules</h3>
+          <div class="fan-list" id="fan-list"></div>
+          <div style="height: 1px; margin: 16px 0 9px; background: var(--line)"></div>
+          <div class="module-list" id="module-list"></div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <span>Read-only telemetry refreshes every 2 seconds</span>
+      <span>Controls require this printer's same-origin console</span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var TOKEN = document.querySelector('meta[name="artisan-dashboard-token"]').getAttribute("content");
+      var latest = null;
+      var requestRunning = false;
+      var actionRunning = false;
+      var thumbnailKey = "";
+      var firstSnapshot = true;
+      var lastCommandTimestamp = 0;
+      var toastTimer = 0;
+
+      function el(id) { return document.getElementById(id); }
+
+      function text(id, value, fallback) {
+        var output = value;
+        if (output === null || output === undefined || output === "") output = fallback === undefined ? "—" : fallback;
+        el(id).textContent = String(output);
+      }
+
+      function finite(value) { return typeof value === "number" && isFinite(value); }
+
+      function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
+
+      function decimal(value, places) {
+        if (!finite(value)) return "—";
+        return Number(value).toFixed(places);
+      }
+
+      function temp(value) { return finite(value) ? decimal(value, 1) : "—"; }
+
+      function duration(seconds) {
+        if (!finite(seconds) || seconds <= 0) return "—";
+        var total = Math.round(seconds);
+        var days = Math.floor(total / 86400);
+        var hours = Math.floor((total % 86400) / 3600);
+        var minutes = Math.floor((total % 3600) / 60);
+        var secs = total % 60;
+        if (days > 0) return days + "d " + hours + "h " + minutes + "m";
+        if (hours > 0) return hours + "h " + minutes + "m";
+        if (minutes > 0) return minutes + "m " + secs + "s";
+        return secs + "s";
+      }
+
+      function bytes(value) {
+        if (!finite(value) || value < 0) return "—";
+        var units = ["B", "KB", "MB", "GB"];
+        var unit = 0;
+        var scaled = value;
+        while (scaled >= 1024 && unit < units.length - 1) { scaled /= 1024; unit += 1; }
+        return scaled.toFixed(unit === 0 ? 0 : 1) + " " + units[unit];
+      }
+
+      function clear(node) {
+        while (node.firstChild) node.removeChild(node.firstChild);
+      }
+
+      function addChip(container, label, value) {
+        if (value === null || value === undefined || value === "" || value === "—") return;
+        var chip = document.createElement("span");
+        chip.className = "meta-chip";
+        chip.textContent = label + "  " + value;
+        container.appendChild(chip);
+      }
+
+      function setPill(node, label, kind) {
+        node.textContent = label || "Unknown";
+        node.className = node.className.indexOf("state-pill") >= 0 ? "state-pill" : "tiny-pill";
+        if (kind) node.className += " " + kind;
+      }
+
+      function toast(message, isError) {
+        var node = el("toast");
+        node.textContent = message;
+        node.className = "toast show" + (isError ? " error" : "");
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(function () { node.className = "toast"; }, 4200);
+      }
+
+      function addAlert(message, kind) {
+        var node = document.createElement("div");
+        node.className = "alert" + (kind ? " " + kind : "");
+        var marker = document.createElement("strong");
+        marker.textContent = kind === "danger" ? "ALARM" : kind === "info" ? "INFO" : "NOTICE";
+        var copy = document.createElement("span");
+        copy.textContent = message;
+        node.appendChild(marker);
+        node.appendChild(copy);
+        el("alerts").appendChild(node);
+      }
+
+      function renderAlerts(data) {
+        clear(el("alerts"));
+        var machine = data.machine || {};
+        var safety = data.safety || {};
+        if (!machine.connected) addAlert("The printer controller is disconnected. Values may be unavailable or stale.", "danger");
+        if (machine.infoReady && !machine.isFdm) addAlert("3D printing mode is not active. This console intentionally hides CNC and laser data.", "info");
+        if (safety.emergencyStop) addAlert("Emergency stop: " + (safety.emergencyStopState || "active") + ". Job controls are locked.", "danger");
+        if (safety.enclosureDoorOpen) addAlert("The enclosure door is open. Close it before resuming the print.", "");
+        if (safety.filamentRunout) addAlert("Filament runout is active on the printing nozzle. Load filament and clear the condition on the HMI.", "danger");
+      }
+
+      function renderHeader(machine, timestamp) {
+        text("machine-name", machine.name || machine.model, "Snapmaker Artisan");
+        var indicator = el("connection-indicator");
+        indicator.className = "connection" + (machine.connected ? " online" : "");
+        text("connection-text", machine.connected ? "Online" : "Offline");
+        if (finite(timestamp)) {
+          var stamp = new Date(timestamp);
+          text("updated-at", "Updated " + stamp.toLocaleTimeString());
+        }
+      }
+
+      function renderJob(job, controls) {
+        var active = !!job.active;
+        var progress = finite(job.progressPercent) ? clamp(job.progressPercent, 0, 100) : 0;
+        text("job-title", active ? job.filename : "Printer ready", "Untitled print");
+        text("job-mode", active ? ((job.printMode || "Normal") + " 3D print") : "No active job");
+
+        var stateKind = job.state === "Paused" ? "paused" : active ? "active" : "";
+        setPill(el("job-state"), job.state || "Unknown", stateKind);
+        setPill(el("job-activity"), controls.commandPending ? "Command pending" : active ? "Streaming" : "Idle", controls.commandPending ? "paused" : active ? "active" : "");
+
+        text("job-progress", progress.toFixed(1) + "%");
+        el("progress-fill").style.width = progress + "%";
+        el("progress-track").setAttribute("aria-valuenow", String(Math.round(progress)));
+        if (active && finite(job.totalLines) && job.totalLines > 0) {
+          text("line-progress", "Line " + (job.currentLine || 0).toLocaleString() + " of " + job.totalLines.toLocaleString());
+        } else {
+          text("line-progress", active ? "Preparing G-code stream" : "No G-code streaming");
+        }
+
+        text("remaining-time", active ? duration(job.remainingSeconds) : "—");
+        text("elapsed-time", active ? duration(job.elapsedSeconds) : "—");
+        text("estimated-time", active ? duration(job.estimatedSeconds) : "—");
+        text("file-size", active ? bytes(job.fileSizeBytes) : "—");
+
+        var meta = el("job-meta");
+        clear(meta);
+        if (active) {
+          addChip(meta, "Mode", job.printMode || "Normal");
+          addChip(meta, "Layers", finite(job.layers) ? String(job.layers) : null);
+          addChip(meta, "Layer height", finite(job.layerHeightMm) ? decimal(job.layerHeightMm, 2) + " mm" : null);
+          addChip(meta, "Material", job.materials && job.materials.length ? job.materials.join(" + ") : null);
+          addChip(meta, "Material mass", finite(job.materialWeightG) ? decimal(job.materialWeightG, 1) + " g" : null);
+          addChip(meta, "Material length", finite(job.materialLengthM) ? decimal(job.materialLengthM, 1) + " m" : null);
+          if (job.workSize && finite(job.workSize.x) && finite(job.workSize.y)) addChip(meta, "Footprint", decimal(job.workSize.x, 1) + " × " + decimal(job.workSize.y, 1) + " mm");
+          if (finite(job.nozzleLeftMm)) addChip(meta, "G-code L", decimal(job.nozzleLeftMm, 2) + " mm");
+          if (finite(job.nozzleRightMm)) addChip(meta, "G-code R", decimal(job.nozzleRightMm, 2) + " mm");
+        }
+
+        var image = el("job-thumbnail");
+        var empty = el("preview-empty");
+        var key = active && job.thumbnailAvailable ? (job.filename || "active") : "";
+        if (key && key !== thumbnailKey) {
+          thumbnailKey = key;
+          image.src = "/api/dashboard/thumbnail?job=" + encodeURIComponent(key) + "&t=" + Date.now();
+        }
+        if (!key) {
+          thumbnailKey = "";
+          image.removeAttribute("src");
+        }
+        image.hidden = !key;
+        empty.hidden = !!key;
+        text("preview-copy", active ? "Preview unavailable" : "Awaiting print job");
+
+        var pending = !!controls.commandPending || actionRunning;
+        el("pause-button").disabled = pending || !controls.canPause;
+        el("resume-button").disabled = pending || !controls.canResume;
+        el("cancel-button").disabled = pending || !controls.canCancel;
+        text("blocked-reason", pending ? "Waiting for the printer to acknowledge the command…" : controls.blockedReason, "");
+      }
+
+      function nozzleBySide(toolhead, side) {
+        var list = toolhead && toolhead.nozzles ? toolhead.nozzles : [];
+        for (var i = 0; i < list.length; i += 1) {
+          if (String(list[i].side).toLowerCase() === side) return list[i];
+        }
+        return null;
+      }
+
+      function renderNozzle(prefix, nozzle, telemetryAvailable) {
+        var available = telemetryAvailable && nozzle && nozzle.available;
+        text(prefix + "-kicker", available ? (nozzle.active ? "Active extruder" : "Standby extruder") : "Waiting for telemetry");
+        text(prefix + "-current", available ? temp(nozzle.currentC) : "—");
+        text(prefix + "-target", available ? "Target " + temp(nozzle.targetC) + " °C" : "Target —");
+        text(prefix + "-diameter", available && finite(nozzle.diameterMm) ? decimal(nozzle.diameterMm, 2) + " mm" : "—");
+        text(prefix + "-model", available ? nozzle.model : "—");
+
+        var state = !available ? "Unknown" : nozzle.heating ? "Heating" : nozzle.active ? "Active" : "Standby";
+        var kind = !available ? "" : nozzle.filamentRunout ? "danger" : nozzle.heating ? "paused" : nozzle.active ? "active" : "";
+        setPill(el(prefix + "-state"), state, kind);
+
+        var filament = "—";
+        var filamentKind = "";
+        if (available && !nozzle.detectionEnabled) filament = "Detection disabled";
+        else if (available && nozzle.filamentMissing) { filament = nozzle.active ? "Runout / missing" : "Not detected (standby)"; filamentKind = nozzle.active ? "danger" : "warning"; }
+        else if (available) filament = "Detected";
+        text(prefix + "-filament", filament);
+        el(prefix + "-filament").className = filamentKind;
+
+        var ratio = available && finite(nozzle.currentC) ? clamp(nozzle.currentC / Math.max(nozzle.targetC || 250, 1) * 100, 0, 100) : 0;
+        el(prefix + "-fill").style.width = ratio + "%";
+        el(prefix + "-rule").className = "thermal-rule" + (available && nozzle.heating ? " heating" : "");
+      }
+
+      function bedZoneById(bed, id) {
+        var zones = bed && bed.zones ? bed.zones : [];
+        for (var i = 0; i < zones.length; i += 1) if (zones[i].id === id) return zones[i];
+        return null;
+      }
+
+      function renderBedZone(prefix, zone, telemetryAvailable) {
+        var available = telemetryAvailable && zone && zone.available;
+        var selected = available && zone.selected;
+        el(prefix + "-card").className = "bed-zone" + (selected ? " selected" : "");
+        text(prefix + "-selected", selected ? (zone.heating ? "Heating" : "Selected") : "Standby");
+        text(prefix + "-current", available ? temp(zone.currentC) + " °C" : "— °C");
+        text(prefix + "-target", available ? "Target " + temp(zone.targetC) + " °C" : "Target —");
+      }
+
+      function renderThermals(toolhead, bed) {
+        toolhead = toolhead || {};
+        bed = bed || {};
+        renderNozzle("nozzle-l", nozzleBySide(toolhead, "left"), !!toolhead.telemetryAvailable);
+        renderNozzle("nozzle-r", nozzleBySide(toolhead, "right"), !!toolhead.telemetryAvailable);
+
+        text("bed-kicker", !bed.available ? "Module unavailable" : bed.telemetryAvailable ? "Live zone telemetry" : bed.stale ? "Controller offline · cached values hidden" : "Waiting for telemetry");
+        setPill(el("bed-mode"), bed.mode || "Unknown", bed.telemetryAvailable ? "active" : "");
+        renderBedZone("bed-inner", bedZoneById(bed, 0), !!bed.telemetryAvailable);
+        renderBedZone("bed-outer", bedZoneById(bed, 1), !!bed.telemetryAvailable);
+        text("bed-footprint", bed.telemetryAvailable ? bed.mode : "—");
+        text("bed-telemetry", bed.telemetryAvailable ? "Live" : bed.stale ? "Stale / hidden" : "Waiting");
+      }
+
+      function renderFans(toolhead) {
+        var container = el("fan-list");
+        clear(container);
+        var fans = toolhead && toolhead.fans ? toolhead.fans : [];
+        if (!fans.length) {
+          var empty = document.createElement("div");
+          empty.className = "empty-copy";
+          empty.textContent = toolhead && toolhead.telemetryAvailable ? "No fan channels reported" : "Waiting for cooling telemetry";
+          container.appendChild(empty);
+          return;
+        }
+        fans.forEach(function (fan) {
+          var row = document.createElement("div");
+          row.className = "fan-row";
+          var name = document.createElement("span");
+          name.className = "fan-name";
+          name.textContent = fan.name || ("Fan " + fan.id);
+          var track = document.createElement("span");
+          track.className = "fan-track";
+          var fill = document.createElement("span");
+          fill.className = "fan-fill";
+          fill.style.width = clamp(fan.speedPercent || 0, 0, 100) + "%";
+          track.appendChild(fill);
+          var value = document.createElement("span");
+          value.className = "fan-value";
+          value.textContent = (fan.speedPercent || 0) + "%";
+          row.appendChild(name); row.appendChild(track); row.appendChild(value);
+          container.appendChild(row);
+        });
+      }
+
+      function renderModules(machine) {
+        var container = el("module-list");
+        clear(container);
+        var modules = machine.modules || [];
+        if (!modules.length) {
+          var empty = document.createElement("div");
+          empty.className = "empty-copy";
+          empty.textContent = machine.infoReady ? "No module inventory reported" : "Waiting for module inventory";
+          container.appendChild(empty);
+          return;
+        }
+        modules.forEach(function (module) {
+          var row = document.createElement("div");
+          row.className = "module-row";
+          var identity = document.createElement("span");
+          identity.textContent = "M" + module.id + "." + module.index;
+          var firmware = document.createElement("span");
+          firmware.textContent = module.firmwareVersion ? "FW " + module.firmwareVersion : "FW —";
+          var serial = document.createElement("span");
+          serial.textContent = module.serial || ("State " + module.state);
+          row.appendChild(identity); row.appendChild(firmware); row.appendChild(serial);
+          container.appendChild(row);
+        });
+      }
+
+      function renderMachine(machine, toolhead) {
+        text("machine-model", machine.model);
+        text("machine-serial", machine.serial);
+        text("controller-firmware", machine.controllerFirmware);
+        text("package-version", machine.packageVersion);
+        text("app-version", machine.appVersion);
+        var ids = finite(machine.productId) || finite(machine.headType) ? ("Product " + (finite(machine.productId) ? machine.productId : "—") + " / Head " + (finite(machine.headType) ? machine.headType : "—")) : "—";
+        text("product-head", ids);
+
+        var position = machine.position || {};
+        text("axis-x", finite(position.x) ? decimal(position.x, 2) : "—");
+        text("axis-y", finite(position.y) ? decimal(position.y, 2) : "—");
+        text("axis-z", finite(position.z) ? decimal(position.z, 2) : "—");
+        text("homed-state", machine.homing ? "Homing" : machine.homed ? "Homed" : "Not homed");
+        text("ip-address", machine.ip);
+        text("mac-address", machine.mac);
+        text("machine-state", machine.state);
+        renderFans(toolhead);
+        renderModules(machine);
+      }
+
+      function renderLastCommand(controls) {
+        var command = controls.lastCommand || {};
+        var completedAt = command.completedAt || 0;
+        if (firstSnapshot) {
+          lastCommandTimestamp = completedAt;
+          return;
+        }
+        if (completedAt > lastCommandTimestamp) {
+          lastCommandTimestamp = completedAt;
+          if (command.result === "succeeded") toast((command.action || "Command") + " completed.", false);
+          else toast((command.action || "Command") + " was not completed (" + (command.result || "failed") + ").", true);
+        }
+      }
+
+      function render(data) {
+        latest = data;
+        var machine = data.machine || {};
+        var controls = data.controls || {};
+        renderHeader(machine, data.timestamp);
+        renderAlerts(data);
+        renderJob(data.job || {}, controls);
+        renderThermals(data.toolhead || {}, data.bed || {});
+        renderMachine(machine, data.toolhead || {});
+        renderLastCommand(controls);
+        firstSnapshot = false;
+      }
+
+      function showDisconnected(message) {
+        var indicator = el("connection-indicator");
+        indicator.className = "connection";
+        text("connection-text", "Console offline");
+        text("updated-at", "Update failed");
+        clear(el("alerts"));
+        addAlert(message || "Unable to reach the Artisan status service. Retrying automatically.", "danger");
+      }
+
+      function refresh() {
+        if (requestRunning || document.hidden) return;
+        requestRunning = true;
+        fetch("/api/dashboard/status", {
+          method: "GET",
+          cache: "no-store",
+          credentials: "same-origin",
+          headers: { "Accept": "application/json" }
+        }).then(function (response) {
+          if (!response.ok) throw new Error("Status request returned " + response.status);
+          return response.json();
+        }).then(render).catch(function (error) {
+          showDisconnected(error.message);
+        }).then(function () {
+          requestRunning = false;
+        });
+      }
+
+      function sendAction(action) {
+        if (actionRunning) return;
+        var endpoint = "/api/dashboard/job/" + action;
+        var filename = latest && latest.job ? latest.job.filename : "this print";
+        if (action === "cancel" && !window.confirm("Cancel " + (filename || "the current print") + "?\n\nThe printer will stop the job. This cannot be resumed.")) return;
+
+        actionRunning = true;
+        if (latest) renderJob(latest.job || {}, latest.controls || {});
+        fetch(endpoint, {
+          method: "POST",
+          cache: "no-store",
+          credentials: "same-origin",
+          headers: {
+            "Accept": "application/json",
+            "X-Artisan-Dashboard": TOKEN
+          }
+        }).then(function (response) {
+          return response.json().catch(function () { return {}; }).then(function (body) {
+            if (!response.ok) throw new Error(body.error || ("Printer returned " + response.status));
+            return body;
+          });
+        }).then(function () {
+          toast(action.charAt(0).toUpperCase() + action.slice(1) + " command accepted.", false);
+        }).catch(function (error) {
+          toast(error.message || "Command failed.", true);
+        }).then(function () {
+          actionRunning = false;
+          refresh();
+        });
+      }
+
+      el("pause-button").addEventListener("click", function () { sendAction("pause"); });
+      el("resume-button").addEventListener("click", function () { sendAction("resume"); });
+      el("cancel-button").addEventListener("click", function () { sendAction("cancel"); });
+      el("job-thumbnail").addEventListener("error", function () {
+        this.hidden = true;
+        el("preview-empty").hidden = false;
+        text("preview-copy", "Preview unavailable");
+      });
+      document.addEventListener("visibilitychange", function () { if (!document.hidden) refresh(); });
+      window.setInterval(refresh, 2000);
+      refresh();
+    }());
+  </script>
+</body>
+</html>

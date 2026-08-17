@@ -19,6 +19,7 @@ import static fabscreen.platform.base.service.machine.controller.PrintEventState
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.SystemClock;
 
 import com.orhanobut.logger.Logger;
 
@@ -26,6 +27,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import fabscreen.platform.base.data.imgprocess.LaserDistanceMeasureProcess;
 import fabscreen.platform.base.instantiation.IServiceIdentifier;
@@ -64,6 +66,15 @@ import io.reactivex.subjects.PublishSubject;
 
 public class NewPrintController implements IServiceIdentifier {
 
+    private static final int ACTION_NONE = 0;
+    private static final int ACTION_START = 1;
+    private static final int ACTION_PAUSE = 2;
+    private static final int ACTION_RESUME = 3;
+    private static final int ACTION_STOP = 4;
+    private static final int ACTION_RECOVER = 5;
+    private static final int ACTION_COUNT = 6;
+    private static final long RESULT_SEQUENCE_DEDUP_WINDOW_MS = 10_000L;
+
     MachineConnectionController mConnectionController;
     IMachine mMachine;
 
@@ -91,7 +102,18 @@ public class NewPrintController implements IServiceIdentifier {
     Disposable mExtruderWorkSpeedSubscribe;
     Disposable mPrintModeStatusSubscribe;
     private Disposable mPrintDisposable;
+    private final Object mActionLock = new Object();
+    private boolean mActionInFlight;
+    private long mNextActionGeneration;
+    private long mActiveActionGeneration;
+    private long mPrintDisposableGeneration;
+    private int mActiveActionType = ACTION_NONE;
+    private final long[] mPendingResultGenerations = new long[ACTION_COUNT];
+    private final long[] mRetiredResultGenerations = new long[ACTION_COUNT];
+    private final int[] mLastResultSequences = new int[ACTION_COUNT];
+    private final long[] mLastResultSequenceTimes = new long[ACTION_COUNT];
     private Disposable mWatchPrintGcodeLineDisposable;
+    private Disposable mUnwatchPrintGcodeLineDisposable;
     Disposable mGetMachineStatusSubscribe;
     Disposable watchPrintingLineNoSubscribe;
 
@@ -271,24 +293,30 @@ public class NewPrintController implements IServiceIdentifier {
         return doNext(requestLineNo, batchLength);
     }
 
-    public void start() {
-        prepare();
+    public boolean start() {
         Logger.i("Start print.");
-        IPrintWorkspace workspace = ServiceContainer.getInstance().getService(IPrintWorkspace.class);
-        String md5 = workspace.getFileMD5Value();
-        mFileName = workspace.getFileName();
-        final int workTypeIndex = mMachine.getMachineInfoSubjectHolder().getValue().workType.ordinal() - 1;
-        BaseStructure gcodeFileInfo = new BaseStructure() {
-            @Override
-            protected void init() {
-                addProp("md5", new StringProp(md5));
-                addProp("filename", new StringProp(mFileName));
-                addProp("type", new UInt8Prop(workTypeIndex));
-            }
-        };
+        final long actionGeneration = beginAction(ACTION_START);
+        if (actionGeneration == 0) return false;
+        try {
+            prepare();
+            IPrintWorkspace workspace = ServiceContainer.getInstance().getService(IPrintWorkspace.class);
+            String md5 = workspace.getFileMD5Value();
+            mFileName = workspace.getFileName();
+            final int workTypeIndex = mMachine.getMachineInfoSubjectHolder().getValue().workType.ordinal() - 1;
+            BaseStructure gcodeFileInfo = new BaseStructure() {
+                @Override
+                protected void init() {
+                    addProp("md5", new StringProp(md5));
+                    addProp("filename", new StringProp(mFileName));
+                    addProp("type", new UInt8Prop(workTypeIndex));
+                }
+            };
 
-        Disposable sub = requestPrintStart(gcodeFileInfo)
+        Disposable sub = requestPrintStart(gcodeFileInfo, actionGeneration)
+                .timeout(20, TimeUnit.SECONDS)
+                .take(1)
                 .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> finishAction(ACTION_START, actionGeneration))
                 .subscribe(responseStructure -> {
                     if (responseStructure.isSuccess()) {
                         Logger.i("Print started.");
@@ -317,13 +345,23 @@ public class NewPrintController implements IServiceIdentifier {
                         mPrintListener.onStartFailed(0);
                     }
                 });
-        setActionDisposable(sub);
+        setActionDisposable(ACTION_START, actionGeneration, sub);
+        return true;
+        } catch (RuntimeException e) {
+            return failActionSetup(ACTION_START, actionGeneration, START_FAIL, e);
+        }
     }
 
-    public void pause() {
+    public boolean pause() {
         Logger.i("Pause print.");
-        Disposable sub = requestPrintPause()
+        final long actionGeneration = beginAction(ACTION_PAUSE);
+        if (actionGeneration == 0) return false;
+        try {
+        Disposable sub = requestPrintPause(actionGeneration)
+                .timeout(20, TimeUnit.SECONDS)
+                .take(1)
                 .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> finishAction(ACTION_PAUSE, actionGeneration))
                 .subscribe(resultStructure -> {
                     if (resultStructure.isSuccess()) {
                         mPrintEventSubject.onNext(new PrintEvent(PAUSE_SUCCESS, 0));
@@ -347,13 +385,23 @@ public class NewPrintController implements IServiceIdentifier {
                         mPrintListener.onPauseFailed(0);
                     }
                 });
-        setActionDisposable(sub);
+        setActionDisposable(ACTION_PAUSE, actionGeneration, sub);
+        return true;
+        } catch (RuntimeException e) {
+            return failActionSetup(ACTION_PAUSE, actionGeneration, PAUSE_FAIL, e);
+        }
     }
 
-    public void resume() {
+    public boolean resume() {
         Logger.i("Resume print.");
-        Disposable sub = requestPrintResume()
+        final long actionGeneration = beginAction(ACTION_RESUME);
+        if (actionGeneration == 0) return false;
+        try {
+        Disposable sub = requestPrintResume(actionGeneration)
+                .timeout(20, TimeUnit.SECONDS)
+                .take(1)
                 .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> finishAction(ACTION_RESUME, actionGeneration))
                 .subscribe(responseStructure -> {
                     if (responseStructure.isSuccess()) {
                         Logger.i("Print resumed.");
@@ -378,13 +426,23 @@ public class NewPrintController implements IServiceIdentifier {
                         mPrintListener.onResumeFailed(0);
                     }
                 });
-        setActionDisposable(sub);
+        setActionDisposable(ACTION_RESUME, actionGeneration, sub);
+        return true;
+        } catch (RuntimeException e) {
+            return failActionSetup(ACTION_RESUME, actionGeneration, RESUME_FAIL, e);
+        }
     }
 
-    public void stop() {
+    public boolean stop() {
         Logger.i("Stop print.");
-        Disposable sub = requestPrintStop()
+        final long actionGeneration = beginAction(ACTION_STOP);
+        if (actionGeneration == 0) return false;
+        try {
+        Disposable sub = requestPrintStop(actionGeneration)
+                .timeout(20, TimeUnit.SECONDS)
+                .take(1)
                 .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> finishAction(ACTION_STOP, actionGeneration))
                 .subscribe(resultStructure -> {
                     if (resultStructure.isSuccess()) {
                         Logger.i("Print Finished.");
@@ -411,24 +469,35 @@ public class NewPrintController implements IServiceIdentifier {
                         mPrintListener.onStopFailed(0);
                     }
                 });
-        setActionDisposable(sub);
+        setActionDisposable(ACTION_STOP, actionGeneration, sub);
+        return true;
+        } catch (RuntimeException e) {
+            return failActionSetup(ACTION_STOP, actionGeneration, STOP_FAIL, e);
+        }
     }
 
-    public void recover() {
+    public boolean recover() {
         Logger.i("Recover print.");
-        prepare();
-        IPrintWorkspace workspace = ServiceContainer.getInstance().getService(IPrintWorkspace.class);
-        String md5 = workspace.getFileMD5Value();
-        mFileName = workspace.getFileName();
-        BaseStructure gcodeFileInfo = new BaseStructure() {
-            @Override
-            protected void init() {
-                addProp("md5", new StringProp(md5));
-                addProp("filename", new StringProp(mFileName));
-            }
-        };
-        Disposable sub = requestPrintResumeFromPowerOutage(gcodeFileInfo)
+        final long actionGeneration = beginAction(ACTION_RECOVER);
+        if (actionGeneration == 0) return false;
+        try {
+            prepare();
+            IPrintWorkspace workspace = ServiceContainer.getInstance().getService(IPrintWorkspace.class);
+            String md5 = workspace.getFileMD5Value();
+            mFileName = workspace.getFileName();
+            BaseStructure gcodeFileInfo = new BaseStructure() {
+                @Override
+                protected void init() {
+                    addProp("md5", new StringProp(md5));
+                    addProp("filename", new StringProp(mFileName));
+                }
+            };
+
+        Disposable sub = requestPrintResumeFromPowerOutage(gcodeFileInfo, actionGeneration)
+                .timeout(20, TimeUnit.SECONDS)
+                .take(1)
                 .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> finishAction(ACTION_RECOVER, actionGeneration))
                 .subscribe(responseStructure -> {
                     if (responseStructure.isSuccess()) {
                         Logger.i("Print recovered.");
@@ -454,7 +523,11 @@ public class NewPrintController implements IServiceIdentifier {
                         mPrintListener.onResumeFromPowerOutageFailed(0);
                     }
                 });
-        setActionDisposable(sub);
+        setActionDisposable(ACTION_RECOVER, actionGeneration, sub);
+        return true;
+        } catch (RuntimeException e) {
+            return failActionSetup(ACTION_RECOVER, actionGeneration, POWER_LOSS_RESUME_FAIL, e);
+        }
     }
 
     public void reset() {
@@ -465,9 +538,27 @@ public class NewPrintController implements IServiceIdentifier {
         mBatchesCount = 0;
 
         mFilamentSubject.onNext(false);
-        if (mPrintDisposable != null && !mPrintDisposable.isDisposed()) {
-            mPrintDisposable.dispose();
+        Disposable actionDisposable;
+        PublishSubject<ResponseStructure> pendingResultSubject;
+        synchronized (mActionLock) {
+            actionDisposable = mPrintDisposable;
+            pendingResultSubject = retirePendingResultLocked(mActiveActionType, mActiveActionGeneration);
             mPrintDisposable = null;
+            mPrintDisposableGeneration = 0;
+            mActionInFlight = false;
+            mActiveActionType = ACTION_NONE;
+            mActiveActionGeneration = 0;
+        }
+        if (pendingResultSubject != null) {
+            pendingResultSubject.onComplete();
+        }
+        if (actionDisposable != null && !actionDisposable.isDisposed()) {
+            actionDisposable.dispose();
+        }
+        if (mUnwatchPrintGcodeLineDisposable != null
+                && !mUnwatchPrintGcodeLineDisposable.isDisposed()) {
+            mUnwatchPrintGcodeLineDisposable.dispose();
+            mUnwatchPrintGcodeLineDisposable = null;
         }
     }
     /* ------------------ 内部功能实现 ----------------------- */
@@ -607,11 +698,210 @@ public class NewPrintController implements IServiceIdentifier {
         }
     }
 
-    private void setActionDisposable(Disposable disposable) {
-        if (mPrintDisposable != null && !mPrintDisposable.isDisposed()) {
-            mPrintDisposable.dispose();
+    private long beginAction(int actionType) {
+        synchronized (mActionLock) {
+            if (mActionInFlight) {
+                Logger.w("Reject overlapping print command.");
+                return 0;
+            }
+            if (mRetiredResultGenerations[actionType] != 0) {
+                Logger.w("Reject %s retry while waiting to discard generation %d result.",
+                        actionName(actionType), mRetiredResultGenerations[actionType]);
+                return 0;
+            }
+            mNextActionGeneration++;
+            if (mNextActionGeneration == 0) {
+                mNextActionGeneration++;
+            }
+            mActionInFlight = true;
+            mActiveActionType = actionType;
+            mActiveActionGeneration = mNextActionGeneration;
+            return mActiveActionGeneration;
         }
-        mPrintDisposable = disposable;
+    }
+
+    private void finishAction(int actionType, long actionGeneration) {
+        PublishSubject<ResponseStructure> pendingResultSubject;
+        synchronized (mActionLock) {
+            if (!isCurrentActionLocked(actionType, actionGeneration)) {
+                return;
+            }
+            pendingResultSubject = retirePendingResultLocked(actionType, actionGeneration);
+            if (mPrintDisposableGeneration == actionGeneration) {
+                mPrintDisposable = null;
+                mPrintDisposableGeneration = 0;
+            }
+            mActionInFlight = false;
+            mActiveActionType = ACTION_NONE;
+            mActiveActionGeneration = 0;
+        }
+        if (pendingResultSubject != null) {
+            pendingResultSubject.onComplete();
+        }
+    }
+
+    private boolean failActionSetup(int actionType, long actionGeneration,
+                                    PrintEventState failureEvent, RuntimeException error) {
+        try {
+            LogHelper.log(error);
+            synchronized (mActionLock) {
+                if (isCurrentActionLocked(actionType, actionGeneration)) {
+                    mPrintEventSubject.onNext(new PrintEvent(failureEvent, 0));
+                }
+            }
+        } finally {
+            finishAction(actionType, actionGeneration);
+        }
+        return false;
+    }
+
+    private void setActionDisposable(int actionType, long actionGeneration, Disposable disposable) {
+        boolean disposeNew;
+        synchronized (mActionLock) {
+            disposeNew = !isCurrentActionLocked(actionType, actionGeneration);
+            if (!disposeNew) {
+                mPrintDisposable = disposable;
+                mPrintDisposableGeneration = actionGeneration;
+            }
+        }
+        if (disposeNew) {
+            dispose(disposable);
+        }
+    }
+
+    private boolean isCurrentActionLocked(int actionType, long actionGeneration) {
+        return mActionInFlight
+                && mActiveActionType == actionType
+                && mActiveActionGeneration == actionGeneration;
+    }
+
+    private Observable<ResponseStructure> registerPendingResult(int actionType, long actionGeneration) {
+        PublishSubject<ResponseStructure> resultSubject = PublishSubject.create();
+        PublishSubject<ResponseStructure> previousSubject;
+        synchronized (mActionLock) {
+            if (!isCurrentActionLocked(actionType, actionGeneration)) {
+                return Observable.empty();
+            }
+            previousSubject = getResultSubjectLocked(actionType);
+            setResultSubjectLocked(actionType, resultSubject);
+            mPendingResultGenerations[actionType] = actionGeneration;
+        }
+        if (previousSubject != null) {
+            previousSubject.onComplete();
+        }
+        return resultSubject.hide();
+    }
+
+    private PublishSubject<ResponseStructure> retirePendingResultLocked(int actionType,
+                                                                         long actionGeneration) {
+        if (actionType <= ACTION_NONE || actionType >= ACTION_COUNT
+                || actionGeneration == 0
+                || mPendingResultGenerations[actionType] != actionGeneration) {
+            return null;
+        }
+        PublishSubject<ResponseStructure> resultSubject = getResultSubjectLocked(actionType);
+        mPendingResultGenerations[actionType] = 0;
+        setResultSubjectLocked(actionType, null);
+        mRetiredResultGenerations[actionType] = actionGeneration;
+        return resultSubject;
+    }
+
+    private void dispatchActionResult(int actionType, int commandSet, int commandId,
+                                      int sequence, ResponseStructure value) {
+        // Always acknowledge the firmware request, including stale and duplicate results.
+        mConnectionController.sendResponse(commandSet, commandId, sequence, new UInt8Prop(0));
+
+        PublishSubject<ResponseStructure> resultSubject = null;
+        long retiredGeneration = 0;
+        boolean duplicate = false;
+        long now = SystemClock.elapsedRealtime();
+        synchronized (mActionLock) {
+            long lastSequenceTime = mLastResultSequenceTimes[actionType];
+            duplicate = lastSequenceTime != 0
+                    && mLastResultSequences[actionType] == sequence
+                    && now - lastSequenceTime >= 0
+                    && now - lastSequenceTime <= RESULT_SEQUENCE_DEDUP_WINDOW_MS;
+            if (!duplicate) {
+                mLastResultSequences[actionType] = sequence;
+                mLastResultSequenceTimes[actionType] = now;
+                retiredGeneration = mRetiredResultGenerations[actionType];
+                if (retiredGeneration != 0) {
+                    mRetiredResultGenerations[actionType] = 0;
+                } else if (isCurrentActionLocked(actionType, mPendingResultGenerations[actionType])) {
+                    resultSubject = getResultSubjectLocked(actionType);
+                    mPendingResultGenerations[actionType] = 0;
+                    setResultSubjectLocked(actionType, null);
+                }
+            }
+        }
+
+        if (duplicate) {
+            Logger.w("Discard duplicate %s result sequence %d.", actionName(actionType), sequence);
+        } else if (retiredGeneration != 0) {
+            Logger.w("Discard late %s result for generation %d.",
+                    actionName(actionType), retiredGeneration);
+        } else if (resultSubject != null) {
+            resultSubject.onNext(value);
+        } else {
+            Logger.w("Discard unowned %s result sequence %d.", actionName(actionType), sequence);
+        }
+    }
+
+    private PublishSubject<ResponseStructure> getResultSubjectLocked(int actionType) {
+        switch (actionType) {
+            case ACTION_START:
+                return requestPrintStartResultSubject;
+            case ACTION_PAUSE:
+                return requestPrintPauseResultSubject;
+            case ACTION_RESUME:
+                return requestPrintResumeResultSubject;
+            case ACTION_STOP:
+                return requestPrintStopResultSubject;
+            case ACTION_RECOVER:
+                return requestPrintResumeFromPowerOutageResultSubject;
+            default:
+                return null;
+        }
+    }
+
+    private void setResultSubjectLocked(int actionType,
+                                        PublishSubject<ResponseStructure> resultSubject) {
+        switch (actionType) {
+            case ACTION_START:
+                requestPrintStartResultSubject = resultSubject;
+                break;
+            case ACTION_PAUSE:
+                requestPrintPauseResultSubject = resultSubject;
+                break;
+            case ACTION_RESUME:
+                requestPrintResumeResultSubject = resultSubject;
+                break;
+            case ACTION_STOP:
+                requestPrintStopResultSubject = resultSubject;
+                break;
+            case ACTION_RECOVER:
+                requestPrintResumeFromPowerOutageResultSubject = resultSubject;
+                break;
+            default:
+                break;
+        }
+    }
+
+    private String actionName(int actionType) {
+        switch (actionType) {
+            case ACTION_START:
+                return "start";
+            case ACTION_PAUSE:
+                return "pause";
+            case ACTION_RESUME:
+                return "resume";
+            case ACTION_STOP:
+                return "stop";
+            case ACTION_RECOVER:
+                return "recover";
+            default:
+                return "unknown";
+        }
     }
 
     private void clearBatch() {
@@ -700,7 +990,11 @@ public class NewPrintController implements IServiceIdentifier {
             watchPrintingLineNoSubscribe.dispose();
             watchPrintingLineNoSubscribe = null;
         }
-        mPrintDisposable = mConnectionController.request(0x01, 0x01, new SubscribeStructure(0xac, 0xa0, 0), new ResponseStructure())
+        if (mUnwatchPrintGcodeLineDisposable != null
+                && !mUnwatchPrintGcodeLineDisposable.isDisposed()) {
+            mUnwatchPrintGcodeLineDisposable.dispose();
+        }
+        mUnwatchPrintGcodeLineDisposable = mConnectionController.request(0x01, 0x01, new SubscribeStructure(0xac, 0xa0, 0), new ResponseStructure())
                 .subscribe(responseStructure -> {
                     Logger.d("Unwatch line no " + responseStructure.isSuccess());
         }, LogHelper::log);
@@ -790,6 +1084,10 @@ public class NewPrintController implements IServiceIdentifier {
         return mFilamentSubject.hide();
     }
 
+    public boolean isFilamentRunout() {
+        return Boolean.TRUE.equals(mFilamentSubject.getValue());
+    }
+
     public void setFilament(Boolean confirm) {
         mFilamentSubject.onNext(!confirm);
     }
@@ -867,15 +1165,12 @@ public class NewPrintController implements IServiceIdentifier {
         return mConnectionController.request(0xac, 0x00, null, new ResponseStructure());
     }
 
-    Observable<ResponseStructure> requestPrintStart(BaseStructure gcodeFileInfo) {
-        if (requestPrintStartResultSubject != null) {
-            requestPrintStartResultSubject.onComplete();
-        }
+    Observable<ResponseStructure> requestPrintStart(BaseStructure gcodeFileInfo,
+                                                    long actionGeneration) {
         return mConnectionController.request(0xac, 0x03, gcodeFileInfo, new ResponseStructure())
                 .flatMap(responseStructure -> {
                             if (responseStructure.isSuccess()) {
-                                requestPrintStartResultSubject = PublishSubject.create();
-                                return requestPrintStartResultSubject.hide();
+                                return registerPendingResult(ACTION_START, actionGeneration);
                             } else {
                                 return Observable.just(responseStructure);
                             }
@@ -884,20 +1179,14 @@ public class NewPrintController implements IServiceIdentifier {
     }
 
     public void onRequestPrintStartResult(int commandSet, int commandId, int sequence, ResponseStructure value) {
-        if (requestPrintStartResultSubject == null) return;
-        mConnectionController.sendResponse(commandSet, commandId, sequence, new UInt8Prop(0));
-        requestPrintStartResultSubject.onNext(value);
+        dispatchActionResult(ACTION_START, commandSet, commandId, sequence, value);
     }
 
-    Observable<ResponseStructure> requestPrintPause() {
-        if (requestPrintPauseResultSubject != null) {
-            requestPrintPauseResultSubject.onComplete();
-        }
+    Observable<ResponseStructure> requestPrintPause(long actionGeneration) {
         return mConnectionController.request(0xac, 0x04, null, new ResponseStructure())
                 .flatMap(responseStructure -> {
                             if (responseStructure.isSuccess()) {
-                                requestPrintPauseResultSubject = PublishSubject.create();
-                                return requestPrintPauseResultSubject.hide();
+                                return registerPendingResult(ACTION_PAUSE, actionGeneration);
                             } else {
                                 return Observable.just(responseStructure);
                             }
@@ -906,20 +1195,14 @@ public class NewPrintController implements IServiceIdentifier {
     }
 
     public void onRequestPrintPauseResult(int commandSet, int commandId, int sequence, ResponseStructure value) {
-        if (requestPrintPauseResultSubject == null) return;
-        mConnectionController.sendResponse(commandSet, commandId, sequence, new UInt8Prop(0));
-        requestPrintPauseResultSubject.onNext(value);
+        dispatchActionResult(ACTION_PAUSE, commandSet, commandId, sequence, value);
     }
 
-    Observable<ResponseStructure> requestPrintResume() {
-        if (requestPrintResumeResultSubject != null) {
-            requestPrintResumeResultSubject.onComplete();
-        }
+    Observable<ResponseStructure> requestPrintResume(long actionGeneration) {
         return mConnectionController.request(0xac, 0x05, null, new ResponseStructure())
                 .flatMap(responseStructure -> {
                             if (responseStructure.isSuccess()) {
-                                requestPrintResumeResultSubject = PublishSubject.create();
-                                return requestPrintResumeResultSubject.hide();
+                                return registerPendingResult(ACTION_RESUME, actionGeneration);
                             } else {
                                 return Observable.just(responseStructure);
                             }
@@ -928,20 +1211,14 @@ public class NewPrintController implements IServiceIdentifier {
     }
 
     public void onRequestPrintResumeResult(int commandSet, int commandId, int sequence, ResponseStructure value) {
-        if (requestPrintResumeResultSubject == null) return;
-        mConnectionController.sendResponse(commandSet, commandId, sequence, new UInt8Prop(0));
-        requestPrintResumeResultSubject.onNext(value);
+        dispatchActionResult(ACTION_RESUME, commandSet, commandId, sequence, value);
     }
 
-    Observable<ResponseStructure> requestPrintStop() {
-        if (requestPrintStopResultSubject != null) {
-            requestPrintStopResultSubject.onComplete();
-        }
+    Observable<ResponseStructure> requestPrintStop(long actionGeneration) {
         return mConnectionController.request(0xac, 0x06, null, new ResponseStructure())
                 .flatMap(responseStructure -> {
                             if (responseStructure.isSuccess()) {
-                                requestPrintStopResultSubject = PublishSubject.create();
-                                return requestPrintStopResultSubject.hide();
+                                return registerPendingResult(ACTION_STOP, actionGeneration);
                             } else {
                                 return Observable.just(responseStructure);
                             }
@@ -950,9 +1227,7 @@ public class NewPrintController implements IServiceIdentifier {
     }
 
     public void onRequestPrintStopResult(int commandSet, int commandId, int sequence, ResponseStructure value) {
-        if (requestPrintStopResultSubject == null) return;
-        mConnectionController.sendResponse(commandSet, commandId, sequence, new UInt8Prop(0));
-        requestPrintStopResultSubject.onNext(value);
+        dispatchActionResult(ACTION_STOP, commandSet, commandId, sequence, value);
     }
 
     public Observable<ResponseStructure> requestPowerOutageStatus() {
@@ -969,15 +1244,12 @@ public class NewPrintController implements IServiceIdentifier {
         return mConnectionController.request(0xac, 0x07, null, responseStructure);
     }
 
-    Observable<ResponseStructure> requestPrintResumeFromPowerOutage(BaseStructure gcodeFileInfo) {
-        if (requestPrintResumeFromPowerOutageResultSubject != null) {
-            requestPrintResumeFromPowerOutageResultSubject.onComplete();
-        }
+    Observable<ResponseStructure> requestPrintResumeFromPowerOutage(BaseStructure gcodeFileInfo,
+                                                                     long actionGeneration) {
         return mConnectionController.request(0xac, 0x08, gcodeFileInfo, new ResponseStructure())
                 .flatMap(responseStructure -> {
                             if (responseStructure.isSuccess()) {
-                                requestPrintResumeFromPowerOutageResultSubject = PublishSubject.create();
-                                return requestPrintResumeFromPowerOutageResultSubject.hide();
+                                return registerPendingResult(ACTION_RECOVER, actionGeneration);
                             } else {
                                 return Observable.just(responseStructure);
                             }
@@ -986,9 +1258,7 @@ public class NewPrintController implements IServiceIdentifier {
     }
 
     public void onRequestPrintResumeFromPowerOutageResult(int commandSet, int commandId, int sequence, ResponseStructure value) {
-        if (requestPrintResumeFromPowerOutageResultSubject == null) return;
-        mConnectionController.sendResponse(commandSet, commandId, sequence, new UInt8Prop(0));
-        requestPrintResumeFromPowerOutageResultSubject.onNext(value);
+        dispatchActionResult(ACTION_RECOVER, commandSet, commandId, sequence, value);
     }
 
     public Observable<ResponseStructure> requestPrintPowerLossClearMarker() {

@@ -13,7 +13,12 @@ public class HTTPInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean onIntercept(@NonNull HttpRequest request, @NonNull HttpResponse response, @NonNull RequestHandler handler) {
-        response.addHeader("Access-Control-Allow-Origin", "*");
+        String path = request.getPath();
+        if (path != null
+                && !path.equals("/")
+                && !path.startsWith("/api/dashboard/")) {
+            response.addHeader("Access-Control-Allow-Origin", "*");
+        }
         return false;
     }
 }
