@@ -103,6 +103,8 @@ public class GcodeParser implements IGcodeParser, IServiceIdentifier {
 
     private Bitmap mGcodeThumbnail;
     private byte[] mGcodeThumbnailBytes;
+    private long mGcodeThumbnailArea = -1;
+    private final OrcaThumbnailBlockParser mOrcaThumbnailParser = new OrcaThumbnailBlockParser();
     private ModelBoundary mModelBoundary;
     private ArrayList<Position> mToolPath = new ArrayList<>();
 
@@ -286,6 +288,9 @@ public class GcodeParser implements IGcodeParser, IServiceIdentifier {
         }
         mToolHead = -1;
         mGcodeThumbnail = null;
+        mGcodeThumbnailBytes = null;
+        mGcodeThumbnailArea = -1;
+        mOrcaThumbnailParser.reset();
         mTotalLinesCount = 0;
         mEstimateTime = 0;
         mNozzleTarget_0_Temperature = 0;
@@ -332,6 +337,14 @@ public class GcodeParser implements IGcodeParser, IServiceIdentifier {
 
     private void parseLine(final String line) throws NumberFormatException {
         if (line.isEmpty()) {
+            return;
+        }
+
+        if (mOrcaThumbnailParser.consumeLine(line)) {
+            OrcaThumbnailBlockParser.Result result = mOrcaThumbnailParser.takeCompleted();
+            if (result != null) {
+                decodeAndStoreThumbnail(result.getEncodedData());
+            }
             return;
         }
 
@@ -580,13 +593,7 @@ public class GcodeParser implements IGcodeParser, IServiceIdentifier {
                 break;
             }
             case "thumbnail": {
-                try {
-                    byte[] bitmapArray = Base64.decode(lineArgs[2].split(",")[1], Base64.DEFAULT);
-                    mGcodeThumbnailBytes = bitmapArray.clone();
-                    mGcodeThumbnail = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
-                } catch (Exception e) {
-                    LogHelper.log(e);
-                }
+                decodeAndStoreThumbnail(lineArgs[2]);
                 break;
             }
             case "file_total_lines": {
@@ -909,13 +916,7 @@ public class GcodeParser implements IGcodeParser, IServiceIdentifier {
                         mHeaderChecker.setBoundaryCheck(true);
                         break;
                     case "Thumbnail":
-                        try {
-                            byte[] bitmapArray = Base64.decode(lineArgs[2].split(",")[1], Base64.DEFAULT);
-                            mGcodeThumbnailBytes = bitmapArray.clone();
-                            mGcodeThumbnail = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
-                        } catch (Exception e) {
-                            LogHelper.log(e);
-                        }
+                        decodeAndStoreThumbnail(lineArgs[2]);
                         break;
                 }
                 break;
@@ -1202,6 +1203,46 @@ public class GcodeParser implements IGcodeParser, IServiceIdentifier {
 
     public ArrayList<Position> getToolPath() {
         return mToolPath;
+    }
+
+    private void decodeAndStoreThumbnail(String encodedImage) {
+        try {
+            int commaIndex = encodedImage.indexOf(',');
+            String encodedData = commaIndex >= 0
+                    ? encodedImage.substring(commaIndex + 1)
+                    : encodedImage;
+            if (encodedData.isEmpty()
+                    || encodedData.length() > OrcaThumbnailBlockParser.MAX_ENCODED_CHARACTERS) {
+                return;
+            }
+            byte[] bitmapArray = Base64.decode(encodedData, Base64.DEFAULT);
+            if (bitmapArray.length == 0) {
+                return;
+            }
+
+            BitmapFactory.Options bounds = new BitmapFactory.Options();
+            bounds.inJustDecodeBounds = true;
+            BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length, bounds);
+            long area = (long) bounds.outWidth * bounds.outHeight;
+            if (bounds.outWidth <= 0
+                    || bounds.outHeight <= 0
+                    || bounds.outWidth > OrcaThumbnailBlockParser.MAX_IMAGE_DIMENSION
+                    || bounds.outHeight > OrcaThumbnailBlockParser.MAX_IMAGE_DIMENSION
+                    || area <= 0
+                    || area > OrcaThumbnailBlockParser.MAX_IMAGE_PIXELS
+                    || area <= mGcodeThumbnailArea) {
+                return;
+            }
+
+            Bitmap bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+            if (bitmap != null) {
+                mGcodeThumbnailBytes = bitmapArray.clone();
+                mGcodeThumbnail = bitmap;
+                mGcodeThumbnailArea = area;
+            }
+        } catch (Exception e) {
+            LogHelper.log(e);
+        }
     }
 
     @Override
