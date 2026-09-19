@@ -1,0 +1,4 @@
+platform/base/obico-webrtc/**/*.go text eol=lf
+platform/base/obico-webrtc/**/go.mod text eol=lf
+platform/base/obico-webrtc/**/go.sum text eol=lf
+apps/a400/libs/armeabi-v7a/libobicopeer.sha256 text eol=lf
