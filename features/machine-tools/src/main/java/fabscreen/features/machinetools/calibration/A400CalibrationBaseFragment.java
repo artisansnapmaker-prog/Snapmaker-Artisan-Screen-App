@@ -70,7 +70,7 @@ public abstract class A400CalibrationBaseFragment extends BaseFragment {
                     fabBackConfirm.mCancelBtn.setEnabled(false);
                     fabBackConfirm.mSecondBtn.setEnabled(false);
                     exit()
-                            .flatMap(responseStructure -> responseStructure.isSuccess() ? coolDownBedIfHave() : Observable.just(responseStructure))
+                            .flatMap(responseStructure -> responseStructure.isSuccess() ? applyBedStateOnExit() : Observable.just(responseStructure))
                             .observeOn(AndroidSchedulers.mainThread())
                             .as(bindToLifecycle())
                             .subscribe(success -> {
@@ -114,7 +114,7 @@ public abstract class A400CalibrationBaseFragment extends BaseFragment {
 
     protected void backOnShow() {
         exit()
-                .flatMap(responseStructure -> responseStructure.isSuccess() ? coolDownBedIfHave() : Observable.just(responseStructure))
+                .flatMap(responseStructure -> responseStructure.isSuccess() ? applyBedStateOnExit() : Observable.just(responseStructure))
                 .observeOn(AndroidSchedulers.mainThread())
                 .as(bindToLifecycle())
                 .subscribe(success -> {
@@ -149,7 +149,31 @@ public abstract class A400CalibrationBaseFragment extends BaseFragment {
         return responseStructureObservable;
     }
 
+    /**
+     * Whether leaving this calibration step should switch the heated bed off.
+     * <p>
+     * Only calibrations that actually print something (XY calibration) need it, so the user can
+     * take the printed parts off a cold bed. Bed leveling and Z-offset calibration must leave the
+     * bed as it is, otherwise a bed the user pre-heated on purpose gets silently switched off.
+     */
+    protected boolean shouldCoolDownBedOnExit() {
+        return false;
+    }
+
+    /**
+     * What to do with the heated bed when this calibration step is left, whatever the reason
+     * (completed, stopped by the user, or aborted on error).
+     * <p>
+     * The default is {@link #coolDownBedIfHave()}. Calibrations that heat the bed themselves
+     * override this to put the bed back into the state the user had left it in.
+     */
+    protected Observable<ResponseStructure> applyBedStateOnExit() {
+        return coolDownBedIfHave();
+    }
+
     protected Observable<ResponseStructure> coolDownBedIfHave() {
+        if (!shouldCoolDownBedOnExit())
+            return Observable.just(new ResponseStructure());
         if (!IMachine.WorkType.FDM.equals(ServiceContainer.getInstance().getService(IMachine.class).getMachineInfoSubjectHolder().getValue().workType))
             return Observable.just(new ResponseStructure());
         MachineController machineController = ServiceContainer.getInstance().getService(IMachine.class).getMachineController();
